@@ -27,6 +27,7 @@ J'ai travaillé en totale autonomie et proposé en 30 jours une plateforme fonct
 - un système de rôle et de gestion des accès aux différentes pages.
 
 ---------
+
 j'ai aussi onboardé 2 développeurs juniors sur le projet, les ai formés sur la codebase et ai supervisé leur travail pendant la durée de ma mission.
 
 ## Technologies utilisées

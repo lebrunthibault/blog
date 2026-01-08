@@ -45,8 +45,8 @@ Même si, en fonction des projets la navigation desktop peut encore être
 (largement) dominante (en particulier pour les sites d’entreprise) le mobile
 n’est plus une option depuis plusieurs années et le design responsive mobile
 compatible est à la base de tous les frameworks CSS modernes et de tous mes
-projets. J’utilise en ce moment en priorité Vue.js avec [Quasar](https://quasar.dev/), un
-framework Vue.js professionnel et mobile first (design responsive,
+projets. J’utilise en ce moment en priorité Vue.js avec [Quasar](https://quasar.dev/), mais travaille aussi avec React / [Next.js](https://nextjs.org/), 
+des frameworks javascript professionnels et mobile first (design responsive,
 composants compatible mobile).
 
 Les design que je propose sont tous responsives (navigation, layout, composants

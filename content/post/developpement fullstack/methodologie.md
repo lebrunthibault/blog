@@ -504,6 +504,10 @@ utilisateurs avec notamment
 Mon template web comprend la gestion de l’envoi d’emails (templates emails)
 envoyés par API avec [Brevo](https://www.brevo.com/).
 
+## 🪙 Système de paiement
+
+J'utilise fréquemment Stripe pour gérer le paiement en ligne (gestion d'un paywall, gestion d'abonnements)
+
 ## 🔎 Barre de recherche
 
 Une barre de recherche peut être utile à certains projets et dans ce cas je

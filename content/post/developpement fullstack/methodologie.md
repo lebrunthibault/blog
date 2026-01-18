@@ -20,7 +20,7 @@ bonnes pratiques et technologies que j’utilise dans le développement d’un p
 web._
 
 > J’aborde ce playbook par sections et m’étend parfois sur des sujets un peu techniques.
-> N’hésitez pas à consulter la table des matières à droite pour lire directement
+> N’hésitez pas à consulter la table des matières à gauche pour lire directement
 > les sections qui vous intéressent.
 
 # Développement web moderne
@@ -34,18 +34,18 @@ utilise le paradigme Single Page Application et api REST
   du state complexe, gestion granulaire des appels API),
 - Aucun rechargement de page pour une expérience utilisateur rapide et
   rassurante
-- Utilisation des dernières fonctionnalités des frameworks Javascript moderne
+- Utilisation des dernières fonctionnalités des frameworks Javascript modernes
   ([Vue.js](https://vuejs.org/), React ou Angular): réactivité, composants ui réutilisables,
   expérience de développement moderne (hot reload, typing avec typescript,
-  devtools intégré, écosystème npm)
+  devtools intégré, écosystème npm..)
 
 # 📞 Une interface mobile par défaut
 
 Même si, en fonction des projets la navigation desktop peut encore être
-(largement) dominante (en particulier pour les sites d’entreprise) le mobile
+dominante (en particulier pour les sites d’entreprise) le mobile
 n’est plus une option depuis plusieurs années et le design responsive mobile
-compatible est à la base de tous les frameworks CSS modernes et de tous mes
-projets. J’utilise en ce moment en priorité Vue.js avec [Quasar](https://quasar.dev/), mais travaille aussi avec React / [Next.js](https://nextjs.org/), 
+compatible est à la base de tous les frameworks CSS et de tous mes
+projets. J’utilise en ce moment en priorité Vue.js avec [Quasar](https://quasar.dev/), mais travaille aussi avec React / [Next.js](https://nextjs.org/),
 des frameworks javascript professionnels et mobile first (design responsive,
 composants compatible mobile).
 
@@ -63,7 +63,7 @@ le mobile (par exemple jeu mobile).
 Pour un projet de plateforme web, la valeur ajoutée est souvent nulle par
 rapport à un site mobile ready.
 
-Dans la même veine, la hype sur les progressive web apps est aussi passée. Aujourd’hui l’état de l’art est de proposer un site pensé
+Dans la même veine, la tendance concernant les progressive web apps est aussi passée. Aujourd’hui l’état de l’art est de proposer un site pensé
 mobile en utilisant si nécessaire des features PWA (navigation offline, service
 workers).
 
@@ -85,14 +85,13 @@ un micro framework grâce aux LLM.
 
 ## Un setup prêt à scale
 
-L’autre gros avantage des micro framework orientés api REST est la possibilité
-de scale facilement plus tard en allant notamment vers des micro services.
+L’autre gros avantage des micro framework orientés REST est la possibilité
+de scale facilement plus tard en allant notamment vers des micro services (une autre tendance qui commence à passer).
 
 Si jamais votre entreprise décolle, ce paradigme permet d’étendre les
 fonctionnalités d’un projet sans limite technique et est très apprécié des
 développeurs. Par ailleurs, d'un point de vue souveraineté, le backend devient
-beaucoup moins dépendant d’un tiers et à la merci d’un abandon même partiel des
-développements sur le framework choisi.
+beaucoup moins dépendant d’une technologie qui peut décliner ou perdre en popularité.
 
 ## REST, l’approche pragmatique
 
@@ -107,8 +106,7 @@ notamment :
 # Gestion de base de données
 
 Pour la base de données il n’y a plus qu’un choix aujourd’hui: [PostgreSQL](https://www.postgresql.org/) qui
-est devenu le standard de facto. C’est une bdd mature, open source (aucun vendor
-lock in) avec de nombreuses fonctionnalités avancées (JSON natif, recherche
+est devenu le standard de facto. C’est une bdd mature, open source, avec de nombreuses fonctionnalités avancées (JSON natif, recherche
 plein texte, nombreuses extensions, performances excellentes).
 
 La base de données est gérée avec un ORM (sqlalchemy en python, typeorm en
@@ -156,7 +154,7 @@ La qualité du code est un vaste sujet dont j'aimerais évoquer quelques points,
 ## Limiter la dette technique
 
 J’essaye au maximum de limiter la duplication de la logique métier, un point
-encore plus important aujourd’hui qu’il ne l’était avec l’arrivée des IA et du
+encore plus important aujourd’hui qu’il ne l’était avant l’arrivée des IA et du
 vibe coding. Il n’a jamais été aussi facile de générer de la dette technique, une
 dette qui sera payée des mois voire des années plus tard et peut complètement
 tuer un projet.
@@ -167,7 +165,7 @@ Un livre pourrait être écrit là dessus, mon approche consiste à:
 
 - toujours relire mes commits entièrement avant de merge
 - mettre en place une CI sur mes projets même simples (au minimum linting, type
-  checking et formatting). Cela permet en plus d’être sûr de son historique git
+  checking et formatting). Cela permet en plus d’être plus sûr de son historique git
   et de pouvoir revenir à des versions stables facilement.
 - intégrer le linting au développement local via un commit hook
 - mettre en place de tests unitaires dès que le projet grossit, voire end to end
@@ -175,8 +173,9 @@ Un livre pourrait être écrit là dessus, mon approche consiste à:
   budget compétitif)
 - écrire un code typé (checké par mypy ou typescript)
 - déployer en continu sur la production
-- limiter les conflits git au maximum graĉé à
-  - un bon git flow (j’utilise le github flow)
+- limiter les conflits git au maximum graĉe à
+  - un bon git flow : j’utilise le github flow mais m'inspire aussi du trunk based development.
+    Quelle que soit la taille de l'équipe, l'idée est de merge sur main le plus rapidement possible et ne jamais avoir de feature branch ouvertes longtemps.
   - des commits associés à des features spécifiques
   - jamais de branches ouvertes pour plus de quelques heures
 - générique un historique git cohérent pour pouvoir annuler une mise à jour et

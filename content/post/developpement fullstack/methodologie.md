@@ -52,9 +52,9 @@ composants compatible mobile).
 Les design que je propose sont tous responsives (navigation, layout, composants
 ou widgets).
 
-## Je veux mon app mobile
+## Site mobile first vs app mobile
 
-Dieu merci la hype autour des apps mobiles s’est dissipée il y a plusieurs
+La hype autour des apps mobiles s’est dissipée il y a plusieurs
 années et les entrepreneurs et clients ont conscience de la réalité : personne
 n’installe d’app inconnues. C’est un choix qui est réservé soit aux entreprises
 déjà bien connues de l’utilisateur soit à des projets pensés exclusivement pour
@@ -63,8 +63,7 @@ le mobile (par exemple jeu mobile).
 Pour un projet de plateforme web, la valeur ajoutée est souvent nulle par
 rapport à un site mobile ready.
 
-Dans la même veine, la hype sur les progressive web apps a aussi fade out et
-pour les même raisons. Aujourd’hui l’état de l’art est de proposer un site pensé
+Dans la même veine, la hype sur les progressive web apps est aussi passée. Aujourd’hui l’état de l’art est de proposer un site pensé
 mobile en utilisant si nécessaire des features PWA (navigation offline, service
 workers).
 
@@ -84,7 +83,7 @@ du développement IA. Il n’a jamais été aussi facile de “recoder” des
 fonctionnalités génériques type authentification, autorisation ou emailing sur
 un micro framework grâce aux LLM.
 
-## Un setup prêts à scale
+## Un setup prêt à scale
 
 L’autre gros avantage des micro framework orientés api REST est la possibilité
 de scale facilement plus tard en allant notamment vers des micro services.
@@ -105,7 +104,7 @@ notamment :
 - des routes toujours basées sur des ressources
 - pagination et filtrage standards
 
-# 🐘 Une base de données pouponnée
+# Gestion de base de données
 
 Pour la base de données il n’y a plus qu’un choix aujourd’hui: [PostgreSQL](https://www.postgresql.org/) qui
 est devenu le standard de facto. C’est une bdd mature, open source (aucun vendor

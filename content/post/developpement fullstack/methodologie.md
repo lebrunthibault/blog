@@ -175,20 +175,20 @@ Un livre pourrait être écrit là dessus, mon approche consiste à:
 - déployer en continu sur la production
 - limiter les conflits git au maximum graĉe à
   - un bon git flow : j’utilise le github flow mais m'inspire aussi du trunk based development.
-    Quelle que soit la taille de l'équipe, l'idée est de merge sur main le plus rapidement possible et ne jamais avoir de feature branch ouvertes longtemps.
+    Quelle que soit la taille de l'équipe, l'idée est de merge sur main le plus rapidement possible.
   - des commits associés à des features spécifiques
-  - jamais de branches ouvertes pour plus de quelques heures
-- générique un historique git cohérent pour pouvoir annuler une mise à jour et
+  - jamais de branches ouvertes trop longtemps (quelques jours voire quelques heures)
+- générer un historique git cohérent pour pouvoir annuler une mise à jour et
   déboguer facilement. Je rebase et génère un historique git linéaire et
   documenté (avec des commit messages clairs comprenant un lien vers le ticket
   associé)
 
-# 🐱‍💻 Un développement ouvert aux agents IA
+# 💻 Un développement ouvert aux agents IA
 
 Je développe avec assistance d'un agent IA (en l'occurence [Claude Code](https://www.claude.com/)) et vous propose de consulter [ce billet](/post/developpement-fullstack/workflow-ia/) résumant mes réflexions principales sur l'utilisation de ces outils.
 
-D'un point de vue technique je fais en sorte que la codebase soit aussi lisible et maintenable pour un développeur humain qu'un agent IA
-(spoiler alert c'est souvent la même chose).
+D'un point de vue technique je fais en sorte que la codebase soit toujours lisible et maintenable pour un développeur humain que j'utilise
+un agent pour en développer des parties ou pas.
 
 # 🔒 Sécurité shift left
 
@@ -250,7 +250,7 @@ Cette solution comporte les caractéristiques suivantes:
 
 - Développement conteneurisé (Docker) pour avoir des environnements local /
   preprod / prod ISO, minimiser les bugs en prod et accélérer l’onboarding et le
-  déploiement
+  déploiement.
 - Déploiement des conteneurs pragmatique avec Docker compose pour un MVP ou
   petite plateforme. Possibilité de passer sur Kubernetes pour scale.
 
@@ -261,7 +261,7 @@ Cette solution comporte les caractéristiques suivantes:
   meilleure sécurisation (protection DDOS notamment) et une flexibilité accrue
   dans la configuration des domaines et sous domaines.
 - Le HTTPS est géré et renouvelé automatiquement avec [Certbot / Lets encrypt](https://letsencrypt.org/)
-  (certificats gratuit)
+  (certificats gratuits).
 
 ## Hébergement
 
@@ -276,7 +276,7 @@ paquets, de Docker, configuration du reverse proxy, script de backup bdd etc..)
 avant de peaufiner les réglages manuellement au cours du projet (lancement de
 commande d’import de données, configuration du .env..) sans perdre de temps de
 développement sur des sujets cloud qui sont surtout intéressants sur des projets
-à fort traffic ou forte complexité (notamment avec les micro services)
+à fort traffic ou forte complexité (notamment avec les micro services).
 
 ## Déploiement continu
 
@@ -287,14 +287,13 @@ facilitant le débogage et le rollback le cas échéant.
 
 - Il n’y a pas de grandes mises en production (génératrice de friction et
   d’erreurs) et les utilisateurs bénéficient de mises à jour quotidiennes.
-- couplé à Docker le downtime est proche de zéro
+- couplé à Docker le downtime est proche de zéro.
 
 ## Base de données
 
 La base de données est intégrée à la configuration Docker. Le script de backup
-est géré par Ansible, testé dès le début des développements et à la MEP finale.
-Je propose au client un backup sur un service externe (Backblaze) dans le cas
-(très rare) d’une panne matérielle ou incendie dans le datacenter.
+est géré par Ansible et testé dès le début des développements.
+Je propose au client un backup sur un service externe (Backblaze).
 
 # 📈 Monitoring et analytics: une approche pragmatique
 
@@ -345,7 +344,7 @@ Je vérifie la performance des pages principales avec Lighthouse.
 ## Server Side Rendering (SSR)
 
 Pour les sites qui ont besoin d’un SEO particulièrement performant je travaille
-avec [Nuxt](https://nuxt.com/) en SSR. Cela demande un peu plus de travail côté
+en SSR. Cela demande un peu plus de travail côté
 développement mais permet une indexation idéale par les moteurs de recherche et
 IA. Cela a été le cas dans ma mission chez [Kessel](/projects/kessel), une startup dans l'édition numérique
 
@@ -385,7 +384,7 @@ Je travaille régulièrement avec des site designers comme Figma et Webflow.
 ## Une gestion de projet agile et proche du client
 
 Le début de projet nécessite toujours un temps de réflexion et de questions pour
-interroger au maximum le besoin du client, en comprendre ses certitudes et ses
+interroger au maximum le besoin du client, en comprendre les certitudes et les
 limites. C’est le moment où j’écris ou réécris des spécifications, plus ou moins
 techniques, que je partage au client. Ces documents permettent de dialoguer et
 de garder une trace utile mais sont généralement rapidement désynchronisés avec
@@ -461,7 +460,7 @@ Ma manière de procéder consiste à répartir la documentation sur 3 niveaux :
 
 ### Code as documentation
 
-Enfin, les plus important pour la fin: écrire un code sémantique ou les
+Enfin, le plus important pour la fin: écrire un code sémantique ou les
 intentions business sont claires. Utiliser la même nomenclature que celle
 utilisée pour le produit et par le client (vocabulaire commun). Avoir un naming
 cohérent et explicite des fonctions, modules, classes, variables.. De manière
@@ -470,23 +469,20 @@ générale, s'inspirer des bonnes pratiques du Domain Driven Development.
 Concernant les commentaires on dit souvent qu’un code clair et sémantique est un
 code qui ne nécessite pas énormément de commentaires.
 
-Certains commentaires peuvent être utiles (les agents IA en génèrent d’ailleurs
-“gratuitement”). D’autres peuvent être superflus voire gênants car ils peuvent
+Certains commentaires peuvent être utiles mais d’autres peuvent être superflus voire gênants car ils peuvent
 vite être obsolètes (évolutions du code ou copier / coller) et participer à la
 création d’une dette technique.
 
 Par ailleurs je fais usage de fichiers standards en développement web qui
 rassemblent un certain nombre de commandes que tout développeur comprendra
-facilement : package.json notamment mais surtout un Makefile présent dans chaque
+facilement : package.json notamment mais surtout un **Makefile** présent dans chaque
 projet.
 
 # ⚙️ Les fonctionnalités que j'intègre de base
 
 ## Gestion des utilisateurs
 
-La gestion des utilisateurs est un besoin très fréquent sur les plateforme que
-je développe et mon template de base inclut une gestion exhaustive des
-utilisateurs avec notamment
+Mon template de base inclut une gestion exhaustive des utilisateurs avec notamment
 
 - le formulaire d’inscription (email / mdp sécurisé). Possibilité d’intégrer un
   login social.

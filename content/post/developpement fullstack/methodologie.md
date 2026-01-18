@@ -23,7 +23,7 @@ web._
 > N’hésitez pas à consulter la table des matières à droite pour lire directement
 > les sections qui vous intéressent.
 
-# 🔥 Développement web moderne
+# Développement web moderne
 
 C’est une évidence depuis une dizaine d’année : tout projet de plateforme web
 utilise le paradigme Single Page Application et api REST
@@ -58,7 +58,7 @@ Dieu merci la hype autour des apps mobiles s’est dissipée il y a plusieurs
 années et les entrepreneurs et clients ont conscience de la réalité : personne
 n’installe d’app inconnues. C’est un choix qui est réservé soit aux entreprises
 déjà bien connues de l’utilisateur soit à des projets pensés exclusivement pour
-le mobile (type jeu mobile).
+le mobile (par exemple jeu mobile).
 
 Pour un projet de plateforme web, la valeur ajoutée est souvent nulle par
 rapport à un site mobile ready.
@@ -68,7 +68,7 @@ pour les même raisons. Aujourd’hui l’état de l’art est de proposer un si
 mobile en utilisant si nécessaire des features PWA (navigation offline, service
 workers).
 
-# ⚡ Un backend performant et léger
+# Un backend performant et léger
 
 Si les front prennent de plus en plus d’ampleur, la gestion du backend suit une
 courbe inverse et aujourd’hui on privilégie (à raison) des backend plus sobres,
@@ -117,10 +117,9 @@ Node.js), une couche nécessaire pour la gestion des connexions, du
 cycle de vie des entités et de la sécurité. Il est parfois nécessaire de
 requêter en SQL pur mais c’est rarement le cas.
 
-Par ailleurs je travaille exclusivement avec des migrations (notamment alembic
-en python) ce qui permet d’avoir un état iso sur les différents environnements
-(local, preprod, prod) et de pouvoir facilement reset ou spawn des base de
-données en local (tests ou en utilisant des fixtures). Les migrations
+Par ailleurs je travaille exclusivement avec des migrations ce qui permet d’avoir un état iso sur les différents environnements
+(local, preprod, prod) et de pouvoir facilement recréer des base de
+données en développement. Les migrations
 s’intègrent aussi dans un paradigme agile d’évolution progressive de la bdd
 selon les besoins (on commence toujours petit pour limiter la dette technique).
 
@@ -143,7 +142,7 @@ des vues pour un contact très direct avec les données.
 
 # 👌🏽 Qualité du code
 
-## 🥸 Garanties sur la qualité de code
+## Garanties sur la qualité de code
 
 Je prends la qualité du code très au sérieux, c’est un des sujets les plus
 passionnants et la raison principale pour laquelle je fais du développement.
@@ -331,7 +330,7 @@ cookie.
 Je travaille de temps en temps avec Matomo pour un suivi plus précis des
 interactions sur le site.
 
-# 🤖 SEO: un site ouvert à nos amis les robots
+# SEO
 
 Je ne suis pas expert SEO mais j'applique un ensemble de bonnes pratiques SEO.
 
@@ -352,7 +351,7 @@ avec [Nuxt](https://nuxt.com/) en SSR. Cela demande un peu plus de travail côt�
 développement mais permet une indexation idéale par les moteurs de recherche et
 IA. Cela a été le cas dans ma mission chez [Kessel](/projects/kessel), une startup dans l'édition numérique
 
-# 🎨 UX / UI ou comment rivaliser avec Da Vinci
+# UX / UI
 
 Mon expérience de développement web me permet aujourd’hui de proposer des
 interfaces intuitives : navigation claire, formulaires réactifs, gestion des
@@ -411,7 +410,7 @@ accès admin à l’outil de gestion de projet et je l’incite à participer
 activement à la spécification, priorisation et gestion des tickets (c’est le
 cœur de l’esprit agile).
 
-# 📖 La documentation, laisser une trace pour les générations futures 
+# 📖 La documentation : mon approche progressive
 
 La documentation et la traçabilité des intentions sont un sujet important sur
 lequel il faut avoir une approche pragmatique et efficace. La documentation,
@@ -485,7 +484,7 @@ projet.
 
 # ⚙️ Les fonctionnalités que j'intègre de base
 
-## 👥 Gestion des utilisateurs
+## Gestion des utilisateurs
 
 La gestion des utilisateurs est un besoin très fréquent sur les plateforme que
 je développe et mon template de base inclut une gestion exhaustive des
@@ -499,16 +498,16 @@ utilisateurs avec notamment
 - une gestion des rôles (Admin et Utilisateur par défaut, extensible) et
   d’autorisations granulaires
 
-## ✉️ Emailing
+## Emailing
 
 Mon template web comprend la gestion de l’envoi d’emails (templates emails)
 envoyés par API avec [Brevo](https://www.brevo.com/).
 
-## 🪙 Système de paiement
+## Système de paiement
 
 J'utilise fréquemment Stripe pour gérer le paiement en ligne (gestion d'un paywall, gestion d'abonnements)
 
-## 🔎 Barre de recherche
+## Barre de recherche
 
 Une barre de recherche peut être utile à certains projets et dans ce cas je
 recommande généralement [Algolia](https://www.algolia.com/) qui est un service très performant et
@@ -517,21 +516,34 @@ configurable de recherche plein texte facetée.
 Pour des projets demandeurs en termes de complexité ou de volume, on peut
 basculer sur Elasticsearch, que j’ai utilisé dans plusieurs projets.
 
-## Sites Statiques (JAMstack)
+[//]: # (## Sites Statiques &#40;JAMstack&#41;)
 
-Parfois rien de tout ce que j’ai évoqué plus haut est nécessaire et seule une
-interface en Javascript suffit. Dans ce cas précis (pas de bdd, pas de
-logique serveur, d’utilisateurs etc), il est plus cohérent de déployer un site
-statique sur un CDN (type netlify ou Vercel) ce qui permet d’obtenir une haute
-disponibilité et d’excellentes performance pour un très faible coût en terme de
-dev.
+[//]: # ()
+[//]: # (Parfois rien de tout ce que j’ai évoqué plus haut est nécessaire et seule une)
 
-C’est le choix que j’ai fait pour ce blog ! ([Hugo](https://gohugo.io/), html sémantique, TailwindCSS, JS vanilla, CDN Netlify)
+[//]: # (interface en Javascript suffit. Dans ce cas précis &#40;pas de bdd, pas de)
 
-Dans le cas où il est nécessaire aux admins d’éditer du contenu régulièrement un
-CMS peut être préférable et intégrable de manière autonome ou associé à une
-plateforme web existante.
+[//]: # (logique serveur, d’utilisateurs etc&#41;, il est plus cohérent de déployer un site)
 
-J’ai travaillé notamment avec [Strapi](https://strapi.io/), une solution CMS headless qui permet de
-découpler la génération de contenu de l’affichage qui peut être fait directement
-en JAMStack (cependantStrapi nécessite d'être déployé sur un serveur).
+[//]: # (statique sur un CDN &#40;type netlify ou Vercel&#41; ce qui permet d’obtenir une haute)
+
+[//]: # (disponibilité et d’excellentes performance pour un très faible coût en terme de)
+
+[//]: # (dev.)
+
+[//]: # ()
+[//]: # (C’est le choix que j’ai fait pour ce blog ! &#40;[Hugo]&#40;https://gohugo.io/&#41;, html sémantique, TailwindCSS, JS vanilla, CDN Netlify&#41;)
+
+[//]: # ()
+[//]: # (Dans le cas où il est nécessaire aux admins d’éditer du contenu régulièrement un)
+
+[//]: # (CMS peut être préférable et intégrable de manière autonome ou associé à une)
+
+[//]: # (plateforme web existante.)
+
+[//]: # ()
+[//]: # (J’ai travaillé notamment avec [Strapi]&#40;https://strapi.io/&#41;, une solution CMS headless qui permet de)
+
+[//]: # (découpler la génération de contenu de l’affichage qui peut être fait directement)
+
+[//]: # (en JAMStack &#40;cependantStrapi nécessite d'être déployé sur un serveur&#41;.)

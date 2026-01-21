@@ -11,6 +11,7 @@ keywords:
 background: journal.jpeg
 logo: logo_kessel.jpeg
 duration: 1 an
+color: "#ba8b92"
 ---
 
 # kessel.media, dev backend lead

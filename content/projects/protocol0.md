@@ -11,6 +11,7 @@ keywords:
 background: piano.png
 logo: logo_ableton.jpeg
 duration: 3 ans
+color: "#ba8b92"
 ---
 
 # Protocol 0

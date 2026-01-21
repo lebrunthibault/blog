@@ -10,6 +10,7 @@ keywords:
 background: hands.png
 logo: logo_basile.jpeg
 duration: 3 ans
+color: "#8ba5ba"
 ---
 
 # Basile, développement fullstack chez une startup RH en plein croissance

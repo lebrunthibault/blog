@@ -12,6 +12,7 @@ keywords:
 background: vegetables.jpg
 logo: logo_aps.jpeg
 duration: 1 ans
+color: "#bab28b"
 ---
 
 # Ressource Seine, dev lead

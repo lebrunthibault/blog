@@ -12,25 +12,12 @@
     <a href="{{ $project.Permalink }}">
       <div class="
         px-4 sm:px-6 md:px-8 pt-3 pb-3 sm:pb-4 mb-4 sm:mb-6
-        border-primary bg-neutral-primary{{ if $project.Params.background }}
-        relative
-        overflow-hidden{{ end }}
+        border-gray-300 border-4
         rounded-md
         shadow-sm hover:shadow-md
-        shine-effect
         transition duration-300 ease-in-out
-      "
+      " {{- if .Params.color }} style="background-color: {{ .Params.color }}15;"{{- end }}
       >
-        {{- if $project.Params.background }}
-        <div class="
-        absolute inset-0 bg-cover bg-center
-        opacity-10
-        "
-             style="background-image: url('/img/{{ $project.Params.background }}');"></div>
-        {{- if eq $index 0 }}
-        <link rel="preload" as="image" href="/img/{{ $project.Params.background }}" fetchpriority="high">
-        {{- end }}
-        {{- end }}
         <div class="relative z-10">
           <div class="flex items-start justify-between items-center gap-4 mb-4">
             <h2 class="my-0 text-[#2e4170] flex-1">

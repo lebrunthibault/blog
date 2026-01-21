@@ -9,7 +9,8 @@ keywords:
   - Management d'équipe
 background: buildings.jpg
 logo: logo_emmaus_habitat.jpeg
-duration: 6 mois
+duration: 1 an
+color: "#bab28b"
 ---
 
 # Conception et développement complet d'une plateforme RH pour Emmaüs habitat

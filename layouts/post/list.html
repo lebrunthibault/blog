@@ -40,8 +40,7 @@ Blog
             px-4 sm:px-6 md:px-8 pt-1 pb-3 sm:pb-4 mb-4 sm:mb-6
             border-primary
             rounded-md
-            shadow-sm hover:shadow-md
-            shine-effect
+            shadow-sm
             transition duration-300 ease-in-out
             {{- if .Params.color }}
             relative overflow-hidden
@@ -49,7 +48,7 @@ Blog
             bg-neutral-primary
             {{- end }}
             "
-            {{- if .Params.color }} style="background-color: {{ .Params.color }}20;"{{- end }}
+            {{- if .Params.color }} style="background-color: {{ .Params.color }}15;"{{- end }}
             >
             <div class="relative z-10">
             <h2 class="my-0">

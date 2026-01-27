@@ -31,7 +31,7 @@ aussi évidente et bénéfique que ne le laisse penser les premières impression
 
 # Questions éthiques
 
-Avant de discuter technique je tiens à aborder certaines questions éthiques
+Avant de discuter technique, je tiens à aborder certaines questions éthiques
 entourant l’utilisation de ces outils.
 
 ## 🌳 Impact carbone
@@ -40,7 +40,7 @@ L’impact carbone d’un LLM comme Claude
 Sonnet peut être conséquent mais dépend énormément de l’usage. Aujourd’hui mon
 usage mensuel tourne autour de 10 millions de tokens soit
 
-- en conso électrique (estimation courante de 0,0005 kWh / 1 000 tokens): 5 kWh,
+- en conso électrique (estimation courante de 0,0005 kWh / 1 000 tokens) : 5 kWh,
   soit 1 à 2 kg équivalent CO2
 - En prenant en compte le coût de l’infra (fabrication, maintenance) on peut
   multiplier par 2 soit potentiellement pas loin de 50 kg de CO2 par an.
@@ -54,12 +54,12 @@ En résumé, ce n’est pas une catastrophe mais c’est un coût notable.
 Tout est une question de mesure et d’impact. Là où l’utilisation de ces LLM peut
 être éthique c’est si elle vient remplacer le travail d’un dev sans effet rebond
 notable. Autrement dit, si le développeur profite de ce temps libéré pour
-générer encore plus de revenus, on entre dans une boucle néfaste ou les coûts et
+générer encore plus de revenus, on entre dans une boucle néfaste où les coûts et
 l’impact peuvent exploser.
 
-Ma vision est différente: j’utilise l’IA pour travailler moins et c’est le sens
+Ma vision est différente : j’utilise l’IA pour travailler moins et c’est le sens
 que les innovations techniques doivent avoir. Le fait que tant de personnes
-(bien payées) continuent de travailler aussi dur à notre époque m’interroge. Personne n’aime son travail à ce point là haha.
+(bien payées) continuent de travailler aussi dur à notre époque m’interroge. Personne n’aime son travail à ce point haha.
 
 Autrement dit, je ne compte pas augmenter mes revenus grâce à l’IA, juste mes revenus horaires ^^. J'espère pouvoir me
 libérer du temps pour un impact que j’estime encore faible à l’heure actuelle.
@@ -70,19 +70,20 @@ ne pas prendre l’avion).
 
 Il est difficile de faire la part du vrai et du faux concernant ce terme de vibe coding censé
 représenter des développeurs qui ne codent presque plus que par IA.
-Ce n'est pas ce que j'ai observé autour de moi mais il va de soit que
+Ce n'est pas ce que j'ai observé autour de moi mais il va de soi que
 ce serait un usage complètement déplacé de l'IA car il s'agirait d'un code
 jetable et pas durable, quelque chose à la frontière entre l'escroquerie 
 et le gaspillage énergétique.
 
-Il est au contraire important de résister à la tentation de l'utilisation 
-intensive de ces agents qui amène de nombreux problèmes:
+Ce qui est sûr c'est que la tendance récente après une grosse hype sur les agents est de revenir à une approche plus raisonnée / hybride
+et certaines déclarations de grandes entreprises américaines qui reviennent sur leur choix du tout ia est hilarant.
+
+Il est donc important de résister à la tentation de l'utilisation 
+intensive de ces agents qui amène de nombreux problèmes :
 - impact environnemental
 - code moins durable
 - perte de niveau du développeur
 - perte de plaisir
-
-En dehors de cet aspect vibe coding qui
 
 
 # Une utilisation sobre des agents
@@ -116,7 +117,7 @@ Ils vont donc (par manque de contexte) proposer des solutions sous optimales dè
 
 Les agents IA nous fournissent du code sur demande et entrent en concurrence avec de nombreux
 outils et techniques de code. L'informatique n'a pas attendu les IA pour proposer des solutions
-qui vont au delà du code manuel !
+qui vont au-delà du code manuel !
 Certes certaines utilisations d'agents sont uniques car ils sont capables de proposer du code
 extrêmement spécifique mais le propre des projets informatiques est justement de rarement
 rechercher l'originalité. Les seules personnes ayant l'impression de faire quelque chose de spécifique
@@ -129,9 +130,9 @@ Ils proposent souvent une solution verbeuse, et ne vont pas penser à la solutio
 Connaitre l'écosystème sur le bout des doigt et continuer de se former reste la priorité en tant
 que développeur.
 
-> J’ai envie de donner un exemple, j’ai écris ce document sur google doc et
+> J’ai envie de donner un exemple, j’ai écrit ce document sur Google doc et
 > souhaitait le passer en markdown pour le publier sur ce blog. J’ai d’abord pensé
-> à copier coller ce texte dans Claude avant de réaliser qu’une extension gdoc
+> à copier-coller ce texte dans Claude avant de réaliser qu’une extension gdoc
 > existait déjà et faisait le travail mieux de manière algorithmique et beaucoup plus
 > rapidement !
 
@@ -162,7 +163,7 @@ Claude Sonnet comme le meilleur LLM pour le code (c’est celui que j’utilise 
 version web et il me semble plus précis et utile que ChatGPT notamment).
 
 Par ailleurs l'expérience de CLI de Claude Code est léchée, Anthropic a
-produit un travail excellent sur cet aspect là.
+produit un excellent travail sur cet aspect là.
 J'ai vu que pourtant ils étaient très critiqués en ce moment sur leur produit et attaqués par d'autres solutions comme
 openCode. Les développeurs sont durs.
 
@@ -174,15 +175,15 @@ pas besoin de configuration supplémentaire pour être très utile.
 Par exemple, le plan mode qui a été rajouté récemment me semble inutile et plus
 adressé à des vibe codeurs.
 
-Malgré tout j’ai expérimenté avec succès quelques [recommandations d’Anthropic](https://www.anthropic.com/engineering/claude-code-best-practices):
+Malgré tout, j’ai expérimenté avec succès quelques [recommandations d’Anthropic](https://www.anthropic.com/engineering/claude-code-best-practices) :
 
 - J’utilise un claude.local.md générique pour tous mes projets mettant claude
   code au parfum de ma manière de développer dès que je commence un nouveau
-  projet (utilisation du Makefile, préférences d’architecture etc..)
+  projet (utilisation du Makefile, préférences d’architecture, etc..)
 - Pour les projets existants, je demande à Claude d’enrichir ce fichier en
   analysant la codebase. Ce qui permet ensuite d’avoir des modifications
-  intelligentes qui dépassent le contexte des fichiers analysés (ex: utilisation
+  intelligentes qui dépassent le contexte des fichiers analysés (ex : utilisation
   de services ou librairies internes, exécution de commandes de lint..)
 
-Dernier point: bien maitriser git et avoir un workflow dynamique est important pour ne pas perdre de temps
+Dernier point : bien maitriser git et avoir un workflow dynamique est important pour ne pas perdre de temps
 à rollback ou différencier des changements non pertinents.

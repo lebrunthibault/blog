@@ -15,7 +15,7 @@ color: "#8ba5ba"
 *Les agents IA, un pouvoir qui implique des responsabilités*
 
 Les agents IA ont débarqué il y a quelques mois dans le monde du développement
-et sont en train ~~de se préparer dans l'ombre à prendre le pouvoir et prévoient de faire de nous des esclaves regardant des vidéos de chats sur tiktok~~ d’opérer une vraie révolution tant leurs capacités sont
+et sont en train d’opérer une vraie révolution tant leurs capacités sont
 épatantes sur tout type de développement et en particulier sur le développement
 web.
 
@@ -23,7 +23,7 @@ Aujourd’hui c’est presque impossible de ne pas intégrer ces agents comme
 citoyens à part entière d’un tooling de développement moderne.
 
 Malgré tout, l’utilisation de l’IA pose beaucoup de questions et est loin d’être
-aussi évidente et bénéfique que ne le laisse penser les premières impressions.
+aussi évidente et bénéfique que ne le laisse penser les premières impressions et les benchmarks "trust me bro".
 
 > Après une utilisation quotidienne ces derniers mois et de nombreuses réflexions
 > j’ai décidé de faire un retour d’expérience et de parler de mon workflow avec
@@ -66,14 +66,14 @@ libérer du temps pour un impact que j’estime encore faible à l’heure actue
 D’autres actions sont beaucoup plus significatives (comme manger végétarien ou
 ne pas prendre l’avion).
 
-## Une utilisation sobre, pas du vibe coding 🤮
+## Une utilisation sobre, pas du vibe coding
 
 Il est difficile de faire la part du vrai et du faux concernant ce terme de vibe coding censé
 représenter des développeurs qui ne codent presque plus que par IA.
 Ce n'est pas ce que j'ai observé autour de moi mais il va de soit que
 ce serait un usage complètement déplacé de l'IA car il s'agirait d'un code
 jetable et pas durable, quelque chose à la frontière entre l'escroquerie 
-et l'exploitation à perte d'énergies fossiles.
+et le gaspillage énergétique.
 
 Il est au contraire important de résister à la tentation de l'utilisation 
 intensive de ces agents qui amène de nombreux problèmes:
@@ -82,29 +82,35 @@ intensive de ces agents qui amène de nombreux problèmes:
 - perte de niveau du développeur
 - perte de plaisir
 
+En dehors de cet aspect vibe coding qui
+
+
 # Une utilisation sobre des agents
 
 ## Des agents sans intention
 
 Quel que soit le type d'IA, un
 sujet qui me frappe malgré l’exactitude et la rapidité des modèles récents est
-la propension des agents à proposer des réponses ou il n’y a pas d’intention
-claire et j'oserais presque dire pas d’émotions.
+la propension des agents à proposer des réponses qui manque d’intention
+claire et j'oserai presque dire d’émotions.
 
 C’est un ressenti évident quand on demande à un LLM de produire du texte à visée
-artistique ou de la musique. On ne ressent pas de connection émotionnelle et on a
-l’impression (au mieux) d’assister à un exercice scolaire par un étudiant pressé
-de partir en vacances. Toute la richesse et la portée des interactions humaines,
-qu’elles qu’en soient le moyen d’expression repose sur la communication d’une
-intention qui en fin de compte exprime une forme d’émotion.
-
-Lire un code généré par IA est ennuyeux et lassant. C’est un code sans
+artistique ou de la musique. Toute la richesse et la portée des interactions humaines,
+qu’elles qu’en soit le moyen d’expression repose sur la communication d’une
+intention. Lire un code généré par IA est lassant. C’est un code sans
 fantaisie, verbeux et générique.
 
-Que ce soit en termes d’impact ou de résultats, la pratique incite à utiliser
+Que ce soit en terme d’impact ou de résultats, la pratique incite à utiliser
 les agents de manière contrôlée et segmentée au risque d’appauvrir la code base
-et ce qu’elle évoquera aux futures développeurs. Je me vois déjà reprendre des
+et ce qu’elle évoquera aux futurs développeurs. Je me vois déjà reprendre des
 codebases dans quelques années et me dire “encore un truc codé par une IA..” 😂
+
+### Le problème du contexte
+
+Sans doute le problème principal des agents aujourd'hui est qu'ils ont un accès limité au context de la codebase.
+Spécifier les fichiers manuellement est lent et laisser chercher l'agent l'est aussi.
+Les LLM ont tendance à être en difficulté dès que le contexte d'une conversation devient trop long de toute façon.
+Ils vont donc (par manque de contexte) proposer des solutions sous optimales dès que la demande sera trop générique.
 
 ## Savoir quand utiliser l’IA
 
@@ -112,11 +118,11 @@ Les agents IA nous fournissent du code sur demande et entrent en concurrence ave
 outils et techniques de code. L'informatique n'a pas attendu les IA pour proposer des solutions
 qui vont au delà du code manuel !
 Certes certaines utilisations d'agents sont uniques car ils sont capables de proposer du code
-extrêmement spécifique mais le propre des projets informatiques est justement de rarement (un euphémisme)
-rechercher l'originalité. Les seuls personnes ayant l'impression de faire quelque chose de spécifique
-sont généralement les développeurs junior et les clients ^^
+extrêmement spécifique mais le propre des projets informatiques est justement de rarement
+rechercher l'originalité. Les seules personnes ayant l'impression de faire quelque chose de spécifique
+sont généralement les développeurs juniors et les clients ^^
 Apprendre à ne pas réinventer la roue est à la base du travail de développeur et malheureusement les
-agents ne sont pas excellent à appliquer ce principe.
+agents ne sont pas excellents à appliquer ce principe.
 Ils proposent souvent une solution verbeuse, et ne vont pas penser à la solution élégante ou pragmatique
 (type utiliser une librairie existante ou la dernière directive css) d'eux même.
 
@@ -126,7 +132,7 @@ que développeur.
 > J’ai envie de donner un exemple, j’ai écris ce document sur google doc et
 > souhaitait le passer en markdown pour le publier sur ce blog. J’ai d’abord pensé
 > à copier coller ce texte dans Claude avant de réaliser qu’une extension gdoc
-> existait déjà et fait le travail mieux de manière algorithmique et beaucoup plus
+> existait déjà et faisait le travail mieux de manière algorithmique et beaucoup plus
 > rapidement !
 
 
@@ -143,20 +149,22 @@ Les outils se divisent en 2 camps, les IDE IA (comme Cursor) et les agents IA
 CLI (comme Claude Code).
 
 Je préfère largement la seconde solution qui me permet de garder un contrôle
-total de mon éditeur (Jetbrains), sans érosion ni de mon plaisir à coder ni de mon screen space.
+total de mon éditeur (Jetbrains), sans érosion ni de mon plaisir à coder ni de mon espace d'écran.
 
 J’utilise donc Claude Code (Sonnet 4.5) connecté à mon éditeur Jetbrains (via la
 commande [/ide](https://code.claude.com/docs/en/jetbrains), les fichiers ouverts
 et la sélection sont intégrés au contexte de Claude Code).
 
-## 💫 Claude Code, une CLI stellaire
+## 💫 Claude Code, une CLI très pro
 
 J’avoue ne pas avoir testé d’autres outils CLI comme Codex mais je considère
 Claude Sonnet comme le meilleur LLM pour le code (c’est celui que j’utilise en
-version web et il me semble plus précis et utile que ChatGPT).
+version web et il me semble plus précis et utile que ChatGPT notamment).
 
-Par ailleurs l'expérience de CLI de Claude Code est bluffante, Anthropic a
-produit un travail exceptionnel sur cet aspect là, bravo à eux.
+Par ailleurs l'expérience de CLI de Claude Code est léchée, Anthropic a
+produit un travail excellent sur cet aspect là.
+J'ai vu que pourtant ils étaient très critiqués en ce moment sur leur produit et attaqués par d'autres solutions comme
+openCode. Les développeurs sont durs.
 
 ## Bonus tips
 
@@ -164,7 +172,7 @@ Claude, comme tous les LLM produit une impression de fini out of the box et n’
 pas besoin de configuration supplémentaire pour être très utile.
 
 Par exemple, le plan mode qui a été rajouté récemment me semble inutile et plus
-adressé à des vibe codeurs qu’à des personnes qui savent ce qu’elles font.
+adressé à des vibe codeurs.
 
 Malgré tout j’ai expérimenté avec succès quelques [recommandations d’Anthropic](https://www.anthropic.com/engineering/claude-code-best-practices):
 
@@ -175,3 +183,6 @@ Malgré tout j’ai expérimenté avec succès quelques [recommandations d’Ant
   analysant la codebase. Ce qui permet ensuite d’avoir des modifications
   intelligentes qui dépassent le contexte des fichiers analysés (ex: utilisation
   de services ou librairies internes, exécution de commandes de lint..)
+
+Dernier point: bien maitriser git et avoir un workflow dynamique est important pour ne pas perdre de temps
+à rollback ou différencier des changements non pertinents.

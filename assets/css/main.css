@@ -84,14 +84,14 @@
 
     main section {
         a {
-            @apply transition-all duration-200 border-b-2 border-primary hover:border-secondary
+            @apply transition-all duration-200 border-b-2 border-yinmn-blue hover:border-shadow-blue
         }
 
     }
 
     article {
         .post-content a {
-            @apply transition-all duration-200 border-b-2 border-primary hover:border-secondary
+            @apply transition-all duration-200 border-b-2 border-yinmn-blue hover:border-shadow-blue
         }
         ul {
             list-style-type: "- ";
@@ -109,7 +109,7 @@
     }
 
     blockquote {
-        @apply p-2 my-2 border-s-4 border-primary;
+        @apply p-2 my-2 border-s-4 border-yinmn-blue bg-oxford-blue;
     }
 
     #TableOfContents {
@@ -118,7 +118,7 @@
         }
         ul {
             a {
-                @apply inline-block hover:bg-gray-200 px-1 sm:px-2 rounded text-sm sm:text-base
+                @apply inline-block hover:bg-oxford-blue px-1 sm:px-2 rounded text-sm sm:text-base text-platinum
             }
             ul {
                 @apply pl-4 sm:pl-6;
@@ -133,7 +133,7 @@
     /* Custom scrollbar for TOC sidebar */
     #toc-sidebar {
         scrollbar-width: thin;
-        scrollbar-color: #C05B4D #f0f0f0;
+        scrollbar-color: #415A77 #1B263B;
         overflow-x: hidden;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -151,19 +151,19 @@
     }
 
     #toc-sidebar::-webkit-scrollbar-track {
-        background: #f0f0f0;
+        background: #1B263B;
         border-radius: 5px;
         margin: 4px 0;
     }
 
     #toc-sidebar::-webkit-scrollbar-thumb {
-        background: #C05B4D;
+        background: #415A77;
         border-radius: 5px;
-        border: 2px solid #f0f0f0;
+        border: 2px solid #1B263B;
     }
 
     #toc-sidebar::-webkit-scrollbar-thumb:hover {
-        background: #a04a3e;
+        background: #778DA9;
     }
 
     /* Responsive TOC positioning */

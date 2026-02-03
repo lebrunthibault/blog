@@ -58,6 +58,10 @@
 <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
 
+<!-- Syntax highlighting -->
+{{ $syntax := resources.Get "css/syntax.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $syntax.RelPermalink }}">
+
 <!--&lt;!&ndash; Polyfill for old browsers &ndash;&gt;-->
 <!--{{ `&lt;!&ndash;[if lte IE 9]>-->
 <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>-->

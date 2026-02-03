@@ -1,0 +1,22 @@
+<div class="overflow-x-auto my-6">
+  <table class="min-w-full border-collapse shadow-md rounded-lg overflow-hidden">
+    <thead class="bg-gray-100 dark:bg-gray-800">
+      {{- range .THead }}
+      <tr>
+        {{- range . }}
+        <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-200 border-b border-gray-200 dark:border-gray-700"{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</th>
+        {{- end }}
+      </tr>
+      {{- end }}
+    </thead>
+    <tbody class="bg-white dark:bg-gray-900">
+      {{- range .TBody }}
+      <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+        {{- range . }}
+        <td class="px-4 py-3 text-sm text-gray-600 dark:text-gray-300 border-b border-gray-200 dark:border-gray-700"{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</td>
+        {{- end }}
+      </tr>
+      {{- end }}
+    </tbody>
+  </table>
+</div>

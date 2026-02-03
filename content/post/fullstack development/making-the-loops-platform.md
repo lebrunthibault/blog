@@ -81,35 +81,36 @@ const { data } = trpc.loops.list.useQuery({ genreId: 'jazz' })
 - Type errors caught at compile time
 - Safe refactoring
 
-## Authentication with Supabase SSR
+## Supabase — The Backend Shortcut
 
-Authentication is handled by **Supabase Auth** with Magic Links. The tricky part was properly managing sessions on the client side with `@supabase/ssr`.
+For an MVP, Supabase's free tier is more than enough. It provides everything you need to ship fast without worrying about infrastructure costs early on.
 
-## Security with Row Level Security (RLS)
+### Why Supabase?
 
-Supabase allows defining **row-level security policies** directly in SQL:
+The main reason to consider Supabase is simple: it bundles critical features out of the box, drastically reducing implementation time:
 
-```sql
--- Only admins can manage loops
-CREATE POLICY "Admins can manage loops" ON loops
-  FOR ALL
-  USING (
-    EXISTS (
-      SELECT 1 FROM profiles
-      WHERE id = auth.uid() AND is_admin = true
-    )
-  );
+| Feature | What you get |
+|---------|--------------|
+| **Authentication** | Magic links, OAuth providers, session management — no need to roll your own auth |
+| **Hosted Postgres** | A real database with Row Level Security, not some proprietary NoSQL abstraction |
+| **Object Storage** | S3-compatible buckets for audio files (full loops and previews in my case) |
+| **Email system** | Built-in email templates for auth flows |
+| **Vector DB** | pgvector extension ready for AI embeddings if you need it later |
 
--- Users can only see their own purchases
-CREATE POLICY "Users see own purchases" ON purchases
-  FOR SELECT
-  USING (user_id = auth.uid());
+### Low Learning Curve, Great DX
+
+If you know SQL and basic REST/GraphQL concepts, you're already 80% there. The dashboard is intuitive, the client libraries are well-documented, and the TypeScript types can be auto-generated from your schema.
+
+### Local Development
+
+What I appreciate most: Supabase runs locally via Docker. You get a full replica of the production stack on your machine — database, auth, storage, everything. No more "works on my machine" surprises when deploying.
+
+```bash
+supabase start    # Spin up local instance
+supabase db reset # Reset with migrations
 ```
 
-**Why This Matters:**
-- **Defense in depth** security: even if the API has a bug, the database rejects unauthorized access
-- **Centralized** and auditable security logic
-- No risk of missing authorization checks in code
+This local-first approach makes iterating on database schema and RLS policies painless.
 
 ## Secure Payments with Stripe
 
@@ -120,48 +121,10 @@ I use **Stripe Checkout** in hosted mode for payments:
 3. Redirect to Stripe (secure UI)
 4. Webhook receives confirmation → purchase created in DB
 
-```typescript
-// server/routers/purchases.ts
-createCheckoutSession: protectedProcedure
-  .input(z.object({ loopId: z.string() }))
-  .mutation(async ({ ctx, input }) => {
-    const session = await stripe.checkout.sessions.create({
-      mode: 'payment',
-      line_items: [{ price_data: {...}, quantity: 1 }],
-      metadata: {
-        userId: ctx.user.id,
-        loopId: input.loopId
-      },
-      success_url: `${APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-    })
-    return { url: session.url }
-  })
-```
-
 **Best Practices Implemented:**
 - Webhook validation with `stripe.webhooks.constructEvent()`
 - Idempotency: check if purchase already exists
 - Metadata for tracing user/loop without additional queries
-
-## CI/CD with GitHub Actions
-
-The project includes a **continuous deployment** workflow:
-
-```yaml
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: npm ci
-      - run: npm run lint
-
-  deploy:
-    needs: lint
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - run: vercel deploy --prod
-```
 
 **Workflow:**
 1. Every push triggers ESLint checks

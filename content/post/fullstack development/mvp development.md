@@ -1,9 +1,9 @@
 ---
 prod: true
 draft: false
-title: "Building a Modern Web MVP: From Zero to Production in Record Time"
+title: "Construire un MVP Web Moderne : Du Zéro à la Production"
 date: 2026-02-03
-description: "A practical guide to shipping a full-stack MVP using Next.js, Supabase, Stripe, and AI-assisted development with Claude Code and MCP servers."
+description: "Guide pratique pour livrer un MVP fullstack avec Next.js, Supabase, Stripe, et le développement assisté par IA avec Claude Code et les serveurs MCP."
 keywords:
   - Fullstack
   - TypeScript
@@ -12,230 +12,161 @@ keywords:
   - Best Practices
 ---
 
-# Building a Modern Web MVP: From Zero to Production in Record Time
+# Construire un MVP Web Moderne : Du Zéro à la Production
 
-Shipping a production-ready MVP quickly while maintaining code quality is the holy grail of modern web development. In this article, I'll walk through my approach to building full-stack applications that are **type-safe**, **secure**, and **deployment-ready** from day one—leveraging both cutting-edge frameworks and AI-assisted development.
+Livrer un MVP production-ready rapidement tout en maintenant la qualité du code est le graal du développement web moderne. Dans cet article, je partage mon approche pour construire des applications fullstack qui sont **type-safe**, **sécurisées**, et **prêtes au déploiement** dès le premier jour — en tirant parti des frameworks modernes et du développement assisté par IA.
 
-## The Modern MVP Stack
+## La Stack MVP Moderne
 
-After iterating on multiple projects, I've converged on a stack that maximizes developer velocity without sacrificing production readiness:
+Après plusieurs projets, j'ai convergé vers une stack qui maximise la vélocité sans sacrifier la qualité production :
 
-| Layer | Technology | Why |
-|-------|------------|-----|
-| Framework | **Next.js 16** (App Router) | Server components, streaming, built-in API routes |
-| API Layer | **tRPC v11** + React Query | End-to-end type safety, zero boilerplate |
-| Database | **Supabase** (PostgreSQL) | Managed Postgres, Auth, Storage, Row Level Security |
-| Payments | **Stripe Checkout** | Industry standard, handles compliance |
-| UI | **shadcn/ui** + Tailwind CSS v4 | Accessible components, rapid styling |
-| Deployment | **Vercel** | Zero-config deploys, edge network, preview URLs |
+| Couche | Technologie | Pourquoi |
+|--------|-------------|----------|
+| Framework | **Next.js 16** (App Router) | Server components, streaming, routes API intégrées |
+| API | **tRPC v11** + React Query | Typage de bout en bout, zéro boilerplate |
+| Base de données | **Supabase** (PostgreSQL) | Postgres managé, Auth, Storage, Row Level Security |
+| Paiements | **Stripe Checkout** | Standard de l'industrie, gère la conformité |
+| UI | **shadcn/ui** + Tailwind CSS v4 | Composants accessibles, styling rapide |
+| Déploiement | **Vercel** | Déploiement zero-config, edge network, preview URLs |
 
-This combination eliminates entire categories of decisions and boilerplate, letting you focus on business logic.
+Cette combinaison élimine des catégories entières de décisions et de boilerplate, vous permettant de vous concentrer sur la logique métier.
 
-## AI-Assisted Development with Claude Code
+## Développement Assisté par IA avec Claude Code
 
-One of the most significant productivity multipliers in my workflow is **Claude Code**—an AI coding assistant that understands full project context and can execute tasks autonomously.
+L'un des multiplicateurs de productivité les plus significatifs dans mon workflow est **Claude Code** — un assistant IA qui comprend le contexte complet du projet et peut exécuter des tâches de manière autonome.
 
-### MCP Servers: The Game Changer
+### Les Serveurs MCP : Le Game Changer
 
-What sets this approach apart is the integration of **Model Context Protocol (MCP) servers**. These allow the AI to interact directly with external services:
+Ce qui distingue cette approche, c'est l'intégration des **serveurs Model Context Protocol (MCP)**. Ils permettent à l'IA d'interagir directement avec les services externes :
 
-- **Supabase MCP**: Query databases, apply migrations, manage schemas directly from the conversation
-- **Stripe MCP**: Search customers, list products, debug payment flows without switching context
-- **Vercel MCP**: Deploy, check logs, manage environment variables
+- **Supabase MCP** — Interroger les bases de données, appliquer les migrations, gérer les schémas directement depuis la conversation
+- **Stripe MCP** — Rechercher des clients, lister les produits, débugger les flux de paiement sans changer de contexte
+- **Vercel MCP** — Déployer, consulter les logs, gérer les variables d'environnement
 
-```
-Developer: "Create a purchases table with RLS policies for user access"
+En pratique, vous décrivez simplement ce dont vous avez besoin ("crée une table purchases avec des policies RLS pour l'accès utilisateur"), et l'IA analyse votre schéma existant, génère la migration appropriée, l'applique via le MCP Supabase, et vérifie que tout fonctionne — le tout sans quitter votre éditeur.
 
-Claude Code: *Analyzes existing schema*
-            *Generates migration SQL*
-            *Applies via Supabase MCP*
-            *Verifies with security advisor*
-```
+Cette intégration étroite signifie **moins de changements de contexte**, **moins d'erreurs de copier-coller**, et **des cycles d'itération plus rapides**.
 
-This tight integration means less context-switching, fewer copy-paste errors, and faster iteration cycles.
+### Quand l'IA Excelle (et Quand Elle Ne Suffit Pas)
 
-### When AI Shines (and When It Doesn't)
+**L'IA est particulièrement efficace pour :**
+- **La génération de boilerplate** — Opérations CRUD, routes API, définitions de types
+- **Le code d'intégration** — Connecter les services (webhooks Stripe, auth Supabase)
+- **Le debugging** — Analyser les logs, tracer les problèmes à travers la stack
+- **La documentation** — Générer les types, docs API, fichiers README
 
-AI-assisted development excels at:
-- **Boilerplate generation**: CRUD operations, API routes, type definitions
-- **Integration code**: Connecting services (Stripe webhooks, Supabase auth)
-- **Debugging**: Analyzing logs, tracing issues across the stack
-- **Documentation**: Generating types, API docs, README files
+**Le jugement humain reste critique pour :**
+- **Les décisions d'architecture** — Choisir les bonnes abstractions
+- **La logique métier** — Comprendre les besoins utilisateurs
+- **La revue de sécurité** — Valider le code généré par l'IA
+- **Les décisions UX** — Ce que le produit doit réellement faire
 
-Human judgment remains critical for:
-- **Architecture decisions**: Choosing the right abstractions
-- **Business logic**: Understanding user needs
-- **Security review**: Validating AI-generated code
-- **UX decisions**: What the product should actually do
+## Architecture du Projet
 
-## Project Architecture
+Une structure claire dès le départ évite l'accumulation de dette technique. L'App Router de Next.js impose naturellement une organisation qui scale bien.
 
-A clean, scalable structure from the start prevents technical debt:
+**Les grands principes d'organisation :**
 
-```
-src/
-├── app/                    # Next.js App Router pages
-│   ├── api/                # API routes (tRPC, webhooks)
-│   ├── (auth)/             # Auth-related pages
-│   └── admin/              # Protected admin routes
-├── server/
-│   ├── trpc.ts             # tRPC initialization + context
-│   └── routers/            # Domain-specific API procedures
-├── lib/
-│   ├── supabase/           # Client instances (browser, server, admin)
-│   └── stripe.ts           # Stripe client configuration
-├── components/             # Reusable UI components
-└── hooks/                  # Custom React hooks
-```
+| Dossier | Responsabilité |
+|---------|----------------|
+| `app/` | Pages et layouts Next.js, routes API, webhooks |
+| `server/` | Logique backend : tRPC, context, procédures par domaine |
+| `lib/` | Configuration des services externes (Supabase, Stripe) |
+| `components/` | Composants UI réutilisables |
+| `hooks/` | Hooks React custom pour la logique partagée |
 
-**Key principles:**
-- **Colocation**: Keep related code together
-- **Clear boundaries**: Server code never leaks to client bundles
-- **Type safety**: Shared types flow from database to UI
+**Pourquoi cette structure fonctionne :**
 
-## End-to-End Type Safety with tRPC
+- **Colocation** — Le code lié reste ensemble. Les routes admin sont dans `app/admin/`, pas éparpillées
+- **Séparation client/serveur** — Le code serveur ne fuit jamais dans les bundles client, évitant les failles de sécurité et les bundles gonflés
+- **Typage partagé** — Les types circulent naturellement de la base de données jusqu'à l'UI, sans fichiers de définition à maintenir manuellement
 
-The single biggest productivity boost comes from eliminating the API boundary as a source of bugs:
+Cette architecture est suffisamment simple pour un MVP, mais suffisamment structurée pour évoluer vers un produit complet sans refactoring majeur.
 
-```typescript
-// server/routers/products.ts
-export const productsRouter = router({
-  list: publicProcedure
-    .input(z.object({
-      category: z.string().optional(),
-      minPrice: z.number().optional(),
-      maxPrice: z.number().optional(),
-    }))
-    .query(async ({ input }) => {
-      // Input is validated and typed automatically
-      const products = await db.query(...)
-      return products // Return type is inferred
-    }),
-})
-```
+## Typage de Bout en Bout avec tRPC
 
-```typescript
-// Client component - full autocomplete, zero runtime surprises
-const { data } = trpc.products.list.useQuery({ category: 'electronics' })
-// data.map(...) - TypeScript knows the exact shape
-```
+Le plus grand boost de productivité vient de **l'élimination de la frontière API comme source de bugs**.
 
-No OpenAPI specs to maintain. No code generation step. Change the server, and TypeScript immediately flags client-side issues.
+Traditionnellement, la communication entre le frontend et le backend est une zone d'ombre : on définit des endpoints côté serveur, puis on espère que le client les appelle correctement avec les bons paramètres. tRPC change complètement cette dynamique.
 
-## Database Security with Row Level Security
+**Pourquoi tRPC est un game-changer :**
 
-Supabase's RLS lets you define security rules at the database level:
+- **Validation automatique** — Avec Zod intégré, chaque requête est validée côté serveur avant même d'atteindre votre logique métier
+- **Typage de bout en bout** — Les types sont automatiquement inférés du serveur vers le client. Modifiez un champ dans votre API, et TypeScript vous signale immédiatement tous les endroits à mettre à jour côté client
+- **Zéro génération de code** — Contrairement à GraphQL ou OpenAPI, pas de schéma à maintenir ni de commande à exécuter
+- **Intégration React Query** — Caching, refetching, et optimistic updates sont inclus gratuitement
 
-```sql
--- Users can only read their own purchases
-CREATE POLICY "Users read own purchases" ON purchases
-  FOR SELECT USING (user_id = auth.uid());
+Le résultat : vous développez avec l'assurance que si votre code compile, les appels API sont corrects. Plus de bugs runtime du type "undefined is not a function" ou de propriétés manquantes.
 
--- Only admins can modify products
-CREATE POLICY "Admins manage products" ON products
-  FOR ALL USING (
-    EXISTS (
-      SELECT 1 FROM profiles
-      WHERE id = auth.uid() AND is_admin = true
-    )
-  );
-```
+## Sécurité Base de Données avec Row Level Security
 
-**Why this matters:**
-- Security bugs in application code can't bypass database rules
-- Policies are auditable and version-controlled
-- Defense in depth: multiple layers of protection
+La sécurité est souvent reléguée au second plan dans les MVPs, ce qui crée une dette technique dangereuse. **Row Level Security (RLS)** de Supabase résout ce problème en intégrant la sécurité directement au niveau de la base de données.
 
-## Payment Integration with Stripe
+**Le principe est simple mais puissant :** au lieu de vérifier les permissions dans chaque endpoint de votre API (et risquer d'en oublier), vous définissez des règles directement sur vos tables PostgreSQL. Par exemple, un utilisateur ne peut accéder qu'à ses propres achats, et seuls les admins peuvent modifier le catalogue produits.
 
-For MVPs, **Stripe Checkout** is the fastest path to accepting payments:
+**Pourquoi c'est essentiel pour un MVP :**
 
-```typescript
-// Create checkout session with metadata for webhook processing
-const session = await stripe.checkout.sessions.create({
-  mode: 'payment',
-  line_items: [{
-    price_data: {
-      currency: 'usd',
-      product_data: { name: product.name },
-      unit_amount: product.price, // in cents
-    },
-    quantity: 1,
-  }],
-  metadata: {
-    user_id: ctx.user.id,
-    product_id: input.productId,
-  },
-  success_url: `${APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-  cancel_url: `${APP_URL}/cancel`,
-})
-```
+- **Sécurité par défaut** — Même si vous oubliez une vérification dans votre code applicatif, la base de données bloque l'accès non autorisé
+- **Auditabilité** — Les politiques de sécurité sont versionnées avec vos migrations, facilitant les audits et la conformité
+- **Défense en profondeur** — Plusieurs couches de protection : authentification, API, et base de données
+- **Maintenabilité** — Les règles sont centralisées plutôt que dispersées dans des dizaines de fichiers
 
-The webhook handler processes successful payments:
+C'est l'approche "secure by default" qui devrait être la norme, mais que peu de stacks rendent aussi accessible.
 
-```typescript
-// api/webhooks/stripe/route.ts
-if (event.type === 'checkout.session.completed') {
-  const session = event.data.object
+## Intégration des Paiements avec Stripe
 
-  // Idempotency check
-  const existing = await db.getPurchaseBySessionId(session.id)
-  if (existing) return { received: true }
+Pour un MVP, **Stripe Checkout** est le chemin le plus rapide vers l'acceptation de paiements — et c'est souvent suffisant même pour un produit mature.
 
-  // Record purchase using metadata
-  await db.createPurchase({
-    userId: session.metadata.user_id,
-    productId: session.metadata.product_id,
-    stripeSessionId: session.id,
-  })
-}
-```
+**Pourquoi Stripe Checkout plutôt qu'une intégration custom :**
 
-## Deployment Pipeline
+- **Conformité PCI incluse** — Stripe gère toute la complexité réglementaire. Vos serveurs ne voient jamais les numéros de carte
+- **Interface optimisée** — Des années d'A/B testing par Stripe pour maximiser la conversion. Vous bénéficiez de leur expertise gratuitement
+- **Multi-devises et moyens de paiement** — Cartes, Apple Pay, Google Pay, SEPA... activables en quelques clics
+- **Gestion des erreurs et retry** — Stripe gère automatiquement les cartes expirées, les échecs de paiement, et les relances
 
-With Vercel, deployment is essentially automatic:
+**L'architecture recommandée** est simple : votre application crée une "session de checkout" avec les métadonnées nécessaires (ID utilisateur, ID produit), redirige vers Stripe, puis traite le résultat via un webhook. Le webhook doit être **idempotent** — vérifier qu'un achat n'a pas déjà été enregistré avant de le créer — car Stripe peut renvoyer le même événement plusieurs fois.
 
-1. **Push to main** → Production deploy
-2. **Push to branch** → Preview URL generated
-3. **Open PR** → Preview URL in PR comments
+Cette approche découple complètement votre logique métier du flux de paiement, rendant les tests et le debugging beaucoup plus simples.
 
-Environment variables are managed per-environment (development, preview, production), and rollbacks are one click away.
+## Pipeline de Déploiement
 
-For additional validation, a simple CI workflow ensures code quality:
+Avec Vercel, le déploiement devient presque invisible — et c'est exactement ce qu'on veut pour un MVP où chaque minute compte.
 
-```yaml
-name: CI
-on: [push, pull_request]
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run build
-```
+**Le workflow est minimaliste mais puissant :**
 
-## Development Workflow Summary
+- **Push sur main** → Déploiement automatique en production
+- **Push sur une branche** → URL de preview générée instantanément
+- **Ouverture d'une PR** → L'URL de preview apparaît dans les commentaires
 
-1. **Define data model** → Supabase migrations with RLS
-2. **Build API** → tRPC procedures with Zod validation
-3. **Create UI** → shadcn/ui components with Tailwind
-4. **Add payments** → Stripe Checkout + webhooks
-5. **Deploy** → Push to main, Vercel handles the rest
+**Pourquoi Vercel excelle pour les MVPs :**
 
-With AI assistance handling boilerplate and integration code, the focus stays on what matters: building features users actually need.
+- **Zero configuration** — Détection automatique de Next.js, installation des dépendances, build optimisé
+- **Preview URLs** — Chaque branche a son environnement isolé. Parfait pour montrer une feature à un client ou tester une intégration
+- **Rollbacks en un clic** — Une mise en prod qui casse quelque chose ? Retour à la version précédente en 30 secondes
+- **Variables d'environnement par contexte** — Dev, preview, et production ont chacun leurs propres secrets
 
-## Key Takeaways
+Pour la validation continue, une simple configuration GitHub Actions suffit : linting et build à chaque push. Si le build passe, Vercel déploie. Simple, efficace, et ça évite de merger du code cassé.
 
-- **Type safety eliminates bugs**: tRPC + TypeScript catches errors before runtime
-- **Managed services reduce ops burden**: Supabase and Vercel handle infrastructure
-- **AI accelerates, humans validate**: Use Claude Code for speed, review for quality
-- **MCP servers bridge the gap**: Direct service integration from your development environment
-- **Ship early, iterate fast**: The best architecture is one that lets you learn from real users
+## Résumé du Workflow de Développement
+
+1. **Définir le modèle de données** → Migrations Supabase avec RLS
+2. **Construire l'API** → Procédures tRPC avec validation Zod
+3. **Créer l'UI** → Composants shadcn/ui avec Tailwind
+4. **Ajouter les paiements** → Stripe Checkout + webhooks
+5. **Déployer** → Push sur main, Vercel s'occupe du reste
+
+Avec l'assistance IA qui gère le boilerplate et le code d'intégration, l'attention reste sur ce qui compte : construire les fonctionnalités dont les utilisateurs ont vraiment besoin.
+
+## Points Clés à Retenir
+
+- **Le typage élimine les bugs** — tRPC + TypeScript attrape les erreurs avant le runtime
+- **Les services managés réduisent la charge ops** — Supabase et Vercel gèrent l'infrastructure
+- **L'IA accélère, l'humain valide** — Utilisez Claude Code pour la vitesse, la review pour la qualité
+- **Les serveurs MCP comblent le fossé** — Intégration directe des services depuis votre environnement de développement
+- **Livrez tôt, itérez vite** — La meilleure architecture est celle qui vous permet d'apprendre des vrais utilisateurs
 
 ---
 
-The modern web development landscape offers unprecedented leverage. By combining the right tools with AI-assisted development, shipping a production-quality MVP is faster than ever—without cutting corners on security or code quality.
+Le paysage du développement web moderne offre un levier sans précédent. En combinant les bons outils avec le développement assisté par IA, livrer un MVP de qualité production est plus rapide que jamais — sans faire de compromis sur la sécurité ou la qualité du code.
 
-*Questions about this stack or approach? Connect with me on [LinkedIn](https://www.linkedin.com/in/thibault-lebrun/).*
+*Des questions sur cette stack ou cette approche ? Connectez-vous avec moi sur [LinkedIn](https://www.linkedin.com/in/thibault-lebrun/).*

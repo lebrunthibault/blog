@@ -59,27 +59,39 @@
     }
 
     html {
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    body {
+        letter-spacing: 0.01em;
     }
 
     h1 {
-        @apply text-2xl sm:text-2xl my-4 py-3;
+        @apply text-2xl sm:text-2xl mt-3 mb-4 pt-2;
+        font-weight: 500;
+        letter-spacing: -0.01em;
     }
     h2 {
-        @apply text-xl sm:text-xl my-3 py-3;
+        @apply text-xl sm:text-xl mt-8 mb-4 pt-2;
         font-weight: 500;
+        letter-spacing: -0.01em;
     }
     h3 {
-        @apply text-lg mt-2 mb-2;
+        @apply text-lg mt-6 mb-3;
+        font-weight: 500;
     }
     h4 {
-        @apply text-base sm:text-lg mt-3 mb-2;
+        @apply text-base sm:text-lg mt-5 mb-3;
+        font-weight: 500;
     }
     h5 {
-        @apply text-sm sm:text-base mt-2 mb-1;
+        @apply text-sm sm:text-base mt-4 mb-2;
+        font-weight: 500;
     }
     h6 {
-        @apply text-sm sm:text-base mt-2 mb-1;
+        @apply text-sm sm:text-base mt-4 mb-2;
+        font-weight: 500;
     }
 
     main section {
@@ -91,37 +103,83 @@
 
     article {
         .post-content a {
-            @apply transition-all duration-200 border-b-2 border-yinmn-blue hover:border-shadow-blue
+            @apply transition-all duration-200 border-b border-yinmn-blue hover:border-shadow-blue;
         }
         ul {
-            list-style-type: "- ";
-            @apply pl-4;
+            list-style-type: "– ";
+            @apply pl-5;
+        }
+
+        /* Better section spacing in articles */
+        .post-content > * + * {
+            @apply mt-4;
+        }
+
+        .post-content > h2 {
+            @apply mt-10;
+        }
+
+        .post-content > h3 {
+            @apply mt-8;
         }
     }
 
     p {
         font-weight: 400;
-        @apply text-sm sm:text-base mb-1;
+        @apply text-sm sm:text-base mb-4;
+        line-height: 1.75;
+    }
+
+    /* Reduce bold intensity - use medium weight instead */
+    strong, b {
+        font-weight: 500;
+        color: #e5e5e5;
     }
 
     hr {
-        @apply my-3;
+        @apply my-8;
+        border-color: #222;
     }
 
     blockquote {
-        @apply p-2 my-2 border-s-4 border-yinmn-blue bg-oxford-blue;
+        @apply p-4 my-6 border-s-4 border-yinmn-blue bg-oxford-blue;
+        line-height: 1.7;
+    }
+
+    /* Better list spacing */
+    ul, ol {
+        @apply my-4;
+    }
+
+    li {
+        @apply mb-2;
+        line-height: 1.7;
+    }
+
+    /* Table styling */
+    table {
+        @apply my-6;
+    }
+
+    th, td {
+        @apply py-3 px-4;
     }
 
     #TableOfContents {
         > ul > li {
-            @apply mb-2;
+            @apply mb-3;
         }
         ul {
             a {
-                @apply inline-block hover:bg-oxford-blue px-1 sm:px-2 rounded text-sm sm:text-base text-platinum
+                @apply inline-block hover:bg-oxford-blue px-2 py-1 rounded text-sm sm:text-base;
+                color: #a3a3a3;
+                line-height: 1.5;
+            }
+            a:hover {
+                color: #d4d4d4;
             }
             ul {
-                @apply pl-4 sm:pl-6;
+                @apply pl-4 sm:pl-6 mt-1;
                 a {
                     @apply text-xs sm:text-sm;
                 }
@@ -133,7 +191,7 @@
     /* Custom scrollbar for TOC sidebar */
     #toc-sidebar {
         scrollbar-width: thin;
-        scrollbar-color: #415A77 #1B263B;
+        scrollbar-color: #333 #161616;
         overflow-x: hidden;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -151,19 +209,19 @@
     }
 
     #toc-sidebar::-webkit-scrollbar-track {
-        background: #1B263B;
+        background: #161616;
         border-radius: 5px;
         margin: 4px 0;
     }
 
     #toc-sidebar::-webkit-scrollbar-thumb {
-        background: #415A77;
+        background: #333;
         border-radius: 5px;
-        border: 2px solid #1B263B;
+        border: 2px solid #161616;
     }
 
     #toc-sidebar::-webkit-scrollbar-thumb:hover {
-        background: #778DA9;
+        background: #444;
     }
 
     /* Responsive TOC positioning */

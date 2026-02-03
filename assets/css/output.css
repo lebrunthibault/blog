@@ -428,14 +428,18 @@ video {
 }
 
 html {
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+body {
+  letter-spacing: 0.01em;
 }
 
 h1 {
-  margin-top: 24px;
+  margin-top: 16px;
   margin-bottom: 24px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 12px;
   font-size: 1.5rem;
   line-height: 2rem;
 }
@@ -447,11 +451,15 @@ h1 {
   }
 }
 
+h1 {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
 h2 {
-  margin-top: 16px;
-  margin-bottom: 16px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  margin-top: 2rem;
+  margin-bottom: 24px;
+  padding-top: 12px;
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
@@ -465,18 +473,20 @@ h2 {
 
 h2 {
   font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 h3 {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 48px;
+  margin-bottom: 16px;
   font-size: 1.125rem;
   line-height: 1.75rem;
+  font-weight: 500;
 }
 
 h4 {
-  margin-top: 16px;
-  margin-bottom: 12px;
+  margin-top: 32px;
+  margin-bottom: 16px;
   font-size: 1rem;
   line-height: 1.5rem;
 }
@@ -488,9 +498,13 @@ h4 {
   }
 }
 
+h4 {
+  font-weight: 500;
+}
+
 h5 {
-  margin-top: 12px;
-  margin-bottom: 8px;
+  margin-top: 24px;
+  margin-bottom: 12px;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -502,9 +516,13 @@ h5 {
   }
 }
 
+h5 {
+  font-weight: 500;
+}
+
 h6 {
-  margin-top: 12px;
-  margin-bottom: 8px;
+  margin-top: 24px;
+  margin-bottom: 12px;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -514,6 +532,10 @@ h6 {
     font-size: 1rem;
     line-height: 1.5rem;
   }
+}
+
+h6 {
+  font-weight: 500;
 }
 
 main section {
@@ -540,7 +562,7 @@ main section {
 
 article {
   .post-content a {
-    border-bottom-width: 2px;
+    border-bottom-width: 1px;
   }
   .post-content a {
     --tw-border-opacity: 1;
@@ -559,16 +581,26 @@ article {
     border-color: rgb(119 141 169 / var(--tw-border-opacity));
   }
   ul {
-    list-style-type: "- ";
+    list-style-type: "– ";
   }
   ul {
-    padding-left: 24px;
+    padding-left: 32px;
+  }
+  /* Better section spacing in articles */
+  .post-content > * + * {
+    margin-top: 24px;
+  }
+  .post-content > h2 {
+    margin-top: 2.5rem;
+  }
+  .post-content > h3 {
+    margin-top: 2rem;
   }
 }
 
 p {
   font-weight: 400;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
@@ -580,25 +612,64 @@ p {
   }
 }
 
+p {
+  line-height: 1.75;
+}
+
+/* Reduce bold intensity - use medium weight instead */
+
+strong, b {
+  font-weight: 500;
+  color: #e5e5e5;
+}
+
 hr {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-color: #222;
 }
 
 blockquote {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 48px;
+  margin-bottom: 48px;
   border-inline-start-width: 4px;
   --tw-border-opacity: 1;
   border-color: rgb(65 90 119 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgb(27 38 59 / var(--tw-bg-opacity));
-  padding: 12px;
+  background-color: rgb(22 22 22 / var(--tw-bg-opacity));
+  padding: 24px;
+  line-height: 1.7;
+}
+
+/* Better list spacing */
+
+ul, ol {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+li {
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+/* Table styling */
+
+table {
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+th, td {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 #TableOfContents {
   > ul > li {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
   ul {
     a {
@@ -608,32 +679,36 @@ blockquote {
       border-radius: 0.25rem;
     }
     a {
-      padding-left: 8px;
-      padding-right: 8px;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+    a {
+      padding-top: 8px;
+      padding-bottom: 8px;
     }
     a {
       font-size: 0.875rem;
       line-height: 1.25rem;
     }
-    a {
-      --tw-text-opacity: 1;
-      color: rgb(224 225 221 / var(--tw-text-opacity));
-    }
     a:hover {
       --tw-bg-opacity: 1;
-      background-color: rgb(27 38 59 / var(--tw-bg-opacity));
-    }
-    @media (min-width: 640px) {
-      a {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
+      background-color: rgb(22 22 22 / var(--tw-bg-opacity));
     }
     @media (min-width: 640px) {
       a {
         font-size: 1rem;
         line-height: 1.5rem;
       }
+    }
+    a {
+      color: #a3a3a3;
+      line-height: 1.5;
+    }
+    a:hover {
+      color: #d4d4d4;
+    }
+    ul {
+      margin-top: 8px;
     }
     ul {
       padding-left: 24px;
@@ -662,7 +737,7 @@ blockquote {
 
 #toc-sidebar {
   scrollbar-width: thin;
-  scrollbar-color: #415A77 #1B263B;
+  scrollbar-color: #333 #161616;
   overflow-x: hidden;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -680,19 +755,19 @@ blockquote {
 }
 
 #toc-sidebar::-webkit-scrollbar-track {
-  background: #1B263B;
+  background: #161616;
   border-radius: 5px;
   margin: 4px 0;
 }
 
 #toc-sidebar::-webkit-scrollbar-thumb {
-  background: #415A77;
+  background: #333;
   border-radius: 5px;
-  border: 2px solid #1B263B;
+  border: 2px solid #161616;
 }
 
 #toc-sidebar::-webkit-scrollbar-thumb:hover {
-  background: #778DA9;
+  background: #444;
 }
 
 /* Responsive TOC positioning */
@@ -843,6 +918,10 @@ blockquote {
 
 .visible {
   visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 .static {
@@ -1161,12 +1240,12 @@ blockquote {
 
 .bg-oxford-blue {
   --tw-bg-opacity: 1;
-  background-color: rgb(27 38 59 / var(--tw-bg-opacity));
+  background-color: rgb(22 22 22 / var(--tw-bg-opacity));
 }
 
 .bg-rich-black {
   --tw-bg-opacity: 1;
-  background-color: rgb(13 27 42 / var(--tw-bg-opacity));
+  background-color: rgb(12 12 12 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -1302,7 +1381,7 @@ blockquote {
 
 .text-platinum {
   --tw-text-opacity: 1;
-  color: rgb(224 225 221 / var(--tw-text-opacity));
+  color: rgb(212 212 212 / var(--tw-text-opacity));
 }
 
 .text-shadow-blue {

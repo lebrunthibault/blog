@@ -1,53 +1,53 @@
 ---
 prod: true
 draft: false
-title: "Construire un Marketplace Audio avec Next.js, Supabase et Stripe"
+title: "Building an Audio Marketplace with Next.js, Supabase and Stripe"
 date: 2026-02-03
-description: "Retour d'expérience sur la création de Loops, une plateforme de vente de boucles audio. Architecture, choix techniques et bonnes pratiques."
-keywods: ["IA web dev", "Next.js", "Supabase", "Stripe", "TypeScript", "tRPC"]
+description: "A deep dive into building Loops, an audio loop marketplace. Architecture decisions, tech stack choices and best practices."
+keywords: ["AI web dev", "Next.js", "Supabase", "Stripe", "TypeScript", "tRPC"]
 ---
 
 
-# Construire un Marketplace Audio avec Next.js, Supabase et Stripe
+# Building an Audio Marketplace with Next.js, Supabase and Stripe
 
-J'ai récemment développé **Loops**, un marketplace permettant aux producteurs de musique d'acheter et télécharger des boucles audio de piano. Dans cet article, je partage les **choix techniques** et les **bonnes pratiques** que j'ai implémentées pour créer une application moderne, type-safe et scalable.
+I recently built **Loops**, a marketplace where music producers can purchase and download piano audio loops. In this article, I share the **technical decisions** and **best practices** I implemented to create a modern, type-safe and scalable application.
 
-## Stack Technique
+## Tech Stack
 
-| Couche | Technologie | Justification |
-|--------|-------------|---------------|
-| Frontend | **Next.js 16** (App Router) | SSR, RSC, routing moderne |
-| API | **tRPC v11** + React Query | Type-safety end-to-end |
-| Base de données | **Supabase** (PostgreSQL) | Auth intégrée, RLS, Storage |
-| Paiements | **Stripe Checkout** | Standard industrie, webhooks |
-| UI | **shadcn/ui** + Tailwind v4 | Composants accessibles, customisables |
+| Layer | Technology | Rationale |
+|-------|------------|-----------|
+| Frontend | **Next.js 16** (App Router) | SSR, RSC, modern routing |
+| API | **tRPC v11** + React Query | End-to-end type safety |
+| Database | **Supabase** (PostgreSQL) | Built-in auth, RLS, Storage |
+| Payments | **Stripe Checkout** | Industry standard, webhooks |
+| UI | **shadcn/ui** + Tailwind v4 | Accessible, customizable components |
 
-## Architecture du Projet
+## Project Architecture
 
 ```
 src/
 ├── app/                    # Pages (App Router)
-│   ├── admin/              # Panel admin protégé
-│   ├── api/                # Routes API (tRPC, webhooks)
-│   └── auth/               # Authentification
+│   ├── admin/              # Protected admin panel
+│   ├── api/                # API routes (tRPC, webhooks)
+│   └── auth/               # Authentication
 ├── server/
-│   ├── trpc.ts             # Config tRPC + contexte
-│   └── routers/            # Procédures API typées
+│   ├── trpc.ts             # tRPC config + context
+│   └── routers/            # Typed API procedures
 ├── lib/
 │   └── supabase/           # Clients (browser, server, admin)
-├── components/             # UI réutilisables
-└── hooks/                  # Logique métier (auth, audio, filters)
+├── components/             # Reusable UI components
+└── hooks/                  # Business logic (auth, audio, filters)
 ```
 
-### Pourquoi cette structure ?
+### Why This Structure?
 
-- **Séparation claire** entre code client et serveur
-- **Colocation** : chaque feature a ses composants, hooks et routes
-- **Scalabilité** : ajout facile de nouvelles fonctionnalités
+- **Clear separation** between client and server code
+- **Colocation**: each feature has its own components, hooks and routes
+- **Scalability**: easy to add new features
 
-## Type-Safety End-to-End avec tRPC
+## End-to-End Type Safety with tRPC
 
-L'un des choix les plus impactants a été d'utiliser **tRPC** plutôt qu'une API REST classique.
+One of the most impactful decisions was using **tRPC** instead of a traditional REST API.
 
 ```typescript
 // server/routers/loops.ts
@@ -60,32 +60,32 @@ export const loopsRouter = router({
       key: z.string().nullish(),
     }))
     .query(async ({ input }) => {
-      // Query type-safe, validation automatique
+      // Type-safe query with automatic validation
     }),
 })
 ```
 
 ```typescript
-// Côté client - autocomplétion complète
+// Client-side - full autocompletion
 const { data } = trpc.loops.list.useQuery({ genreId: 'jazz' })
-// data est typé automatiquement !
+// data is automatically typed!
 ```
 
-**Avantages concrets :**
-- Zéro génération de types manuelle
-- Erreurs de typage détectées à la compilation
-- Refactoring sécurisé
+**Key Benefits:**
+- Zero manual type generation
+- Type errors caught at compile time
+- Safe refactoring
 
-## Authentification avec Supabase SSR
+## Authentication with Supabase SSR
 
-L'authentification est gérée par **Supabase Auth** avec Magic Links. La partie délicate a été de gérer correctement les sessions côté client avec `@supabase/ssr`.
+Authentication is handled by **Supabase Auth** with Magic Links. The tricky part was properly managing sessions on the client side with `@supabase/ssr`.
 
-## Sécurité avec Row Level Security (RLS)
+## Security with Row Level Security (RLS)
 
-Supabase permet de définir des **politiques de sécurité au niveau des lignes** directement en SQL :
+Supabase allows defining **row-level security policies** directly in SQL:
 
 ```sql
--- Seuls les admins peuvent modifier les loops
+-- Only admins can manage loops
 CREATE POLICY "Admins can manage loops" ON loops
   FOR ALL
   USING (
@@ -95,25 +95,25 @@ CREATE POLICY "Admins can manage loops" ON loops
     )
   );
 
--- Les utilisateurs ne voient que leurs propres achats
+-- Users can only see their own purchases
 CREATE POLICY "Users see own purchases" ON purchases
   FOR SELECT
   USING (user_id = auth.uid());
 ```
 
-**Pourquoi c'est important :**
-- Sécurité **défense en profondeur** : même si l'API a un bug, la DB refuse
-- Logique de sécurité **centralisée** et auditable
-- Pas de risque d'oubli de vérification côté code
+**Why This Matters:**
+- **Defense in depth** security: even if the API has a bug, the database rejects unauthorized access
+- **Centralized** and auditable security logic
+- No risk of missing authorization checks in code
 
-## Paiements Sécurisés avec Stripe
+## Secure Payments with Stripe
 
-J'utilise **Stripe Checkout** en mode hosted pour les paiements :
+I use **Stripe Checkout** in hosted mode for payments:
 
-1. Le client clique sur "Acheter"
-2. L'API crée une session Checkout avec les métadonnées
-3. Redirection vers Stripe (UI sécurisée)
-4. Webhook reçoit confirmation → création de l'achat en DB
+1. User clicks "Buy"
+2. API creates a Checkout session with metadata
+3. Redirect to Stripe (secure UI)
+4. Webhook receives confirmation → purchase created in DB
 
 ```typescript
 // server/routers/purchases.ts
@@ -133,14 +133,14 @@ createCheckoutSession: protectedProcedure
   })
 ```
 
-**Bonnes pratiques implémentées :**
-- Validation du webhook avec `stripe.webhooks.constructEvent()`
-- Idempotence : vérification si l'achat existe déjà
-- Metadata pour tracer user/loop sans requête supplémentaire
+**Best Practices Implemented:**
+- Webhook validation with `stripe.webhooks.constructEvent()`
+- Idempotency: check if purchase already exists
+- Metadata for tracing user/loop without additional queries
 
-## CI/CD avec GitHub Actions
+## CI/CD with GitHub Actions
 
-Le projet inclut un workflow de **déploiement continu** :
+The project includes a **continuous deployment** workflow:
 
 ```yaml
 jobs:
@@ -158,21 +158,21 @@ jobs:
       - run: vercel deploy --prod
 ```
 
-**Workflow :**
-1. Chaque push déclenche le linting ESLint
-2. Si `main` + lint OK → déploiement automatique sur Vercel
-3. Les PRs sont vérifiées mais pas déployées
+**Workflow:**
+1. Every push triggers ESLint checks
+2. If `main` branch + lint passes → automatic deployment to Vercel
+3. PRs are verified but not deployed
 
-## Points Clés à Retenir
+## Key Takeaways
 
-1. **Type-safety** : tRPC + TypeScript = zéro surprise en runtime
-2. **Sécurité en couches** : RLS + validation API + auth middleware
-3. **Debug méthodique** : logs, timeouts, reproduction systématique
-4. **Simplicité** : Stripe Checkout plutôt que Stripe Elements custom
-5. **CI/CD dès le début** : automatiser pour éviter les erreurs humaines
+1. **Type safety**: tRPC + TypeScript = zero runtime surprises
+2. **Layered security**: RLS + API validation + auth middleware
+3. **Methodical debugging**: logs, timeouts, systematic reproduction
+4. **Simplicity**: Stripe Checkout over custom Stripe Elements
+5. **CI/CD from day one**: automate to prevent human errors
 
 ---
 
-Le code source complet est disponible sur [GitHub](https://github.com/lebrunthibault/loops-store).
+The full source code is available on [GitHub](https://github.com/lebrunthibault/loops-store).
 
-*Des questions sur l'implémentation ? Contactez-moi sur [LinkedIn](https://www.linkedin.com/in/thibault-lebrun/).*
+*Questions about the implementation? Reach out on [LinkedIn](https://www.linkedin.com/in/thibault-lebrun/).*

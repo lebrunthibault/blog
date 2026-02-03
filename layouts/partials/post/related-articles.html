@@ -1,0 +1,65 @@
+{{- $currentKeywords := slice -}}
+{{- $currentPage := . -}}
+
+{{/* Collect keywords from both 'keywords' and 'tags' */}}
+{{- with .Params.keywords -}}
+  {{- $currentKeywords = . -}}
+{{- end -}}
+{{- with .Params.tags -}}
+  {{- $currentKeywords = union $currentKeywords . -}}
+{{- end -}}
+
+{{/* Get all published posts except the current one */}}
+{{- $allPosts := where .Site.RegularPages "Type" "post" -}}
+{{- $allPosts = where $allPosts "Params.prod" true -}}
+{{- $allPosts = where $allPosts "Permalink" "!=" .Permalink -}}
+
+{{/* Score each post by keyword matches */}}
+{{- $scoredPosts := slice -}}
+{{- range $post := $allPosts -}}
+  {{- $postKeywords := slice -}}
+  {{- with $post.Params.keywords -}}
+    {{- $postKeywords = . -}}
+  {{- end -}}
+  {{- with $post.Params.tags -}}
+    {{- $postKeywords = union $postKeywords . -}}
+  {{- end -}}
+
+  {{/* Count matching keywords (case-insensitive) */}}
+  {{- $score := 0 -}}
+  {{- range $kw := $currentKeywords -}}
+    {{- $kwLower := lower $kw -}}
+    {{- range $pkw := $postKeywords -}}
+      {{- if eq (lower $pkw) $kwLower -}}
+        {{- $score = add $score 1 -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if gt $score 0 -}}
+    {{- $scoredPosts = $scoredPosts | append (dict "post" $post "score" $score) -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Sort by score descending and take top 3 */}}
+{{- $scoredPosts = sort $scoredPosts "score" "desc" -}}
+{{- $relatedPosts := first 3 $scoredPosts -}}
+
+{{- if gt (len $relatedPosts) 0 -}}
+<section class="mt-8 pt-6 border-t border-yinmn-blue">
+  <h2 class="text-lg mb-4 text-platinum">Voir aussi</h2>
+  <div class="flex flex-col gap-4">
+    {{- range $relatedPosts -}}
+      {{- $post := .post -}}
+      <a href="{{ $post.Permalink }}" class="block border-b-0 hover:border-b-0">
+        <div class="bg-oxford-blue border border-yinmn-blue rounded-lg px-4 py-3 hover:border-shadow-blue transition-colors">
+          <h3 class="text-base text-platinum my-0">{{ $post.Title }}</h3>
+          {{- if $post.Description -}}
+          <p class="text-shadow-blue text-sm mt-1 mb-0">{{ $post.Description | truncate 120 }}</p>
+          {{- end -}}
+        </div>
+      </a>
+    {{- end -}}
+  </div>
+</section>
+{{- end -}}

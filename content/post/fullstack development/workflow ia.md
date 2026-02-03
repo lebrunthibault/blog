@@ -6,8 +6,9 @@ description:
   Best practices for coding with AI agents in a mindful and controlled manner
 keywords:
   - Software Development
-  - AI Agent
-  - LLM
+  - AI
+  - Best Practices
+  - Productivity
 date: "2025-09-01"
 color: "#8ba5ba"
 ---

@@ -4,7 +4,12 @@ draft: false
 title: "Building a Modern Web MVP: From Zero to Production in Record Time"
 date: 2026-02-03
 description: "A practical guide to shipping a full-stack MVP using Next.js, Supabase, Stripe, and AI-assisted development with Claude Code and MCP servers."
-tags: ["Next.js", "Supabase", "Stripe", "TypeScript", "tRPC", "AI", "MVP", "Claude Code"]
+keywords:
+  - Fullstack
+  - TypeScript
+  - AI
+  - MVP
+  - Best Practices
 ---
 
 # Building a Modern Web MVP: From Zero to Production in Record Time

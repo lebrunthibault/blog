@@ -888,6 +888,10 @@ blockquote {
   margin-bottom: 48px;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
 .mb-1 {
   margin-bottom: 8px;
 }
@@ -910,6 +914,10 @@ blockquote {
 
 .ml-6 {
   margin-left: 48px;
+}
+
+.mt-1 {
+  margin-top: 8px;
 }
 
 .mt-4 {
@@ -1093,6 +1101,12 @@ blockquote {
   overflow-y: auto;
 }
 
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1111,6 +1125,14 @@ blockquote {
 
 .border-b {
   border-bottom-width: 1px;
+}
+
+.border-b-0 {
+  border-bottom-width: 0px;
+}
+
+.border-t {
+  border-top-width: 1px;
 }
 
 .border-t-\[3px\] {
@@ -1215,6 +1237,10 @@ blockquote {
   padding-top: 16px;
 }
 
+.pt-6 {
+  padding-top: 48px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1226,6 +1252,11 @@ blockquote {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-sm {
@@ -1404,6 +1435,10 @@ blockquote {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:border-b-0:hover {
+  border-bottom-width: 0px;
 }
 
 .hover\:border-shadow-blue:hover {

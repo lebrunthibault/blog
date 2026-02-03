@@ -6,9 +6,10 @@ description:
   📕 Référentiel technique et méthodologique - playbook de développement web
   détaillé
 keywords:
-  - Développement fullstack
-  - Méthodo
-  - Stack web
+  - Fullstack
+  - Software Development
+  - Best Practices
+  - TypeScript
 date: "2025-11-04"
 color: "#ba8b92"
 ---

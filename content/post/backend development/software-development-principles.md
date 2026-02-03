@@ -4,9 +4,10 @@ draft: false
 title: Software development principles
 description: Grandes réflexions sur la beauté insondable d'une simple ligne de code
 keywords:
-  - Backend development
-  - Design patterns
-  - Bible ✝️
+  - Software Development
+  - Design Patterns
+  - Best Practices
+  - Python
 date: "2022-01-01"
 color: "#90ba8b"
 ---

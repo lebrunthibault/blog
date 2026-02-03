@@ -1,6 +1,6 @@
 baseURL = "https://thibaultlebrun.dev/"
-languageCode = "fr"
-defaultContentLanguage = "fr"                             # en / zh-cn / ... (This field determines which i18n file to use)
+languageCode = "en"
+defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "Home"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
@@ -44,22 +44,22 @@ copyright = ""            # default: author.name
   # use public git repo url to link lastmod git commit, enableGitInfo should be true.
   gitRepo = ""
 
-  # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
-  logoTitle = ""        # default: the title value    # 默认值: 上面设置的title值
-  keywords = ["développement web", "fullstack", "backend", "Python", "Node.js", "freelance", "MVP"]
+  # site info (optional)
+  logoTitle = ""        # default: the title value
+  keywords = ["web development", "fullstack", "backend", "Python", "Node.js", "freelance", "MVP"]
   subtitle = ""
-  description = "Développeur web fullstack/backend sénior (10 ans d'expérience). Je conçois et développe des plateformes web modernes et des backends robustes en Python ou Node.js. Spécialisé dans la création de MVP et plateformes web de moyenne complexité."
+  description = "Senior fullstack/backend web developer (10 years of experience). I design and develop modern web platforms and robust backends in Python or Node.js. Specialized in creating MVPs and medium-complexity web platforms."
 
-  # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
+  # paginate of archives, tags and categories
   archivePaginate = 50
 
-  # show 'xx Posts In Total' in archive page ?            # 是否在归档页显示文章的总数
+  # show 'xx Posts In Total' in archive page ?
   showArchiveCount = false
 
   # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
   dateFormatToUse = "2006-01-02"
 
-  # show word count and read time ?                       # 是否显示字数统计与阅读时间
+  # show word count and read time ?
   moreMeta = true
 
   # Syntax highlighting by highlight.js
@@ -73,7 +73,7 @@ copyright = ""            # default: author.name
   linkToMarkDown = false    # Only effective when hugo will output .md files.
   contentCopyright = ''     # e.g. '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
 
-  livereUID = ""            # LiveRe UID                  # 来必力
+  livereUID = ""            # LiveRe UID
 
   # Link custom CSS and JS assets
   #   (relative to /static/css and /static/js respectively)
@@ -92,17 +92,12 @@ copyright = ""            # default: author.name
 
     fancyboxJS = '<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>'
     fancyboxCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">'
-#    timeagoJS = '<script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>'
-#    timeagoLocalesJS = '<script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>'
-#    flowchartDiagramsJS = '<script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script>'
-#    sequenceDiagramsCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">'
-#    sequenceDiagramsJS = '<script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>'
 
   # Display a message at the beginning of an article to warn the readers that it's content may be outdated.
   [params.outdatedInfoWarning]
     enable = false
-    hint = 30               # Display hint if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示提醒
-    warn = 180              # Display warning if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示警告
+    hint = 30               # Display hint if the last modified time is more than these days ago.
+    warn = 180              # Display warning if the last modified time is more than these days ago.
 
   [params.gitment]          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
     owner = ""              # Your GitHub ID

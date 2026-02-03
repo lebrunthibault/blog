@@ -1,4 +1,4 @@
-.PHONY: dev build css
+.PHONY: dev build css push
 
 dev:
 	hugo server -D
@@ -8,3 +8,6 @@ css:
 
 build:
 	hugo -D
+
+push:
+	git push && vercel --prod

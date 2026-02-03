@@ -4,3 +4,5 @@ resources/
 .env
 node_modules/
 venv/
+
+.playwright-mcp/

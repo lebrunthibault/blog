@@ -1,189 +1,115 @@
 ---
 prod: true
 draft: false
-title: 🤖 Mon workflow avec les agents IA
+title: My Workflow with AI Agents
 description:
-  Bonnes pratiques pour coder avec agents IA de manière sobre et controlée
+  Best practices for coding with AI agents in a mindful and controlled manner
 keywords:
-  - Développement logiciel
-  - Agent IA
+  - Software Development
+  - AI Agent
   - LLM
 date: "2025-09-01"
 color: "#8ba5ba"
 ---
 
-*Les agents IA, un pouvoir qui implique des responsabilités*
+*AI agents: great power comes with great responsibility*
 
-Les agents IA ont débarqué il y a quelques mois dans le monde du développement
-et sont en train d’opérer une vraie révolution tant leurs capacités sont
-épatantes sur tout type de développement et en particulier sur le développement
-web.
+AI agents burst onto the software development scene a few months ago and are driving a genuine revolution. Their capabilities are remarkable across all types of development, particularly in web development.
 
-Aujourd’hui c’est presque impossible de ne pas intégrer ces agents comme
-citoyens à part entière d’un tooling de développement moderne.
+Today, it's nearly impossible not to integrate these agents as first-class citizens in a modern development toolkit.
 
-Malgré tout, l’utilisation de l’IA pose beaucoup de questions et est loin d’être
-aussi évidente et bénéfique que ne le laisse penser les premières impressions et les benchmarks "trust me bro".
+However, using AI raises many questions and is far from being as straightforward and beneficial as first impressions and "trust me bro" benchmarks might suggest.
 
-> Après une utilisation quotidienne ces derniers mois et de nombreuses réflexions
-> j’ai décidé de faire un retour d’expérience et de parler de mon workflow avec
-> les agents IA, de ses avantages et ses limites.
+> After daily use over the past few months and considerable reflection, I decided to share my experience and discuss my workflow with AI agents, including its advantages and limitations.
 
-# Questions éthiques
+# Ethical Considerations
 
-Avant de discuter technique, je tiens à aborder certaines questions éthiques
-entourant l’utilisation de ces outils.
+Before diving into technical details, I want to address some ethical questions surrounding the use of these tools.
 
-## 🌳 Impact carbone
+## Carbon Footprint
 
-L’impact carbone d’un LLM comme Claude
-Sonnet peut être conséquent mais dépend énormément de l’usage. Aujourd’hui mon
-usage mensuel tourne autour de 10 millions de tokens soit
+The carbon footprint of an LLM like Claude Sonnet can be significant but depends heavily on usage. Currently, my monthly usage is around 10 million tokens, which translates to:
 
-- en conso électrique (estimation courante de 0,0005 kWh / 1 000 tokens) : 5 kWh,
-  soit 1 à 2 kg équivalent CO2
-- En prenant en compte le coût de l’infra (fabrication, maintenance) on peut
-  multiplier par 2 soit potentiellement pas loin de 50 kg de CO2 par an.
+- Power consumption (common estimate of 0.0005 kWh per 1,000 tokens): 5 kWh, or roughly 1-2 kg CO2 equivalent
+- Factoring in infrastructure costs (manufacturing, maintenance), we can multiply by 2, potentially reaching close to 50 kg CO2 per year
 
-En résumé, ce n’est pas une catastrophe mais c’est un coût notable.
+In summary, it's not catastrophic but it's a notable cost.
 
-**Pourquoi c’est acceptable ?**
+**Why is it acceptable?**
 
-## Effet rebond
+## Rebound Effect
 
-Tout est une question de mesure et d’impact. Là où l’utilisation de ces LLM peut
-être éthique c’est si elle vient remplacer le travail d’un dev sans effet rebond
-notable. Autrement dit, si le développeur profite de ce temps libéré pour
-générer encore plus de revenus, on entre dans une boucle néfaste où les coûts et
-l’impact peuvent exploser.
+It all comes down to balance and impact. Using these LLMs can be ethical if it replaces developer work without a significant rebound effect. In other words, if developers use their freed-up time to generate even more revenue, we enter a harmful loop where costs and impact can explode.
 
-Ma vision est différente : j’utilise l’IA pour travailler moins et c’est le sens
-que les innovations techniques doivent avoir. Le fait que tant de personnes
-(bien payées) continuent de travailler aussi dur à notre époque m’interroge. Personne n’aime son travail à ce point haha.
+My approach is different: I use AI to work less, and that's the direction technological innovations should take. The fact that so many (well-paid) people continue to work so hard in our era puzzles me. Nobody loves their job that much, right?
 
-Autrement dit, je ne compte pas augmenter mes revenus grâce à l’IA, juste mes revenus horaires ^^. J'espère pouvoir me
-libérer du temps pour un impact que j’estime encore faible à l’heure actuelle.
-D’autres actions sont beaucoup plus significatives (comme manger végétarien ou
-ne pas prendre l’avion).
+Put simply, I don't plan to increase my income through AI, just my hourly earnings. I hope to free up time for impact that I consider still modest at present. Other actions are far more significant (like eating vegetarian or avoiding air travel).
 
-## Une utilisation sobre, pas du vibe coding
+## Mindful Usage, Not Vibe Coding
 
-Il est difficile de faire la part du vrai et du faux concernant ce terme de vibe coding censé
-représenter des développeurs qui ne codent presque plus que par IA.
-Ce n'est pas ce que j'ai observé autour de moi mais il va de soi que
-ce serait un usage complètement déplacé de l'IA car il s'agirait d'un code
-jetable et pas durable, quelque chose à la frontière entre l'escroquerie 
-et le gaspillage énergétique.
+It's difficult to separate fact from fiction regarding the term "vibe coding," supposedly representing developers who code almost entirely through AI. That's not what I've observed around me, but it goes without saying that this would be a completely inappropriate use of AI—producing throwaway, unsustainable code that borders on fraud and energy waste.
 
-Ce qui est sûr c'est que la tendance récente après une grosse hype sur les agents est de revenir à une approche plus raisonnée / hybride
-et certaines déclarations de grandes entreprises américaines qui reviennent sur leur choix du tout ia est hilarant.
+What's certain is that the recent trend, following massive hype around agents, is a return to a more reasoned, hybrid approach. Some statements from major US companies walking back their all-in-on-AI decisions are quite amusing.
 
-Il est donc important de résister à la tentation de l'utilisation 
-intensive de ces agents qui amène de nombreux problèmes :
-- impact environnemental
-- code moins durable
-- perte de niveau du développeur
-- perte de plaisir
+It's therefore important to resist the temptation of intensive agent usage, which brings numerous problems:
+- Environmental impact
+- Less maintainable code
+- Developer skill degradation
+- Loss of enjoyment
 
+# Mindful Use of Agents
 
-# Une utilisation sobre des agents
+## Agents Without Intent
 
-## Des agents sans intention
+Regardless of the type of AI, one thing that strikes me—despite the accuracy and speed of recent models—is the tendency of agents to propose responses lacking clear intent, and I'd almost say lacking emotion.
 
-Quel que soit le type d'IA, un
-sujet qui me frappe malgré l’exactitude et la rapidité des modèles récents est
-la propension des agents à proposer des réponses qui manque d’intention
-claire et j'oserai presque dire d’émotions.
+This feeling is obvious when asking an LLM to produce artistic text or music. All the richness and depth of human interactions, regardless of the medium, relies on communicating intent. Reading AI-generated code is tiresome. It's code without flair—verbose and generic.
 
-C’est un ressenti évident quand on demande à un LLM de produire du texte à visée
-artistique ou de la musique. Toute la richesse et la portée des interactions humaines,
-qu’elles qu’en soit le moyen d’expression repose sur la communication d’une
-intention. Lire un code généré par IA est lassant. C’est un code sans
-fantaisie, verbeux et générique.
+In terms of both impact and results, practice encourages using agents in a controlled and segmented manner, or risk impoverishing the codebase and what it will convey to future developers. I can already picture myself revisiting codebases in a few years thinking "another thing coded by an AI..."
 
-Que ce soit en terme d’impact ou de résultats, la pratique incite à utiliser
-les agents de manière contrôlée et segmentée au risque d’appauvrir la code base
-et ce qu’elle évoquera aux futurs développeurs. Je me vois déjà reprendre des
-codebases dans quelques années et me dire “encore un truc codé par une IA..” 😂
+### The Context Problem
 
-### Le problème du contexte
+Arguably the main problem with agents today is their limited access to codebase context. Manually specifying files is slow, and letting the agent search is equally slow. LLMs tend to struggle anyway when conversation context becomes too long. They will therefore propose suboptimal solutions (due to lack of context) whenever requests are too generic.
 
-Sans doute le problème principal des agents aujourd'hui est qu'ils ont un accès limité au context de la codebase.
-Spécifier les fichiers manuellement est lent et laisser chercher l'agent l'est aussi.
-Les LLM ont tendance à être en difficulté dès que le contexte d'une conversation devient trop long de toute façon.
-Ils vont donc (par manque de contexte) proposer des solutions sous optimales dès que la demande sera trop générique.
+## Knowing When to Use AI
 
-## Savoir quand utiliser l’IA
+AI agents provide code on demand and compete with many existing tools and coding techniques. Software development didn't wait for AI to offer solutions beyond manual coding!
 
-Les agents IA nous fournissent du code sur demande et entrent en concurrence avec de nombreux
-outils et techniques de code. L'informatique n'a pas attendu les IA pour proposer des solutions
-qui vont au-delà du code manuel !
-Certes certaines utilisations d'agents sont uniques car ils sont capables de proposer du code
-extrêmement spécifique mais le propre des projets informatiques est justement de rarement
-rechercher l'originalité. Les seules personnes ayant l'impression de faire quelque chose de spécifique
-sont généralement les développeurs juniors et les clients ^^
-Apprendre à ne pas réinventer la roue est à la base du travail de développeur et malheureusement les
-agents ne sont pas excellents à appliquer ce principe.
-Ils proposent souvent une solution verbeuse, et ne vont pas penser à la solution élégante ou pragmatique
-(type utiliser une librairie existante ou la dernière directive css) d'eux même.
+Granted, some agent uses are unique because they can propose extremely specific code, but the nature of software projects is rarely to seek originality. The only people who think they're doing something unique are typically junior developers and clients.
 
-Connaitre l'écosystème sur le bout des doigt et continuer de se former reste la priorité en tant
-que développeur.
+Learning not to reinvent the wheel is fundamental to development work, and unfortunately, agents aren't excellent at applying this principle. They often propose verbose solutions and won't think of elegant or pragmatic alternatives (like using an existing library or the latest CSS directive) on their own.
 
-> J’ai envie de donner un exemple, j’ai écrit ce document sur Google doc et
-> souhaitait le passer en markdown pour le publier sur ce blog. J’ai d’abord pensé
-> à copier-coller ce texte dans Claude avant de réaliser qu’une extension gdoc
-> existait déjà et faisait le travail mieux de manière algorithmique et beaucoup plus
-> rapidement !
+Knowing the ecosystem inside out and continuing to learn remains the priority as a developer.
 
+> Here's an example: I wrote this document in Google Docs and wanted to convert it to markdown for publishing on this blog. I first thought about copy-pasting the text into Claude before realizing that a Google Docs extension already existed and did the job better algorithmically and much faster!
 
+**Let's now discuss my technical recommendations for using agents.**
 
-**Abordons maintenant mes recommandations techniques sur l’utilisation
-d’agents.**
+# A Hybrid Workflow with Full Control
 
-# Un workflow hybride tout en contrôle
+The real revolution for web development was the arrival of agents capable of working on an entire codebase.
 
-La vraie révolution pour le développement web a été l’arrivée d’agents capables
-de travailler sur une codebase entière.
+Tools fall into two camps: AI IDEs (like Cursor) and CLI AI agents (like Claude Code).
 
-Les outils se divisent en 2 camps, les IDE IA (comme Cursor) et les agents IA
-CLI (comme Claude Code).
+I strongly prefer the second option, which allows me to maintain full control of my editor (JetBrains), without eroding either my coding enjoyment or my screen real estate.
 
-Je préfère largement la seconde solution qui me permet de garder un contrôle
-total de mon éditeur (Jetbrains), sans érosion ni de mon plaisir à coder ni de mon espace d'écran.
+I use Claude Code (Sonnet 4.5) connected to my JetBrains editor (via the [/ide](https://code.claude.com/docs/en/jetbrains) command—open files and selections are integrated into Claude Code's context).
 
-J’utilise donc Claude Code (Sonnet 4.5) connecté à mon éditeur Jetbrains (via la
-commande [/ide](https://code.claude.com/docs/en/jetbrains), les fichiers ouverts
-et la sélection sont intégrés au contexte de Claude Code).
+## Claude Code, a Polished CLI
 
-## 💫 Claude Code, une CLI très pro
+I admit I haven't tested other CLI tools like Codex, but I consider Claude Sonnet the best LLM for code (it's the one I use in the web version and it seems more accurate and useful than ChatGPT in particular).
 
-J’avoue ne pas avoir testé d’autres outils CLI comme Codex mais je considère
-Claude Sonnet comme le meilleur LLM pour le code (c’est celui que j’utilise en
-version web et il me semble plus précis et utile que ChatGPT notamment).
+Furthermore, Claude Code's CLI experience is polished—Anthropic has done excellent work on this aspect. I've noticed they're facing criticism lately for their product and competition from other solutions like openCode. Developers can be harsh.
 
-Par ailleurs l'expérience de CLI de Claude Code est léchée, Anthropic a
-produit un excellent travail sur cet aspect là.
-J'ai vu que pourtant ils étaient très critiqués en ce moment sur leur produit et attaqués par d'autres solutions comme
-openCode. Les développeurs sont durs.
+## Bonus Tips
 
-## Bonus tips
+Claude, like all LLMs, gives an impression of being ready out of the box and doesn't need additional configuration to be highly useful.
 
-Claude, comme tous les LLM produit une impression de fini out of the box et n’a
-pas besoin de configuration supplémentaire pour être très utile.
+For example, the recently added plan mode seems unnecessary to me and more targeted at vibe coders.
 
-Par exemple, le plan mode qui a été rajouté récemment me semble inutile et plus
-adressé à des vibe codeurs.
+Nevertheless, I've successfully experimented with some [Anthropic recommendations](https://www.anthropic.com/engineering/claude-code-best-practices):
 
-Malgré tout, j’ai expérimenté avec succès quelques [recommandations d’Anthropic](https://www.anthropic.com/engineering/claude-code-best-practices) :
+- I use a generic claude.local.md for all my projects, briefing Claude Code on my development approach whenever I start a new project (Makefile usage, architecture preferences, etc.)
+- For existing projects, I ask Claude to enrich this file by analyzing the codebase. This enables intelligent modifications that go beyond the context of analyzed files (e.g., using internal services or libraries, running lint commands, etc.)
 
-- J’utilise un claude.local.md générique pour tous mes projets mettant claude
-  code au parfum de ma manière de développer dès que je commence un nouveau
-  projet (utilisation du Makefile, préférences d’architecture, etc..)
-- Pour les projets existants, je demande à Claude d’enrichir ce fichier en
-  analysant la codebase. Ce qui permet ensuite d’avoir des modifications
-  intelligentes qui dépassent le contexte des fichiers analysés (ex : utilisation
-  de services ou librairies internes, exécution de commandes de lint..)
-
-Dernier point : bien maitriser git et avoir un workflow dynamique est important pour ne pas perdre de temps
-à rollback ou différencier des changements non pertinents.
+Final point: mastering git and having a dynamic workflow is important to avoid wasting time on rollbacks or differentiating irrelevant changes.

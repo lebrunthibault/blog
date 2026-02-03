@@ -3,20 +3,26 @@ Thibault Lebrun - Senior Fullstack Web Developer
 {{- end -}}
 
 {{- define "content" -}}
-  <section>
-    <br>
-    <div class="text-center mb-4">
-      <img src="/img/profile.jpg" alt="Thibault Lebrun" class="w-[300px] mb-8 block mx-auto" fetchpriority="high" loading="eager" width="300" height="300">
+  <!-- Hero Section -->
+  <section class="flex flex-col md:flex-row items-center gap-8 md:gap-16 pt-8 md:py-8">
+    <!-- Left: Text -->
+    <div class="flex-1 text-center md:text-left">
+      <h1 class="text-3xl md:text-3xl font-semibold mb-6 leading-tight">
+        AI-First Modern<br>Web Development
+      </h1>
+      <p class="text-shadow-blue text-base md:text-lg mb-8 leading-relaxed max-w-md">
+        Senior fullstack developer with 10 years of experience, I deliver production-ready scalable solutions using modern web technologies and AI.
+      </p>
     </div>
+    <!-- Right: Image -->
+    <div class="flex-shrink-0 order-first md:order-last">
+      <img src="/img/profile.png" alt="Thibault Lebrun" class="rounded-full object-cover" style="width: 220px; height: 220px;" fetchpriority="high" loading="eager">
+    </div>
+  </section>
 
-    <h1>
-      AI-First Modern Web Development
-    </h1>
-    <blockquote class="mb-6">
-      Senior fullstack web developer with 10 years of experience, I leverage recent web technologies and AI-assisted development to deliver production-ready solutions faster than ever.
-    </blockquote>
-
-    <h2 class="text-xl font-semibold mt-8 mb-4">MVP Development</h2>
+  <!-- Services -->
+  <section class="mt-8">
+    <h2 class="text-xl font-semibold mb-4">MVP Development</h2>
     <p class="mb-4">
       Need to validate an idea quickly? I build <strong>production-ready MVPs</strong> using Next.js, Supabase, Stripe and AI integrations.
     </p>

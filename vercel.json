@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "build": {
+    "env": {
+      "HUGO_VERSION": "0.139.3"
+    }
+  },
+  "buildCommand": "hugo --gc --minify --ignoreCache",
+  "framework": "hugo"
+}

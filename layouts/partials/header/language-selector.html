@@ -14,9 +14,9 @@
 
         <li class="language-item {{if $active}}active{{end}}">
           {{ with $pageTranslation }}
-            <a href="{{ .Permalink }}">{{ .Language.Lang }}</a>
+            <a href="{{ .RelPermalink }}">{{ .Language.Lang }}</a>
           {{ else }}
-            <a href="{{ $homeTranslation.Permalink }}">{{ .Language.Lang }}</a>
+            <a href="{{ $homeTranslation.RelPermalink }}">{{ .Language.Lang }}</a>
           {{ end }}
         </li>
       {{ end }}

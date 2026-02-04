@@ -113,10 +113,14 @@ function initHeroAnimation() {
   if (!modernLetters || !webDevLetters || !aiFirst) return;
 
   // Wrap each letter in spans
-  modernLetters.innerHTML = modernLetters.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='hero-letter inline-block' style='opacity:0'>$&</span>");
-  webDevLetters.innerHTML = webDevLetters.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='hero-letter inline-block' style='opacity:0'>$&</span>");
+  modernLetters.innerHTML = modernLetters.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='hero-letter inline-block'>$&</span>");
+  webDevLetters.innerHTML = webDevLetters.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='hero-letter inline-block'>$&</span>");
   const modernChars = modernLetters.querySelectorAll('.hero-letter');
   const webDevChars = webDevLetters.querySelectorAll('.hero-letter');
+
+  // Set initial opacity via GSAP (respects prefers-reduced-motion via CSS)
+  gsap.set(modernChars, { opacity: 0 });
+  gsap.set(webDevChars, { opacity: 0 });
 
   // Get dimensions
   const modernWidth = modernLetters.getBoundingClientRect().width + 10;
@@ -205,6 +209,9 @@ function initProfileAnimation() {
 
   if (!profileBase || !profileAi) return;
 
+  // Set initial state (hidden)
+  gsap.set([profileBase, profileAi], { opacity: 0 });
+
   // First: fade in base image (1.5s)
   gsap.to(profileBase, {
     opacity: 1,
@@ -284,20 +291,25 @@ function cleanup() {
   closeMobileMenu();
 }
 
-// Initialize all page components
-function initPage() {
+// Initialize page content (called after each Swup transition)
+function initPageContent() {
   initLenis();
-  initMobileMenu();
   initHeroAnimation();
   initProfileAnimation();
   initScrollReveal();
   updateActiveMenuItem();
 }
 
+// Initialize everything on first load
+function initPage() {
+  initMobileMenu(); // Only once - header is outside Swup container
+  initPageContent();
+}
+
 // Initialize Swup
 const swup = new Swup({
   containers: ['#swup'],
-  linkSelector: 'a[data-swup-link]',
+  linkSelector: 'a[href^="/"]:not([target="_blank"]):not([href^="/#"])',
   plugins: [
     new SwupHeadPlugin(),
     new SwupPreloadPlugin()
@@ -309,9 +321,9 @@ swup.hooks.before('content:replace', () => {
   cleanup();
 });
 
-// Hook: after content replacement (reinitialize)
+// Hook: after content replacement (reinitialize content only)
 swup.hooks.on('content:replace', () => {
-  initPage();
+  initPageContent();
 });
 
 // Initial page load

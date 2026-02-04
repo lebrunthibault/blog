@@ -19,7 +19,7 @@
 {{- $variant := default "outlined" .variant -}}
 {{- $headingLevel := default "h2" .headingLevel -}}
 
-<a href="{{ $page.Permalink }}" class="flex border-b-0">
+<a href="{{ $page.RelPermalink }}" class="flex border-b-0">
   <div class="
     card-hover bg-oxford-blue border border-neutral-700 rounded-xl
     hover:border-shadow-blue transition-all flex-1 flex flex-col

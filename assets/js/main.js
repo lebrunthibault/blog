@@ -110,16 +110,16 @@ document.addEventListener('DOMContentLoaded', function() {
         .to(webDevLine, { scaleY: 1, opacity: 1, duration: 0, ease: 'expo.out' })
         .to(webDevLine, { x: webDevWidth, duration: 0.7, ease: 'expo.out', delay: 0.05 })
         .to(webDevChars, { opacity: 1, duration: 0.2, ease: 'expo.out', stagger: 0.034 }, '-=0.75')
-        .to(webDevLine, { opacity: 0, duration: 0.2 })
+        .to(webDevLine, { opacity: 0, duration: 0 })
 
         // Pause
         // .to({}, { duration: 0.15 })
 
-        // Step 3: AI First appears and pushes Modern to the right
+        // Step 3: AI First appears
         .set(aiFirst, { overflow: 'visible' })
         .to(aiFirst, {
           width: aiFirstWidth + 10,
-          duration: 0.7,
+          duration: 0,
           ease: 'power2.out'
         })
         // AI: scale from big + fade in

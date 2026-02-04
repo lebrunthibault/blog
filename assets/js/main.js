@@ -44,14 +44,24 @@ if (document.body.dataset.smoothScroll === 'true') {
 document.addEventListener('DOMContentLoaded', function() {
   const menuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
 
-  if (menuButton && mobileMenu) {
+  if (menuButton && mobileMenu && iconOpen && iconClose) {
     menuButton.addEventListener('click', function() {
       const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
       menuButton.setAttribute('aria-expanded', !isExpanded);
       menuButton.setAttribute('aria-label', isExpanded ? 'Ouvrir le menu de navigation' : 'Fermer le menu de navigation');
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('flex');
+
+      // Toggle menu overlay
+      mobileMenu.classList.toggle('is-open');
+
+      // Toggle icons
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
     });
   }
 

@@ -1,14 +1,19 @@
-<nav>
+<nav class="relative z-50">
   <div class="flex justify-between items-center">
     <!-- Logo/Title -->
-    <a class="flex items-center" href="{{ "/" | relLangURL }}">
+    <a class="flex items-center relative z-50" href="{{ "/" | relLangURL }}">
       <img src="/img/logo.png" alt="Logo" class="w-7 h-7">
     </a>
 
     <!-- Mobile menu button -->
-    <button id="mobile-menu-button" class="md:hidden p-2 text-platinum hover:text-shadow-blue transition-colors" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <button id="mobile-menu-button" class="md:hidden p-2 text-platinum hover:text-shadow-blue transition-colors relative z-50" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+      <!-- Hamburger icon -->
+      <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <!-- Close icon (hidden by default) -->
+      <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
 
@@ -23,17 +28,19 @@
     </ul>
   </div>
 
-  <!-- Mobile menu (hidden by default) -->
-  <ul id="mobile-menu" class="hidden md:hidden flex-col gap-4 text-base">
-    {{ range .Site.Menus.main -}}
-    {{ $isActive := or ($.IsMenuCurrent "main" .) (hasPrefix $.RelPermalink .URL) }}
-    <a class="menu-item-link block py-2{{ if $isActive }} menu-item-active{{ end }}" href="{{ .URL | safeURL }}">
+  <!-- Mobile menu overlay (hidden by default) -->
+  <div id="mobile-menu" class="mobile-menu-overlay">
+    <ul class="flex flex-col items-center justify-center gap-10 text-2xl">
+      {{ range .Site.Menus.main -}}
+      {{ $isActive := or ($.IsMenuCurrent "main" .) (hasPrefix $.RelPermalink .URL) }}
       <li>
-        {{ .Name }}
+        <a class="menu-item-link{{ if $isActive }} menu-item-active{{ end }}" href="{{ .URL | safeURL }}">
+          {{ .Name }}
+        </a>
       </li>
-    </a>
-    {{- end }}
-  </ul>
+      {{- end }}
+    </ul>
+  </div>
 </nav>
 
 <style>
@@ -80,6 +87,57 @@
 .menu-item-active::before {
   right: 0;
   left: 0;
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0c0c0c; /* rich-black */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  z-index: 40;
+}
+
+.mobile-menu-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu-overlay li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.mobile-menu-overlay.is-open li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-overlay.is-open li:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu-overlay.is-open li:nth-child(2) { transition-delay: 0.15s; }
+.mobile-menu-overlay.is-open li:nth-child(3) { transition-delay: 0.2s; }
+.mobile-menu-overlay.is-open li:nth-child(4) { transition-delay: 0.25s; }
+.mobile-menu-overlay.is-open li:nth-child(5) { transition-delay: 0.3s; }
+
+@media (min-width: 768px) {
+  .mobile-menu-overlay {
+    display: none !important;
+  }
 }
 </style>
 

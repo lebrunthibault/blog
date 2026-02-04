@@ -3,12 +3,12 @@ import Lenis from 'lenis';
 // Initialize smooth scroll with inertia (only on home & list pages)
 if (document.body.dataset.smoothScroll === 'true') {
   const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    duration: 0.8,
+    easing: (t) => 1 - Math.pow(1 - t, 3),
     orientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 1,
-    touchMultiplier: 2,
+    wheelMultiplier: 1.2,
+    touchMultiplier: 1.5,
   });
 
   function raf(time) {

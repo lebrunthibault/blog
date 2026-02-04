@@ -25,7 +25,7 @@ Blog
 
     {{/* Display posts grouped by category */}}
     {{- range $category := $.Scratch.Get "categories" }}
-      <div class="mb-12 sm:mb-16 md:mb-20">
+      <div class="mb-12 sm:mb-16 md:mb-20 scroll-reveal">
         <h1 class="mb-6 sm:mb-8">{{ $category | title }}</h1>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mt-1">
         {{- range $posts }}

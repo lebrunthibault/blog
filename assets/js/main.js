@@ -1,5 +1,8 @@
 import Lenis from 'lenis';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // Initialize smooth scroll with inertia (only on home & list pages)
 if (document.body.dataset.smoothScroll === 'true') {
@@ -14,6 +17,7 @@ if (document.body.dataset.smoothScroll === 'true') {
 
   function raf(time) {
     lenis.raf(time);
+    ScrollTrigger.update();
     requestAnimationFrame(raf);
   }
   requestAnimationFrame(raf);
@@ -174,6 +178,32 @@ document.addEventListener('DOMContentLoaded', function() {
       duration: 2.5,
       delay: 1,
       ease: 'power2.Out'
+    });
+  }
+
+  // Scroll reveal animations for home sections
+  const scrollRevealSections = document.querySelectorAll('.scroll-reveal');
+
+  if (scrollRevealSections.length > 0) {
+    scrollRevealSections.forEach((section) => {
+      gsap.fromTo(section,
+        {
+          opacity: 0,
+          y: 50
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.3,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            end: 'top 50%',
+            toggleActions: 'play none none none'
+          }
+        }
+      );
     });
   }
 });

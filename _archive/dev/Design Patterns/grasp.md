@@ -26,5 +26,3 @@ draft: true
 
 > Low Coupling, [Factory pattern](https://en.wikipedia.org/wiki/Factory_pattern)
 
-### Controller
-

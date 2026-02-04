@@ -1,3 +1,8 @@
+---
+title: "Docker tips"
+draft: true
+---
+
 ## building
 
 - use Docker build instead of docker-compose build (or up --build) to take advantage of layer cashing (not so sure)

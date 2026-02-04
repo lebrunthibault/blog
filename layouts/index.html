@@ -1,49 +1,162 @@
 {{- define "title" -}}
-Thibault Lebrun - Senior Fullstack Web Developer
+Thibault Lebrun - Développeur Web Fullstack Senior
 {{- end -}}
 
 {{- define "content" -}}
-  <!-- Hero Section -->
-  <section class="flex flex-col md:flex-row items-center gap-8 md:gap-16 pt-8 md:py-8">
-    <!-- Left: Text -->
-    <div class="flex-1 text-center md:text-left">
-      <h1 class="text-3xl md:text-3xl font-semibold mb-6 leading-tight">
-        AI-First Modern<br>Web Development
-      </h1>
-      <p class="text-shadow-blue text-base md:text-lg mb-8 leading-relaxed max-w-md">
-        Senior fullstack developer with 10 years of experience, I deliver production-ready scalable solutions using modern web technologies and AI.
-      </p>
-    </div>
-    <!-- Right: Image -->
-    <div class="flex-shrink-0 order-first md:order-last">
-      <img src="/img/profile.webp" alt="Thibault Lebrun" class="rounded-full object-cover" width="220" height="220" fetchpriority="high" loading="eager">
+  <!-- HERO -->
+  <section class="py-12 md:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+      <div class="text-center md:text-left">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight mb-5">
+          <span class="text-yinmn-blue">AI-First</span> Modern <br>
+          Web Development
+        </h1>
+        <p class="text-shadow-blue text-sm sm:text-base md:text-lg mb-6 max-w-md mx-auto md:mx-0">
+          Développeur fullstack senior · 10 ans d'expérience ·
+          Je construis des solutions web scalables boostées à l'IA.
+        </p>
+        <div class="flex gap-3 justify-center md:justify-start">
+          <a href="/contact/" class="px-4 sm:px-5 py-2.5 sm:py-3 bg-yinmn-blue text-platinum rounded-lg text-sm sm:text-base font-medium hover:bg-transparent hover:text-yinmn-blue border border-yinmn-blue transition-all shadow-lg shadow-yinmn-blue/30 hover:shadow-none" style="white-space: nowrap;">
+            Me contacter
+          </a>
+          <a href="/projects/" class="px-4 sm:px-5 py-2.5 sm:py-3 border border-neutral-700 text-platinum rounded-lg text-sm sm:text-base font-medium hover:border-shadow-blue transition-all" style="white-space: nowrap;">
+            Voir les projets
+          </a>
+        </div>
+      </div>
+      <div class="flex justify-center order-first md:order-last">
+        <img src="/img/profile.webp" alt="Thibault Lebrun" class="rounded-full w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 object-cover" fetchpriority="high" loading="eager">
+      </div>
     </div>
   </section>
 
-  <!-- Services -->
-  <section class="mt-8">
-    <h2 class="text-xl font-semibold mb-4">MVP Development</h2>
-    <p class="mb-4">
-      Need to validate an idea quickly? I build <strong>production-ready MVPs</strong> using Next.js, Supabase, Stripe and AI integrations.
-    </p>
-    <p class="mb-4">
-      <a href="/post/developpement-fullstack/mvp-development/">Learn about my MVP development approach →</a>
-    </p>
+  <!-- SERVICES -->
+  <section class="py-12 md:py-16">
+    <h2 class="text-xl sm:text-2xl font-semibold mb-6 md:mb-10">Mon expertise</h2>
 
-    <h2 class="text-xl font-semibold mt-8 mb-4">Complex Web Platforms</h2>
-    <p class="mb-4">
-      For larger projects requiring custom architecture, advanced integrations, or team collaboration, I offer comprehensive <strong>fullstack development services</strong>.
-    </p>
-    <p class="mb-4">
-      <a href="/post/developpement-fullstack/methodologie/">Read my technical methodology →</a>
-    </p>
-    <p class="mb-4">
-      For enterprise-scale projects, I collaborate with <a href="https://improba.fr/" target="_blank">Improba</a>, specializing in large-scale digital projects in the impact sector.
-    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      <!-- MVP Card -->
+      <div class="card-hover bg-oxford-blue border border-yinmn-blue rounded-xl px-5 sm:px-8 pb-4 sm:pb-6 transition-all flex flex-col" style="background: linear-gradient(135deg, #1B263B 0%, rgba(65, 90, 119, 0.1) 100%);">
+        <h3 class="text-lg sm:text-xl font-semibold mb-2">Développement MVP</h3>
+        <p class="text-shadow-blue text-sm sm:text-base mb-4 flex-1">Validez votre idée rapidement. Je construis des MVP robustes et évolutifs avec Next.js, Supabase, Stripe et les intégrations IA qu'il vous faut.</p>
+        <a href="/post/developpement-fullstack/mvp-development/" class="text-yinmn-blue text-sm sm:text-base font-medium border-b-0 hover:text-shadow-blue transition-colors mt-auto">En savoir plus →</a>
+      </div>
 
-    <h2 class="text-xl font-semibold mt-8 mb-4">Projects</h2>
-    <p class="mb-4">
-      View my main projects in the <a href="/projects">projects section</a>.
-    </p>
+      <!-- Complex Platforms Card -->
+      <div class="card-hover bg-oxford-blue border border-neutral-700 rounded-xl px-5 sm:px-8 pb-4 sm:pb-6 hover:border-yinmn-blue transition-all flex flex-col">
+        <h3 class="text-lg sm:text-xl font-semibold mb-2">Plateformes Web Complexes</h3>
+        <p class="text-shadow-blue text-sm sm:text-base mb-4 flex-1">Services fullstack pour des projets ambitieux : architecture sur mesure, intégrations avancées, collaboration en équipe.</p>
+        <a href="/post/developpement-fullstack/methodologie/" class="text-yinmn-blue text-sm sm:text-base font-medium border-b-0 hover:text-shadow-blue transition-colors mt-auto">Ma méthodologie →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGIES -->
+  <section class="py-12 md:py-16 text-center">
+    <h2 class="text-xl sm:text-2xl font-semibold mb-5">Mes <span class="text-yinmn-blue">Technologies</span></h2>
+    <div class="flex flex-wrap justify-center gap-3">
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">Node.js</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">Nest.js</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">TypeScript</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">Vue.js</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">React</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">Next.js</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">Python</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">FastAPI</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">PostgreSQL</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">Supabase</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">Docker</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">Stripe</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">OpenAI</span>
+      <span class="px-4 py-2 bg-oxford-blue border border-neutral-700 rounded-full text-sm text-platinum">Tailwind</span>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+<!--  <section class="py-10 md:py-12 border-t border-b border-neutral-800">-->
+<!--    <p class="text-shadow-blue text-sm text-center mb-6">Trusted by</p>-->
+<!--    <div class="flex justify-center items-center gap-6 md:gap-10 flex-wrap">-->
+<!--      <a href="" target="_blank" class="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">-->
+<!--        <img src="/img/logo_aps_transparent.png" alt="APS" class="h-10 md:h-12">-->
+<!--        <span class="text-xs text-shadow-blue">APS</span>-->
+<!--      </a>-->
+<!--      <a href="" target="_blank" class="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">-->
+<!--        <img src="/img/logo_basile_transparent.png" alt="Basile" class="h-10 md:h-12">-->
+<!--        <span class="text-xs text-shadow-blue">Basile</span>-->
+<!--      </a>-->
+<!--      <a href="" target="_blank" class="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">-->
+<!--        <img src="/img/logo_emmaus_transparent.png" alt="Emmaüs Gardiens" class="h-10 md:h-12">-->
+<!--        <span class="text-xs text-shadow-blue">Emmaüs Gardiens</span>-->
+<!--      </a>-->
+<!--      <a href="" target="_blank" class="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">-->
+<!--        <img src="/img/logo_kessel_transparent.png" alt="Kessel" class="h-10 md:h-12">-->
+<!--        <span class="text-xs text-shadow-blue">Kessel</span>-->
+<!--      </a>-->
+<!--    </div>-->
+<!--  </section>-->
+
+  <!-- PROJECTS -->
+  <section class="py-12 md:py-16">
+    <div class="flex justify-between items-end mb-6 md:mb-10">
+      <div>
+        <h2 class="text-xl sm:text-2xl font-semibold">Projets récents</h2>
+      </div>
+      <a href="/projects/" class="px-4 py-2 border border-neutral-700 text-platinum rounded-lg text-sm font-medium hover:border-shadow-blue transition-all hidden md:block">
+        Tous les projets →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+      <!-- AgriParis Seine -->
+      <a href="/projects/aps/" class="card-hover group bg-oxford-blue border border-neutral-700 rounded-xl overflow-hidden hover:border-shadow-blue transition-all flex flex-col">
+        <div class="h-32 sm:h-40 bg-rich-black flex items-center justify-center">
+          <img src="/img/logo_aps.jpeg" alt="AgriParis Seine" class="h-16 rounded">
+        </div>
+        <div class="p-4 sm:p-5 flex flex-col flex-1">
+          <h4 class="font-semibold mb-2 text-sm sm:text-base">AgriParis Seine</h4>
+          <p class="text-shadow-blue text-xs sm:text-sm flex-1">Plateforme de ressources pour les acteurs de l'alimentation durable.</p>
+          <div class="flex gap-2 mt-3 flex-wrap">
+            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">Node.js</span>
+            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">Vue.js</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Emmaüs Habitat -->
+      <a href="/projects/emmaus-gardiens/" class="card-hover group bg-oxford-blue border border-neutral-700 rounded-xl overflow-hidden hover:border-shadow-blue transition-all flex flex-col">
+        <div class="h-32 sm:h-40 bg-rich-black flex items-center justify-center">
+          <img src="/img/logo_emmaus_habitat.jpeg" alt="Emmaüs Habitat" class="h-16 rounded">
+        </div>
+        <div class="p-4 sm:p-5 flex flex-col flex-1">
+          <h4 class="font-semibold mb-2 text-sm sm:text-base">Emmaüs Habitat</h4>
+          <p class="text-shadow-blue text-xs sm:text-sm flex-1">Plateforme RH de gestion des salaires dans l'habitat social.</p>
+          <div class="flex gap-2 mt-3 flex-wrap">
+            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">FastAPI</span>
+            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">Vue.js</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Kessel -->
+      <a href="/projects/kessel/" class="card-hover group bg-oxford-blue border border-neutral-700 rounded-xl overflow-hidden hover:border-shadow-blue transition-all flex flex-col">
+        <div class="h-32 sm:h-40 bg-rich-black flex items-center justify-center">
+          <img src="/img/logo_kessel.jpeg" alt="Kessel" class="h-16 rounded">
+        </div>
+        <div class="p-4 sm:p-5 flex flex-col flex-1">
+          <h4 class="font-semibold mb-2 text-sm sm:text-base">Kessel</h4>
+          <p class="text-shadow-blue text-xs sm:text-sm flex-1">Plateforme d'édition numérique avec fort traffic.</p>
+          <div class="flex gap-2 mt-3 flex-wrap">
+            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">FastAPI</span>
+            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">React</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="text-center mt-6 md:hidden">
+      <a href="/projects/" class="px-4 py-2 border border-neutral-700 text-platinum rounded-lg text-sm font-medium hover:border-shadow-blue transition-all inline-block">
+        Tous les projets →
+      </a>
+    </div>
   </section>
 {{- end -}}

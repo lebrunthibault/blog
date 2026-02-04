@@ -1,5 +1,5 @@
 ---
-prod: true
+prod: false
 draft: false
 title: "Building an Audio Marketplace with Next.js, Supabase and Stripe"
 date: 2026-02-03

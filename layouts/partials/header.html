@@ -1,8 +1,8 @@
-<nav class="">
+<nav>
   <div class="flex justify-between items-center">
     <!-- Logo/Title -->
-    <a class="menu-item-link text-base sm:text-lg font-semibold flex items-center gap-2" href="{{ "/" | relLangURL }}">
-      <img src="/img/logo.png" alt="Logo" class="w-8 h-8">
+    <a class="flex items-center" href="{{ "/" | relLangURL }}">
+      <img src="/img/logo.png" alt="Logo" class="w-7 h-7">
     </a>
 
     <!-- Mobile menu button -->
@@ -13,10 +13,11 @@
     </button>
 
     <!-- Desktop menu -->
-    <ul class="hidden md:flex items-center gap-4 lg:gap-6 text-base lg:text-lg">
+    <ul class="hidden md:flex items-center gap-4 lg:gap-6 text-sm">
       {{ range .Site.Menus.main -}}
-      <li>
-        <a class="menu-item-link" href="{{ .URL | safeURL }}">{{ .Name }}</a>
+      {{ $isActive := or ($.IsMenuCurrent "main" .) (hasPrefix $.RelPermalink .URL) }}
+      <li class="mb-0">
+        <a class="menu-item-link{{ if $isActive }} menu-item-active{{ end }}" href="{{ .URL | safeURL }}">{{ .Name }}</a>
       </li>
       {{- end }}
     </ul>
@@ -25,7 +26,8 @@
   <!-- Mobile menu (hidden by default) -->
   <ul id="mobile-menu" class="hidden md:hidden flex-col gap-4 text-base">
     {{ range .Site.Menus.main -}}
-    <a class="menu-item-link block py-2" href="{{ .URL | safeURL }}">
+    {{ $isActive := or ($.IsMenuCurrent "main" .) (hasPrefix $.RelPermalink .URL) }}
+    <a class="menu-item-link block py-2{{ if $isActive }} menu-item-active{{ end }}" href="{{ .URL | safeURL }}">
       <li>
         {{ .Name }}
       </li>
@@ -67,6 +69,15 @@
 .menu-item-link:hover::before,
 .menu-item-link:focus::before,
 .menu-item-link:active::before {
+  right: 0;
+  left: 0;
+}
+
+.menu-item-active {
+  color: #415A77; /* yinmn-blue */
+}
+
+.menu-item-active::before {
   right: 0;
   left: 0;
 }

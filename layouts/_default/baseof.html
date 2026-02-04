@@ -18,13 +18,15 @@
 </head>
 <body class="bg-rich-black text-platinum">
 <!--  {{ partial "slideout.html" . }}-->
-  <div class="mx-auto px-4 w-full max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
-    {{ if not .Params.hideHeaderAndFooter -}}
-    <header>
-        {{ partial "header.html" . }}
-    </header>
-    {{- end }}
+  {{ if not .Params.hideHeaderAndFooter -}}
+  <header class="sticky top-0 bg-rich-black/95 backdrop-blur-sm z-50 py-2">
+    <div class="mx-auto px-4 w-full max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
+      {{ partial "header.html" . }}
+    </div>
+  </header>
+  {{- end }}
 
+  <div class="mx-auto px-4 w-full max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl">
     <main>
       {{ block "content" . }}{{ end }}
     </main>

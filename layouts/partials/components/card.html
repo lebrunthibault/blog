@@ -1,0 +1,67 @@
+{{/*
+  Card Component
+
+  Parameters:
+  - page: the page object (required)
+  - showLogo: boolean to show logo (optional, default false)
+  - showDuration: boolean to show duration badge (optional, default false)
+  - filterKeywords: slice of keywords to filter out (optional)
+  - variant: "default" or "outlined" for tag style (optional, default "outlined")
+*/}}
+
+{{- $page := .page -}}
+{{- $showLogo := default false .showLogo -}}
+{{- $showDuration := default false .showDuration -}}
+{{- $filterKeywords := default (slice) .filterKeywords -}}
+{{- $variant := default "outlined" .variant -}}
+
+<a href="{{ $page.Permalink }}" class="flex border-b-0">
+  <div class="
+    card-hover px-3 sm:px-4 py-3 sm:py-4
+    bg-oxford-blue border border-neutral-700 rounded-xl
+    hover:border-shadow-blue transition-all flex-1 flex flex-col
+  ">
+    <div class="flex-1 flex flex-col">
+      {{/* Title row with optional logo */}}
+      <div class="flex items-start justify-between gap-4 mb-2">
+        <h2 class="text-lg sm:text-xl font-semibold text-platinum mt-0 mb-0 flex-1">
+          {{ $page.Title }}
+        </h2>
+        {{- if and $showLogo $page.Params.logo }}
+        <img src="/img/{{ $page.Params.logo }}" alt="{{ $page.Title }} logo" class="w-10 h-10 object-contain flex-shrink-0 rounded" loading="lazy">
+        {{- end }}
+      </div>
+
+      {{/* Description */}}
+      {{- if $page.Description }}
+      <p class="text-shadow-blue text-sm leading-relaxed mb-3 flex-1">{{ $page.Description }}</p>
+      {{- else if $page.Summary }}
+      <p class="text-shadow-blue text-sm leading-relaxed mb-3 flex-1">{{ $page.Summary }}</p>
+      {{- end }}
+
+      {{/* Tags and Duration row */}}
+      <div class="flex items-end justify-between gap-4 mt-auto">
+        {{- if $page.Params.keywords }}
+        <div class="flex gap-2 flex-wrap">
+          {{- range $page.Params.keywords }}
+          {{- if not (in $filterKeywords .) }}
+          {{- if eq $variant "filled" }}
+          {{ partial "components/tag.html" (dict "text" .) }}
+          {{- else }}
+          <span class="text-xs text-shadow-blue border border-neutral-600 px-3 py-1 rounded-full">{{ . }}</span>
+          {{- end }}
+          {{- end }}
+          {{- end }}
+        </div>
+        {{- end }}
+
+        {{/* Duration badge */}}
+        {{- if and $showDuration $page.Params.duration }}
+        <span class="text-xs sm:text-sm px-2 py-1 bg-rich-black rounded-xl opacity-70 text-shadow-blue whitespace-nowrap">
+          {{ $page.Params.duration }}
+        </span>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</a>

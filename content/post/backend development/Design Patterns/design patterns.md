@@ -1,7 +1,7 @@
 ---
 prod: true
 draft: false
-title: ⚙️ Design Patterns Portfolio
+title: Design Patterns Portfolio
 description: Notes de l'époque où je trouvais que l'orienté objet c'était vraiment génial avant de me dire que c'est un truc de vieux
 keywords:
   - Software Development

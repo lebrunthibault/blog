@@ -5,6 +5,14 @@
 @layer utilities {
 }
 
+.card-hover {
+    transition: filter 0.2s ease-out;
+}
+
+.card-hover:hover {
+    filter: brightness(1.20);
+}
+
 /* Self-hosted Montserrat font */
 @font-face {
     font-family: 'Montserrat';

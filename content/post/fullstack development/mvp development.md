@@ -1,18 +1,17 @@
 ---
 prod: true
 draft: false
-title: "Construire un MVP Web Moderne : Du Zéro à la Production"
+title: "Construire un MVP Web Moderne"
 date: 2026-02-03
 description: "Guide pratique pour livrer un MVP fullstack avec Next.js, Supabase, Stripe, et le développement assisté par IA avec Claude Code et les serveurs MCP."
 keywords:
   - Fullstack
   - TypeScript
   - AI
-  - MVP
   - Best Practices
 ---
 
-# Construire un MVP Web Moderne : Du Zéro à la Production
+# Construire un MVP Web Moderne
 
 Livrer un MVP production-ready rapidement tout en maintenant la qualité du code est le graal du développement web moderne. Dans cet article, je partage mon approche pour construire des applications fullstack qui sont **type-safe**, **sécurisées**, et **prêtes au déploiement** dès le premier jour — en tirant parti des frameworks modernes et du développement assisté par IA.
 

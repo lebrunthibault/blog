@@ -7,51 +7,17 @@
   </div>
 
   <section class="mt-6 sm:mt-8 md:mt-10">
+    <div class="flex flex-col gap-6 md:gap-8">
     {{- $projects := where .Site.RegularPages "Section" "projects" }}
-    {{- range $index, $project := $projects }}
-    <a href="{{ $project.Permalink }}">
-      <div class="
-        px-4 sm:px-6 md:px-8 pt-3 pb-3 sm:pb-4 mb-4 sm:mb-6
-        bg-oxford-blue border border-yinmn-blue rounded-lg
-        hover:border-shadow-blue transition-colors
-      ">
-        <div class="relative z-10">
-          <div class="flex items-start justify-between items-center gap-4 mb-4">
-            <h2 class="my-0 text-platinum flex-1">
-                {{ $project.Title }}
-            </h2>
-            {{- if $project.Params.logo }}
-            <img src="/img/{{ $project.Params.logo }}" alt="{{ $project.Title }} logo" class="w-12 h-12 object-contain flex-shrink-0" loading="lazy">
-            {{- end }}
-          </div>
-          {{- if $project.Description }}
-            <p class="text-shadow-blue text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">{{ $project.Description }}</p>
-          {{- end }}
-          <div class="grid grid-cols-[1fr_auto] items-end gap-x-4">
-            <!-- Tags -->
-            {{- if $project.Params.keywords }}
-            <div class="flex gap-2 flex-wrap">
-              {{- range $project.Params.keywords }}
-              {{ partial "components/tag.html" (dict "text" .) }}
-              {{- end }}
-            </div>
-            {{- end }}
-
-            <!-- Duration -->
-            {{- if .Params.duration }}
-            <span class="text-xs sm:text-sm px-2 py-1 bg-rich-black rounded-xl opacity-70 justify-self-end text-shadow-blue">
-    {{ .Params.duration }}
-  </span>
-            {{- end }}
-          </div>
-
-        </div>
-      </div>
-    </a>
+    {{- range $project := $projects }}
+      <div class="mb-2"></div>
+    {{ partial "components/card.html" (dict
+      "page" $project
+      "showLogo" true
+      "showDuration" true
+    ) }}
     {{- end }}
-
+    </div>
   </section>
 </article>
 {{ end }}
-
-

@@ -5,6 +5,6 @@
       "HUGO_VERSION": "0.139.3"
     }
   },
-  "buildCommand": "hugo --gc --minify --ignoreCache",
+  "buildCommand": "npm install && hugo --gc --minify --ignoreCache",
   "framework": "hugo"
 }

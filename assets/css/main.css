@@ -128,32 +128,32 @@
         }
     }
 
-    /* List styling (content only - excludes nav and TOC) */
-    main ul:not(#TableOfContents ul) {
+    /* List styling */
+    main ul {
         @apply pl-5 my-4;
         list-style: none;
     }
 
-    main ul:not(#TableOfContents ul) > li {
+    main ul > li {
         @apply relative pl-4 mb-3;
     }
 
-    main ul:not(#TableOfContents ul) > li::before {
+    main ul > li::before {
         content: "–";
         @apply absolute left-0 text-yinmn-blue;
         font-weight: 500;
     }
 
     /* Nested lists */
-    main ul:not(#TableOfContents ul) ul {
+    main ul ul {
         @apply mt-2 mb-0 pl-4;
     }
 
-    main ul:not(#TableOfContents ul) ul > li {
+    main ul ul > li {
         @apply mb-2;
     }
 
-    main ul:not(#TableOfContents ul) ul > li::before {
+    main ul ul > li::before {
         content: "•";
         @apply text-shadow-blue;
         font-size: 0.8em;
@@ -210,81 +210,5 @@
 
     th, td {
         @apply py-3 px-4;
-    }
-
-    #TableOfContents {
-        > ul > li {
-            @apply mb-3;
-        }
-        ul {
-            a {
-                @apply inline-block hover:bg-oxford-blue px-2 py-1 rounded text-sm sm:text-base;
-                color: #a3a3a3;
-                line-height: 1.5;
-            }
-            a:hover {
-                color: #d4d4d4;
-            }
-            ul {
-                @apply pl-4 sm:pl-6 mt-1;
-                a {
-                    @apply text-xs sm:text-sm;
-                }
-            }
-        }
-
-    }
-
-    /* Custom scrollbar for TOC sidebar */
-    #toc-sidebar {
-        scrollbar-width: thin;
-        scrollbar-color: #333 #161616;
-        overflow-x: hidden;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-
-    #toc-sidebar * {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        max-width: 100%;
-    }
-
-    #toc-sidebar::-webkit-scrollbar {
-        width: 10px;
-        height: 0;
-    }
-
-    #toc-sidebar::-webkit-scrollbar-track {
-        background: #161616;
-        border-radius: 5px;
-        margin: 4px 0;
-    }
-
-    #toc-sidebar::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 5px;
-        border: 2px solid #161616;
-    }
-
-    #toc-sidebar::-webkit-scrollbar-thumb:hover {
-        background: #444;
-    }
-
-    /* Responsive TOC positioning */
-    #toc-sidebar {
-        left: max(1rem, calc((100vw - 896px) / 2 - 260px));
-    }
-
-    @media (max-width: 1536px) {
-        #toc-sidebar {
-            width: 300px;
-        }
-    }
-
-    @media (min-width: 1536px) {
-        #toc-sidebar {
-            left: max(1rem, calc((100vw - 1024px) / 2 - 260px));
-        }
     }
 }

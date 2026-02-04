@@ -1,9 +1,4 @@
 {{ define "content" -}}
-<!-- TOC Sidebar Desktop (Fixed position outside container) -->
-<!--<aside id="toc-sidebar" class="hidden xl:block fixed top-24 w-[350px] max-h-[calc(100vh-7rem)] overflow-y-auto">-->
-<!--    {{- partial "post/toc.html" . -}}-->
-<!--</aside>-->
-
 <article>
     <!-- post-header -->
     <header>
@@ -23,11 +18,6 @@
             {{- end }}
         </div>
     </header>
-
-    <!-- TOC Mobile/Tablet -->
-<!--    <div class="xl:hidden">-->
-<!--        {{- partial "post/toc.html" . -}}-->
-<!--    </div>-->
 
     <!-- Outdated Info Warning -->
     {{- partial "post/outdated-info-warning.html" . -}}

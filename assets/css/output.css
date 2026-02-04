@@ -592,22 +592,22 @@ article {
   }
 }
 
-/* List styling (content only - excludes nav and TOC) */
+/* List styling */
 
-main ul:not(#TableOfContents ul) {
+main ul {
   margin-top: 24px;
   margin-bottom: 24px;
   padding-left: 32px;
   list-style: none;
 }
 
-main ul:not(#TableOfContents ul) > li {
+main ul > li {
   position: relative;
   margin-bottom: 16px;
   padding-left: 24px;
 }
 
-main ul:not(#TableOfContents ul) > li::before {
+main ul > li::before {
   content: "–";
   position: absolute;
   left: 0px;
@@ -618,17 +618,17 @@ main ul:not(#TableOfContents ul) > li::before {
 
 /* Nested lists */
 
-main ul:not(#TableOfContents ul) ul {
+main ul ul {
   margin-top: 12px;
   margin-bottom: 0px;
   padding-left: 24px;
 }
 
-main ul:not(#TableOfContents ul) ul > li {
+main ul ul > li {
   margin-bottom: 12px;
 }
 
-main ul:not(#TableOfContents ul) ul > li::before {
+main ul ul > li::before {
   content: "•";
   --tw-text-opacity: 1;
   color: rgb(119 141 169 / var(--tw-text-opacity));
@@ -720,127 +720,6 @@ th, td {
   padding-bottom: 16px;
   padding-left: 24px;
   padding-right: 24px;
-}
-
-#TableOfContents {
-  > ul > li {
-    margin-bottom: 16px;
-  }
-  ul {
-    a {
-      display: inline-block;
-    }
-    a {
-      border-radius: 0.25rem;
-    }
-    a {
-      padding-left: 12px;
-      padding-right: 12px;
-    }
-    a {
-      padding-top: 8px;
-      padding-bottom: 8px;
-    }
-    a {
-      font-size: 0.875rem;
-      line-height: 1.25rem;
-    }
-    a:hover {
-      --tw-bg-opacity: 1;
-      background-color: rgb(22 22 22 / var(--tw-bg-opacity));
-    }
-    @media (min-width: 640px) {
-      a {
-        font-size: 1rem;
-        line-height: 1.5rem;
-      }
-    }
-    a {
-      color: #a3a3a3;
-      line-height: 1.5;
-    }
-    a:hover {
-      color: #d4d4d4;
-    }
-    ul {
-      margin-top: 8px;
-    }
-    ul {
-      padding-left: 24px;
-    }
-    @media (min-width: 640px) {
-      ul {
-        padding-left: 48px;
-      }
-    }
-    ul {
-      a {
-        font-size: 0.75rem;
-        line-height: 1rem;
-      }
-      @media (min-width: 640px) {
-        a {
-          font-size: 0.875rem;
-          line-height: 1.25rem;
-        }
-      }
-    }
-  }
-}
-
-/* Custom scrollbar for TOC sidebar */
-
-#toc-sidebar {
-  scrollbar-width: thin;
-  scrollbar-color: #333 #161616;
-  overflow-x: hidden;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-#toc-sidebar * {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  max-width: 100%;
-}
-
-#toc-sidebar::-webkit-scrollbar {
-  width: 10px;
-  height: 0;
-}
-
-#toc-sidebar::-webkit-scrollbar-track {
-  background: #161616;
-  border-radius: 5px;
-  margin: 4px 0;
-}
-
-#toc-sidebar::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 5px;
-  border: 2px solid #161616;
-}
-
-#toc-sidebar::-webkit-scrollbar-thumb:hover {
-  background: #444;
-}
-
-/* Responsive TOC positioning */
-
-#toc-sidebar {
-  left: max(1rem, calc((100vw - 896px) / 2 - 260px));
-}
-
-@media (max-width: 1536px) {
-  #toc-sidebar {
-    width: 300px;
-  }
-}
-
-@media (min-width: 1536px) {
-  #toc-sidebar {
-    left: max(1rem, calc((100vw - 1024px) / 2 - 260px));
-  }
 }
 
 *, ::before, ::after {
@@ -1003,10 +882,6 @@ th, td {
   top: 0px;
 }
 
-.top-24 {
-  top: 6rem;
-}
-
 .isolate {
   isolation: isolate;
 }
@@ -1036,10 +911,6 @@ th, td {
 
 .mb-0 {
   margin-bottom: 0px;
-}
-
-.mb-1 {
-  margin-bottom: 8px;
 }
 
 .mb-12 {
@@ -1154,10 +1025,6 @@ th, td {
   height: 1.75rem;
 }
 
-.max-h-\[calc\(100vh-7rem\)\] {
-  max-height: calc(100vh - 7rem);
-}
-
 .w-10 {
   width: 2.5rem;
 }
@@ -1176,10 +1043,6 @@ th, td {
 
 .w-7 {
   width: 1.75rem;
-}
-
-.w-\[350px\] {
-  width: 350px;
 }
 
 .w-full {
@@ -1280,10 +1143,6 @@ th, td {
 
 .overflow-x-auto {
   overflow-x: auto;
-}
-
-.overflow-y-auto {
-  overflow-y: auto;
 }
 
 .truncate {
@@ -1455,20 +1314,8 @@ th, td {
   padding-bottom: 16px;
 }
 
-.pb-1 {
-  padding-bottom: 8px;
-}
-
 .pb-4 {
   padding-bottom: 24px;
-}
-
-.pr-3 {
-  padding-right: 16px;
-}
-
-.pt-2 {
-  padding-top: 12px;
 }
 
 .pt-6 {
@@ -2018,15 +1865,5 @@ th, td {
 
   .lg\:gap-6 {
     gap: 48px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .xl\:block {
-    display: block;
-  }
-
-  .xl\:hidden {
-    display: none;
   }
 }

@@ -1,5 +1,4 @@
 ---
-prod: true
 draft: false
 title: My Workflow with AI Agents
 description:

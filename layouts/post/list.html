@@ -5,7 +5,6 @@ Blog
 {{- define "content" -}}
   <section class="mt-6 sm:mt-8 md:mt-10">
     {{- $posts := where .Site.RegularPages "Type" "post" }}
-    {{- $posts = where $posts ".Params.prod" true }}
     {{- $posts = where $posts ".Params.draft" "!=" true }}
     {{- $posts = where $posts ".Params.hOiddenfromhomepage" "!=" true }}
 

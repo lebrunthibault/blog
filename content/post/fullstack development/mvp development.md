@@ -1,5 +1,4 @@
 ---
-prod: true
 draft: false
 title: "Construire un MVP Web Moderne"
 date: 2026-02-03
@@ -11,22 +10,20 @@ keywords:
   - Best Practices
 ---
 
-# Construire un MVP Web Moderne
-
-Livrer un MVP production-ready rapidement tout en maintenant la qualité du code est le graal du développement web moderne. Dans cet article, je partage mon approche pour construire des applications fullstack qui sont **type-safe**, **sécurisées**, et **prêtes au déploiement** dès le premier jour — en tirant parti des frameworks modernes et du développement assisté par IA.
+Dans cet article, je partage mon approche pour construire des MVP **robustes**, **évolutifs**, et **prêts au déploiement** dès le premier jour — en tirant parti des frameworks modernes et du développement assisté par IA.
 
 ## La Stack MVP Moderne
 
 Après plusieurs projets, j'ai convergé vers une stack qui maximise la vélocité sans sacrifier la qualité production :
 
-| Couche | Technologie | Pourquoi |
-|--------|-------------|----------|
-| Framework | **Next.js 16** (App Router) | Server components, streaming, routes API intégrées |
-| API | **tRPC v11** + React Query | Typage de bout en bout, zéro boilerplate |
-| Base de données | **Supabase** (PostgreSQL) | Postgres managé, Auth, Storage, Row Level Security |
-| Paiements | **Stripe Checkout** | Standard de l'industrie, gère la conformité |
-| UI | **shadcn/ui** + Tailwind CSS v4 | Composants accessibles, styling rapide |
-| Déploiement | **Vercel** | Déploiement zero-config, edge network, preview URLs |
+| Couche | Technologie | Pourquoi                                                                   |
+|--------|-------------|----------------------------------------------------------------------------|
+| Framework | **Next.js 16** (App Router) | Un framework front moderne et standard                                     |
+| API | **tRPC v11** + React Query | Typage de bout en bout, rapide à setup et robuste pour des évolutions futures |
+| Base de données | **Supabase** (PostgreSQL) | Le choix idéal pour du MVP sans avoir à setup Docker ou un système d'authentification |
+| Paiements | **Stripe Checkout** | Standard et fonctionne out of the box                                      |
+| UI | **shadcn/ui** + Tailwind CSS v4 | Pour un design professionnel et très flexible à modifier                   |
+| Déploiement | **Vercel** | Pas de serveur à gérer, un free tier généreux                              |
 
 Cette combinaison élimine des catégories entières de décisions et de boilerplate, vous permettant de vous concentrer sur la logique métier.
 
@@ -60,72 +57,32 @@ Cette intégration étroite signifie **moins de changements de contexte**, **moi
 - **La revue de sécurité** — Valider le code généré par l'IA
 - **Les décisions UX** — Ce que le produit doit réellement faire
 
-## Architecture du Projet
+## Supabase — Le raccourci backend
 
-Une structure claire dès le départ évite l'accumulation de dette technique. L'App Router de Next.js impose naturellement une organisation qui scale bien.
+Pour un MVP, le tier gratuit de Supabase est largement suffisant. Il fournit tout ce qu'il faut pour livrer rapidement sans se soucier des coûts d'infrastructure au départ.
 
-**Les grands principes d'organisation :**
+### Pourquoi Supabase ?
 
-| Dossier | Responsabilité |
-|---------|----------------|
-| `app/` | Pages et layouts Next.js, routes API, webhooks |
-| `server/` | Logique backend : tRPC, context, procédures par domaine |
-| `lib/` | Configuration des services externes (Supabase, Stripe) |
-| `components/` | Composants UI réutilisables |
-| `hooks/` | Hooks React custom pour la logique partagée |
+Si avoir un backend et une base Postgres dédiés restent pertinents dans de nombreux cas,
+Supabase permet de déployer très rapidement une plateforme utilisateur sans avoir à gérer des tâches techniques comme 
+l'authentification ou l'entretien du base de données. En combinaison avec le Serveur MCP, le setup est immédiat et la gestion devient beaucoup plus rapide.
 
-**Pourquoi cette structure fonctionne :**
+| Fonctionnalité | Ce que vous obtenez                                                                       |
+|----------------|-------------------------------------------------------------------------------------------|
+| **Authentification** | Magic links, providers OAuth, gestion de sessions — pas besoin de coder sa propre auth    |
+| **Postgres hébergé** | Une vraie base de données avec Row Level Security, pas une abstraction NoSQL propriétaire |
+| **Stockage objet** | Buckets compatibles S3 pour les fichiers uploadés                                         |
+| **Système d'emails** | Templates d'emails intégrés pour les flows d'authentification (faciles à modifier)        |
+| **Vector DB** | Extension pgvector prête à l'emploi pour les embeddings IA si besoin plus tard            |
 
-- **Colocation** — Le code lié reste ensemble. Les routes admin sont dans `app/admin/`, pas éparpillées
-- **Séparation client/serveur** — Le code serveur ne fuit jamais dans les bundles client, évitant les failles de sécurité et les bundles gonflés
-- **Typage partagé** — Les types circulent naturellement de la base de données jusqu'à l'UI, sans fichiers de définition à maintenir manuellement
+### Développement local
 
-Cette architecture est suffisamment simple pour un MVP, mais suffisamment structurée pour évoluer vers un produit complet sans refactoring majeur.
+Ce que j'apprécie le plus : Supabase tourne en local via Docker. On obtient une réplique complète de la stack de production en local — base de données, auth, storage..
 
-## Typage de Bout en Bout avec tRPC
-
-Le plus grand boost de productivité vient de **l'élimination de la frontière API comme source de bugs**.
-
-Traditionnellement, la communication entre le frontend et le backend est une zone d'ombre : on définit des endpoints côté serveur, puis on espère que le client les appelle correctement avec les bons paramètres. tRPC change complètement cette dynamique.
-
-**Pourquoi tRPC est un game-changer :**
-
-- **Validation automatique** — Avec Zod intégré, chaque requête est validée côté serveur avant même d'atteindre votre logique métier
-- **Typage de bout en bout** — Les types sont automatiquement inférés du serveur vers le client. Modifiez un champ dans votre API, et TypeScript vous signale immédiatement tous les endroits à mettre à jour côté client
-- **Zéro génération de code** — Contrairement à GraphQL ou OpenAPI, pas de schéma à maintenir ni de commande à exécuter
-- **Intégration React Query** — Caching, refetching, et optimistic updates sont inclus gratuitement
-
-Le résultat : vous développez avec l'assurance que si votre code compile, les appels API sont corrects. Plus de bugs runtime du type "undefined is not a function" ou de propriétés manquantes.
-
-## Sécurité Base de Données avec Row Level Security
-
-La sécurité est souvent reléguée au second plan dans les MVPs, ce qui crée une dette technique dangereuse. **Row Level Security (RLS)** de Supabase résout ce problème en intégrant la sécurité directement au niveau de la base de données.
-
-**Le principe est simple mais puissant :** au lieu de vérifier les permissions dans chaque endpoint de votre API (et risquer d'en oublier), vous définissez des règles directement sur vos tables PostgreSQL. Par exemple, un utilisateur ne peut accéder qu'à ses propres achats, et seuls les admins peuvent modifier le catalogue produits.
-
-**Pourquoi c'est essentiel pour un MVP :**
-
-- **Sécurité par défaut** — Même si vous oubliez une vérification dans votre code applicatif, la base de données bloque l'accès non autorisé
-- **Auditabilité** — Les politiques de sécurité sont versionnées avec vos migrations, facilitant les audits et la conformité
-- **Défense en profondeur** — Plusieurs couches de protection : authentification, API, et base de données
-- **Maintenabilité** — Les règles sont centralisées plutôt que dispersées dans des dizaines de fichiers
-
-C'est l'approche "secure by default" qui devrait être la norme, mais que peu de stacks rendent aussi accessible.
-
+Cette approche local-first rend l'itération sur le schéma de base de données indolore.
 ## Intégration des Paiements avec Stripe
 
 Pour un MVP, **Stripe Checkout** est le chemin le plus rapide vers l'acceptation de paiements — et c'est souvent suffisant même pour un produit mature.
-
-**Pourquoi Stripe Checkout plutôt qu'une intégration custom :**
-
-- **Conformité PCI incluse** — Stripe gère toute la complexité réglementaire. Vos serveurs ne voient jamais les numéros de carte
-- **Interface optimisée** — Des années d'A/B testing par Stripe pour maximiser la conversion. Vous bénéficiez de leur expertise gratuitement
-- **Multi-devises et moyens de paiement** — Cartes, Apple Pay, Google Pay, SEPA... activables en quelques clics
-- **Gestion des erreurs et retry** — Stripe gère automatiquement les cartes expirées, les échecs de paiement, et les relances
-
-**L'architecture recommandée** est simple : votre application crée une "session de checkout" avec les métadonnées nécessaires (ID utilisateur, ID produit), redirige vers Stripe, puis traite le résultat via un webhook. Le webhook doit être **idempotent** — vérifier qu'un achat n'a pas déjà été enregistré avant de le créer — car Stripe peut renvoyer le même événement plusieurs fois.
-
-Cette approche découple complètement votre logique métier du flux de paiement, rendant les tests et le debugging beaucoup plus simples.
 
 ## Pipeline de Déploiement
 
@@ -144,11 +101,11 @@ Avec Vercel, le déploiement devient presque invisible — et c'est exactement c
 - **Rollbacks en un clic** — Une mise en prod qui casse quelque chose ? Retour à la version précédente en 30 secondes
 - **Variables d'environnement par contexte** — Dev, preview, et production ont chacun leurs propres secrets
 
-Pour la validation continue, une simple configuration GitHub Actions suffit : linting et build à chaque push. Si le build passe, Vercel déploie. Simple, efficace, et ça évite de merger du code cassé.
+Pour la validation continue, une simple configuration GitHub Actions suffit : linting et build à chaque push. Si le build passe, Vercel déploie. Simple, efficace, et ça évite de merger du code buggé.
 
 ## Résumé du Workflow de Développement
 
-1. **Définir le modèle de données** → Migrations Supabase avec RLS
+1. **Définir le modèle de données** → Migrations Supabase
 2. **Construire l'API** → Procédures tRPC avec validation Zod
 3. **Créer l'UI** → Composants shadcn/ui avec Tailwind
 4. **Ajouter les paiements** → Stripe Checkout + webhooks
@@ -156,16 +113,8 @@ Pour la validation continue, une simple configuration GitHub Actions suffit : li
 
 Avec l'assistance IA qui gère le boilerplate et le code d'intégration, l'attention reste sur ce qui compte : construire les fonctionnalités dont les utilisateurs ont vraiment besoin.
 
-## Points Clés à Retenir
-
-- **Le typage élimine les bugs** — tRPC + TypeScript attrape les erreurs avant le runtime
-- **Les services managés réduisent la charge ops** — Supabase et Vercel gèrent l'infrastructure
-- **L'IA accélère, l'humain valide** — Utilisez Claude Code pour la vitesse, la review pour la qualité
-- **Les serveurs MCP comblent le fossé** — Intégration directe des services depuis votre environnement de développement
-- **Livrez tôt, itérez vite** — La meilleure architecture est celle qui vous permet d'apprendre des vrais utilisateurs
-
 ---
 
-Le paysage du développement web moderne offre un levier sans précédent. En combinant les bons outils avec le développement assisté par IA, livrer un MVP de qualité production est plus rapide que jamais — sans faire de compromis sur la sécurité ou la qualité du code.
+En combinant les bons outils avec le développement assisté par IA, livrer un MVP de qualité production est plus rapide que jamais — sans faire de compromis sur la sécurité ou la qualité du code.
 
 *Des questions sur cette stack ou cette approche ? Connectez-vous avec moi sur [LinkedIn](https://www.linkedin.com/in/thibault-lebrun/).*

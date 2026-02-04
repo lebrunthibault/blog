@@ -1,6 +1,5 @@
 ---
-prod: false
-draft: false
+draft: true
 title: "Building an Audio Marketplace with Next.js, Supabase and Stripe"
 date: 2026-02-03
 description: "A deep dive into building Loops, an audio loop marketplace. Architecture decisions, tech stack choices and best practices."

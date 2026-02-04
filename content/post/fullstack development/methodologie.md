@@ -1,5 +1,4 @@
 ---
-prod: true
 draft: false
 title: Ma Méthodologie fullstack
 description:

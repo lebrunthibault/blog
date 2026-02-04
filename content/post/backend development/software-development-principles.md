@@ -1,5 +1,4 @@
 ---
-prod: true
 draft: false
 title: Software development principles
 description: Grandes réflexions sur la beauté insondable d'une simple ligne de code
@@ -408,7 +407,7 @@ Increases system decoupling and reduce mental overhead
 - https://refactoring.guru/design-patterns
 - [The Pragmatic Programmer, 20th Anniversary Edition](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
 - [Head First Design Patterns, 2nd Edition](https://www.oreilly.com/library/view/head-first-design/9781492077992/)
-- [Domain Driven Desing in PHP](https://www.amazon.fr/Domain-Driven-Design-PHP-Carlos-Buenosvinos/dp/1787284948)
+- [Domain Driven Design in PHP](https://leanpub.com/ddd-in-php)
 <hr>
 
 [^1]: [Comparing Publish-Subscribe Messaging and Message Queuing](https://dzone.com/articles/comparing-publish-subscribe-messaging-and-message)

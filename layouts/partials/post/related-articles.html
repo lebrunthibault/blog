@@ -11,7 +11,7 @@
 
 {{/* Get all published posts except the current one */}}
 {{- $allPosts := where .Site.RegularPages "Type" "post" -}}
-{{- $allPosts = where $allPosts "Params.prod" true -}}
+{{- $allPosts = where $allPosts ".Params.draft" "!=" true -}}
 {{- $allPosts = where $allPosts "Permalink" "!=" .Permalink -}}
 
 {{/* Score each post by keyword matches */}}

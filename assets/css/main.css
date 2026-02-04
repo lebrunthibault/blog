@@ -145,11 +145,11 @@ html.is-animating .transition-fade {
         }
 
         .post-content > h2 {
-            @apply mt-10;
+            @apply mt-14 -mx-4 px-4 py-3 bg-oxford-blue border-l-4 border-yinmn-blue rounded-r-lg;
         }
 
         .post-content > h3 {
-            @apply mt-8;
+            @apply mt-8 text-shadow-blue text-lg sm:text-xl;
         }
     }
 
@@ -192,7 +192,7 @@ html.is-animating .transition-fade {
     }
 
     main ol > li {
-        @apply relative pl-6 mb-3;
+        @apply relative pl-4 mb-3;
         counter-increment: ol-counter;
     }
 
@@ -230,7 +230,7 @@ html.is-animating .transition-fade {
 
     /* Table styling */
     table {
-        @apply my-6;
+        @apply mt-6 mb-2;
     }
 
     th, td {

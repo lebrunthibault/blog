@@ -13,8 +13,6 @@ date: "2025-11-04"
 color: "#ba8b92"
 ---
 
-<br>
-
 _Voici mon playbook de développement détaillant point par point toutes les
 bonnes pratiques et technologies que j’utilise dans le développement d’un projet
 web._

@@ -58,17 +58,13 @@ Pour l'image de profil, le workflow a été plus technique :
 
 Pour renforcer l'aspect tech/futuriste du "AI First", j'ai utilisé la police "Terminal F4" téléchargée depuis DaFont. L'intégration a été simple : drag & drop du fichier zip dans Claude Code qui s'est chargé de l'installer. Un fallback sur "Exo 2" (Google Font) assure la compatibilité.
 
-## Vérification de l'intégration
+### Vérification de l'intégration
 
 Tester visuellement les animations a été un défi. J'ai utilisé plusieurs approches :
 
-- **Playwright (screenshots)** : efficace pour le gros du travail, mais consomme beaucoup de tokens
+- **screenshots avec Claude in Chrome** : efficace pour le gros du travail, mais consomme beaucoup de tokens
 - **Feedback textuel avec Claude Code** : plus économe, suffisant pour les ajustements mineurs
 - **Corrections manuelles** : certains détails de spacing et de margins que Claude avait du mal à appréhender
-
-## Menu mobile : Claude in Chrome en action
-
-Pour le menu mobile, j'ai trouvé un site existant avec exactement le comportement que je voulais. **Claude in Chrome** m'a permis de copier l'approche directement depuis ce site, puis de tester et d'implémenter la solution de manière interactive.
 
 ## Transition en expérience SPA
 
@@ -82,7 +78,7 @@ L'accessibilité n'a pas été oubliée. J'ai utilisé **Claude in Chrome** pour
 
 Le site gère maintenant `prefers-reduced-motion` : les utilisateurs qui préfèrent réduire les animations voient des transitions simplifiées (opacité uniquement, sans mouvement).
 
-## Vérification du contenu
+### Vérification du contenu
 
 En bonus, j'ai demandé à Claude Code de vérifier tous les liens cassés de mes articles. Il a utilisé des **subagents** pour paralléliser le travail et identifier rapidement les URLs mortes à corriger.
 

@@ -144,7 +144,7 @@ function initHeroAnimation() {
     gsap.set(aiFirst, { width: 0, overflow: 'hidden' });
     gsap.set(modernLine, { scaleY: 0, opacity: 0 });
     gsap.set(webDevLine, { scaleY: 0, opacity: 0 });
-    gsap.set(aiWord, { opacity: 0, scale: 14 });
+    gsap.set(aiWord, { opacity: 0, scale: 4 });
     gsap.set(firstWord, { opacity: 0 });
 
     tl

@@ -43,20 +43,6 @@ En pratique, vous décrivez simplement ce dont vous avez besoin ("crée une tabl
 
 Cette intégration étroite signifie **moins de changements de contexte**, **moins d'erreurs de copier-coller**, et **des cycles d'itération plus rapides**.
 
-### Quand l'IA Excelle (et Quand Elle Ne Suffit Pas)
-
-**L'IA est particulièrement efficace pour :**
-- **La génération de boilerplate** — Opérations CRUD, routes API, définitions de types
-- **Le code d'intégration** — Connecter les services (webhooks Stripe, auth Supabase)
-- **Le debugging** — Analyser les logs, tracer les problèmes à travers la stack
-- **La documentation** — Générer les types, docs API, fichiers README
-
-**Le jugement humain reste critique pour :**
-- **Les décisions d'architecture** — Choisir les bonnes abstractions
-- **La logique métier** — Comprendre les besoins utilisateurs
-- **La revue de sécurité** — Valider le code généré par l'IA
-- **Les décisions UX** — Ce que le produit doit réellement faire
-
 ## Supabase — Le raccourci backend
 
 Pour un MVP, le tier gratuit de Supabase est largement suffisant. Il fournit tout ce qu'il faut pour livrer rapidement sans se soucier des coûts d'infrastructure au départ.
@@ -113,8 +99,5 @@ Pour la validation continue, une simple configuration GitHub Actions suffit : li
 
 Avec l'assistance IA qui gère le boilerplate et le code d'intégration, l'attention reste sur ce qui compte : construire les fonctionnalités dont les utilisateurs ont vraiment besoin.
 
----
-
 En combinant les bons outils avec le développement assisté par IA, livrer un MVP de qualité production est plus rapide que jamais — sans faire de compromis sur la sécurité ou la qualité du code.
 
-*Des questions sur cette stack ou cette approche ? Connectez-vous avec moi sur [LinkedIn](https://www.linkedin.com/in/thibault-lebrun/).*

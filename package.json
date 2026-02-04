@@ -6,6 +6,9 @@
   "directories": {
     "doc": "docs"
   },
+  "dependencies": {
+    "lenis": "^1.1.18"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.22",
     "postcss": "^8.5.6",

@@ -1,4 +1,39 @@
-// gestion du menu navbar mobile
+import Lenis from 'lenis';
+
+// Initialize smooth scroll with inertia
+const lenis = new Lenis({
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  orientation: 'vertical',
+  smoothWheel: true,
+  wheelMultiplier: 1,
+  touchMultiplier: 2,
+});
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+// Expose for debugging
+window.lenis = lenis;
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+
+    e.preventDefault();
+    const target = document.querySelector(targetId);
+    if (target) {
+      lenis.scrollTo(target, { duration: 1.2 });
+    }
+  });
+});
+
+// Mobile menu handling
 document.addEventListener('DOMContentLoaded', function() {
   const menuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');

@@ -37,7 +37,7 @@
   </div>
 
   <!-- JS -->
-  {{ $js := resources.Get "js/main.js" | minify | fingerprint }}
+  {{ $js := resources.Get "js/main.js" | js.Build | minify | fingerprint }}
   <script src="{{ $js.RelPermalink }}" defer></script>
 </body>
 </html>

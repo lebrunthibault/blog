@@ -69,6 +69,7 @@
     html {
         font-size: 15px;
         line-height: 1.7;
+        scroll-behavior: auto; /* Lenis handles smooth scrolling */
     }
 
     body {

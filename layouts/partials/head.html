@@ -47,6 +47,21 @@
 <link rel="apple-touch-icon" href="{{ "img/logo.png" | relURL }}">
 <link rel="manifest" href="{{ "manifest.json" | relURL }}">
 
+<!-- Custom font for AI First -->
+<style>
+  @font-face {
+    font-family: 'Terminal F4';
+    src: url('/fonts/terminal-f4.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+<!-- Google Font fallback -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&display=swap" rel="stylesheet">
+
 <!-- Preload critical fonts -->
 <link rel="preload" href="/fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/montserrat-500.woff2" as="font" type="font/woff2" crossorigin>

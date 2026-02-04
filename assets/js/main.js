@@ -101,9 +101,10 @@ document.addEventListener('DOMContentLoaded', function() {
       gsap.set(firstWord, { opacity: 0 });
 
       tl
+          .to({}, { duration: 0.5 })
         // Step 1: Typewriter on "Modern"
         .to(modernLine, { scaleY: 1, opacity: 1, duration: 0.2, ease: 'expo.out' })
-        .to(modernLine, { x: modernWidth, duration: 0.5, ease: 'expo.out', delay: 0.05 })
+        .to(modernLine, { x: modernWidth, duration: 0.6, ease: 'expo.out', delay: 0.05 })
         .to(modernChars, { opacity: 1, duration: 0.2, ease: 'expo.out', stagger: 0.05 }, '-=0.55')
         .to(modernLine, { opacity: 0, duration: 0 })
 
@@ -112,8 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Step 2: Typewriter on "Web Development"
         .to(webDevLine, { scaleY: 1, opacity: 1, duration: 0, ease: 'expo.out' })
-        .to(webDevLine, { x: webDevWidth, duration: 0.7, ease: 'expo.out', delay: 0.05 })
-        .to(webDevChars, { opacity: 1, duration: 0.2, ease: 'expo.out', stagger: 0.034 }, '-=0.75')
+        .to(webDevLine, { x: webDevWidth, duration: 1.1, ease: 'expo.out', delay: 0.05 })
+        .to(webDevChars, { opacity: 1, duration: 0.25, ease: 'expo.out', stagger: 0.045 }, '-=1.0')
         .to(webDevLine, { opacity: 0, duration: 0 })
 
         // Pause
@@ -130,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .to(aiWord, {
           opacity: 1,
           scale: 1,
-          duration: 0.6,
+          duration: 0.8,
           ease: 'circ.out'
         }, '<')
           .to({}, { duration: 0.2 })
@@ -138,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // First: just fade in (after AI)
         .to(firstWord, {
           opacity: 1,
-          duration: 0.7,
+          duration: 0.9,
           ease: 'power2.out'
         }, '-=0.2');
     }
@@ -151,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
         duration: 1.5,
         ease: 'power1.inOut',
         yoyo: true,
-        repeat: 1
+        // repeat: 1
       }
     )
     .to(aiWords, {
@@ -169,13 +170,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // First: fade in base image (1.5s)
     gsap.to(profileBase, {
       opacity: 1,
-      duration: 1,
+      duration: 1.5,
       ease: 'sine.out'
     });
     // Then: fade in AI background image (3s, starts after 1s)
     gsap.to(profileAi, {
       opacity: 1,
-      duration: 2.5,
+      duration: 3,
       delay: 1,
       ease: 'power2.Out'
     });

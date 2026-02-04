@@ -69,8 +69,7 @@
 
 <!-- Styles -->
 {{ $styles := resources.Get "css/output.css" | minify | fingerprint }}
-<link rel="preload" href="{{ $styles.RelPermalink }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="{{ $styles.RelPermalink }}"></noscript>
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 
 <!-- Syntax highlighting -->
 {{ $syntax := resources.Get "css/syntax.css" | minify | fingerprint }}

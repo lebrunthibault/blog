@@ -8,6 +8,3 @@ css:
 
 build:
 	hugo -D
-
-push:
-	git push

@@ -35,7 +35,6 @@ Supported Frontmatter Fields:
 - `draft` (boolean, optional) - Hide draft posts in production builds
 - `description` (string, optional) - Short description
 - `keywords` (array, optional) - Keywords for search tagging
-- `prod` (boolean, optional) - Custom flag for production status (used in homepage)
 
 ---
 

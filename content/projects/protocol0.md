@@ -17,7 +17,7 @@ color: "#ba8b92"
 # Protocol 0
 
 Protocol 0 est un script avancé de contrôle d'Ableton Live.
-Mon activité secondaire étant la musique et notamment la production de musique électronique (vous pouvez écouter mes tracks <a href="https://soundcloud.com/tib-tales" target="_blank" rel="noopener noreferrer">ici</a>)
+Mon activité secondaire étant la musique et notamment la production de musique électronique (vous pouvez écouter mes tracks <a href="https://soundcloud.com/tib-groove" target="_blank" rel="noopener noreferrer">ici</a>)
 j'ai travaillé ces dernières années sur un programme permettant d'étendre les fonctionnalités de mon logiciel 
 de production musicale : Ableton Live.
 
@@ -28,7 +28,7 @@ pour gérer l'exécution de tâches complexes asynchrones (création de tracks, 
 
 ## Overview
 
-J'ai écrit un article expliquant certains choix techniques du projet en particulier en ce qui concerne l'utilisation de paradigmes orienté objet et orienté évènement : [ici](/post/music/protocol0/p0-technical-overview/)
+J'ai écrit un article expliquant certains choix techniques du projet en particulier en ce qui concerne l'utilisation de paradigmes orienté objet et orienté évènement : [ici](/post/backend-development/p0-technical-overview/)
 
 ## Technologies utilisées
 

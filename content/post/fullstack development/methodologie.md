@@ -186,7 +186,7 @@ Un livre pourrait être écrit là dessus, mon approche consiste à:
 
 # 💻 Un développement ouvert aux agents IA
 
-Je développe avec assistance d'un agent IA (en l'occurence [Claude Code](https://www.claude.com/)) et vous propose de consulter [ce billet](/post/developpement-fullstack/workflow-ia/) résumant mes réflexions principales sur l'utilisation de ces outils.
+Je développe avec assistance d'un agent IA (en l'occurence [Claude Code](https://www.claude.com/)) et vous propose de consulter [ce billet](/post/fullstack-development/workflow-ia/) résumant mes réflexions principales sur l'utilisation de ces outils.
 
 D'un point de vue technique je fais en sorte que la codebase soit toujours lisible et maintenable pour un développeur humain que j'utilise
 un agent pour en développer des parties ou pas.

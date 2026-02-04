@@ -7,10 +7,10 @@ module.exports = {
         'rich-black': '#0c0c0c',
         'oxford-blue': '#161616',
         'yinmn-blue': '#415A77',
-        'shadow-blue': '#778DA9',
+        'shadow-blue': '#8FA4BA',
         'platinum': '#d4d4d4',
         primary: '#415A77',
-        secondary: '#778DA9',
+        secondary: '#8FA4BA',
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],

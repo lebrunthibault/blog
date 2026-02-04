@@ -558,7 +558,7 @@ main section {
   }
   a:hover {
     --tw-border-opacity: 1;
-    border-color: rgb(119 141 169 / var(--tw-border-opacity));
+    border-color: rgb(143 164 186 / var(--tw-border-opacity));
   }
 }
 
@@ -580,7 +580,7 @@ article {
   }
   .post-content a:hover {
     --tw-border-opacity: 1;
-    border-color: rgb(119 141 169 / var(--tw-border-opacity));
+    border-color: rgb(143 164 186 / var(--tw-border-opacity));
   }
   /* Better section spacing in articles */
   .post-content > * + * {
@@ -633,7 +633,7 @@ main ul ul > li {
 main ul ul > li::before {
   content: "•";
   --tw-text-opacity: 1;
-  color: rgb(119 141 169 / var(--tw-text-opacity));
+  color: rgb(143 164 186 / var(--tw-text-opacity));
   font-size: 0.8em;
 }
 
@@ -1447,7 +1447,7 @@ th, td {
 
 .text-shadow-blue {
   --tw-text-opacity: 1;
-  color: rgb(119 141 169 / var(--tw-text-opacity));
+  color: rgb(143 164 186 / var(--tw-text-opacity));
 }
 
 .opacity-0 {
@@ -1527,7 +1527,7 @@ th, td {
 
 .transition-fade {
   opacity: 1;
-  transition: opacity 0.25s ease-out;
+  transition: opacity 0.15s ease-out;
 }
 
 html.is-animating .transition-fade {
@@ -1537,6 +1537,15 @@ html.is-animating .transition-fade {
 @media (prefers-reduced-motion: reduce) {
   .transition-fade {
     transition: none;
+  }
+
+  /* Show hero content immediately for users who prefer reduced motion */
+
+  .hero-ai-word,
+  .hero-letter,
+  .hero-profile-base,
+  .hero-profile-ai {
+    opacity: 1 !important;
   }
 }
 
@@ -1634,7 +1643,7 @@ html.is-animating .transition-fade {
 
 .hover\:border-shadow-blue:hover {
   --tw-border-opacity: 1;
-  border-color: rgb(119 141 169 / var(--tw-border-opacity));
+  border-color: rgb(143 164 186 / var(--tw-border-opacity));
 }
 
 .hover\:border-yinmn-blue:hover {
@@ -1658,7 +1667,7 @@ html.is-animating .transition-fade {
 
 .hover\:text-shadow-blue:hover {
   --tw-text-opacity: 1;
-  color: rgb(119 141 169 / var(--tw-text-opacity));
+  color: rgb(143 164 186 / var(--tw-text-opacity));
 }
 
 .hover\:shadow-none:hover {

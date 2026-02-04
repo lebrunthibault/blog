@@ -107,50 +107,17 @@ Thibault Lebrun - Développeur Web Fullstack Senior
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-      <!-- AgriParis Seine -->
-      <a href="/projects/aps/" class="card-hover group bg-oxford-blue border border-neutral-700 rounded-xl overflow-hidden hover:border-shadow-blue transition-all flex flex-col">
-        <div class="h-32 sm:h-40 bg-rich-black flex items-center justify-center">
-          <img src="/img/logo_aps.jpeg" alt="AgriParis Seine" class="h-16 rounded">
-        </div>
-        <div class="p-4 sm:p-5 flex flex-col flex-1">
-          <h3 class="font-semibold mb-2 text-sm sm:text-base">AgriParis Seine</h3>
-          <p class="text-shadow-blue text-xs sm:text-sm flex-1">Plateforme de ressources pour les acteurs de l'alimentation durable.</p>
-          <div class="flex gap-2 mt-3 flex-wrap">
-            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">Node.js</span>
-            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">Vue.js</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Emmaüs Habitat -->
-      <a href="/projects/emmaus-gardiens/" class="card-hover group bg-oxford-blue border border-neutral-700 rounded-xl overflow-hidden hover:border-shadow-blue transition-all flex flex-col">
-        <div class="h-32 sm:h-40 bg-rich-black flex items-center justify-center">
-          <img src="/img/logo_emmaus_habitat.jpeg" alt="Emmaüs Habitat" class="h-16 rounded">
-        </div>
-        <div class="p-4 sm:p-5 flex flex-col flex-1">
-          <h3 class="font-semibold mb-2 text-sm sm:text-base">Emmaüs Habitat</h3>
-          <p class="text-shadow-blue text-xs sm:text-sm flex-1">Plateforme RH de gestion des salaires dans l'habitat social.</p>
-          <div class="flex gap-2 mt-3 flex-wrap">
-            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">FastAPI</span>
-            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">Vue.js</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Kessel -->
-      <a href="/projects/kessel/" class="card-hover group bg-oxford-blue border border-neutral-700 rounded-xl overflow-hidden hover:border-shadow-blue transition-all flex flex-col">
-        <div class="h-32 sm:h-40 bg-rich-black flex items-center justify-center">
-          <img src="/img/logo_kessel.jpeg" alt="Kessel" class="h-16 rounded">
-        </div>
-        <div class="p-4 sm:p-5 flex flex-col flex-1">
-          <h3 class="font-semibold mb-2 text-sm sm:text-base">Kessel</h3>
-          <p class="text-shadow-blue text-xs sm:text-sm flex-1">Plateforme d'édition numérique avec fort traffic.</p>
-          <div class="flex gap-2 mt-3 flex-wrap">
-            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">FastAPI</span>
-            <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">React</span>
-          </div>
-        </div>
-      </a>
+      {{- $featuredProjects := slice "aps" "emmaus-gardiens" "kessel" }}
+      {{- range $slug := $featuredProjects }}
+        {{- $project := site.GetPage (printf "/projects/%s" $slug) }}
+        {{- if $project }}
+          {{ partial "components/card.html" (dict
+            "page" $project
+            "showLogoHeader" true
+            "headingLevel" "h3"
+          ) }}
+        {{- end }}
+      {{- end }}
     </div>
 
     <div class="text-center mt-6 md:hidden">

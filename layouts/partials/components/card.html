@@ -3,49 +3,68 @@
 
   Parameters:
   - page: the page object (required)
-  - showLogo: boolean to show logo (optional, default false)
+  - showLogo: boolean to show logo next to title (optional, default false)
+  - showLogoHeader: boolean to show large logo header (optional, default false)
   - showDuration: boolean to show duration badge (optional, default false)
   - filterKeywords: slice of keywords to filter out (optional)
   - variant: "default" or "outlined" for tag style (optional, default "outlined")
+  - headingLevel: "h2" or "h3" for semantic heading (optional, default "h2")
 */}}
 
 {{- $page := .page -}}
 {{- $showLogo := default false .showLogo -}}
+{{- $showLogoHeader := default false .showLogoHeader -}}
 {{- $showDuration := default false .showDuration -}}
 {{- $filterKeywords := default (slice) .filterKeywords -}}
 {{- $variant := default "outlined" .variant -}}
+{{- $headingLevel := default "h2" .headingLevel -}}
 
 <a href="{{ $page.Permalink }}" class="flex border-b-0">
   <div class="
-    card-hover px-3 sm:px-4 py-3 sm:py-4
-    bg-oxford-blue border border-neutral-700 rounded-xl
+    card-hover bg-oxford-blue border border-neutral-700 rounded-xl
     hover:border-shadow-blue transition-all flex-1 flex flex-col
+    {{ if not $showLogoHeader }}px-3 sm:px-4 py-3 sm:py-4{{ else }}overflow-hidden{{ end }}
   ">
-    <div class="flex-1 flex flex-col">
-      {{/* Title row with optional logo */}}
+    {{/* Optional large logo header */}}
+    {{- if and $showLogoHeader $page.Params.logo }}
+    <div class="h-32 sm:h-40 bg-rich-black flex items-center justify-center">
+      <img src="/img/{{ $page.Params.logo }}" alt="{{ $page.Title }}" class="h-16 rounded" loading="lazy">
+    </div>
+    {{- end }}
+
+    <div class="flex-1 flex flex-col {{ if $showLogoHeader }}p-4 sm:p-5{{ end }}">
+      {{/* Title row with optional inline logo */}}
       <div class="flex items-start justify-between gap-4 mb-2">
-        <h2 class="text-lg sm:text-xl font-semibold text-platinum mt-0 mb-0 flex-1">
+        {{- if eq $headingLevel "h3" }}
+        <h3 class="{{ if $showLogoHeader }}font-semibold text-sm sm:text-base{{ else }}text-lg sm:text-xl font-semibold{{ end }} text-platinum mt-0 mb-0 flex-1">
+          {{ $page.Title }}
+        </h3>
+        {{- else }}
+        <h2 class="{{ if $showLogoHeader }}font-semibold text-sm sm:text-base{{ else }}text-lg sm:text-xl font-semibold{{ end }} text-platinum mt-0 mb-0 flex-1">
           {{ $page.Title }}
         </h2>
-        {{- if and $showLogo $page.Params.logo }}
+        {{- end }}
+        {{- if and $showLogo (not $showLogoHeader) $page.Params.logo }}
         <img src="/img/{{ $page.Params.logo }}" alt="{{ $page.Title }} logo" class="w-10 h-10 object-contain flex-shrink-0 rounded" loading="lazy">
         {{- end }}
       </div>
 
       {{/* Description */}}
       {{- if $page.Description }}
-      <p class="text-shadow-blue text-sm leading-relaxed mb-3 flex-1">{{ $page.Description }}</p>
+      <p class="text-shadow-blue {{ if $showLogoHeader }}text-xs sm:text-sm{{ else }}text-sm leading-relaxed{{ end }} mb-3 flex-1">{{ $page.Description }}</p>
       {{- else if $page.Summary }}
-      <p class="text-shadow-blue text-sm leading-relaxed mb-3 flex-1">{{ $page.Summary }}</p>
+      <p class="text-shadow-blue {{ if $showLogoHeader }}text-xs sm:text-sm{{ else }}text-sm leading-relaxed{{ end }} mb-3 flex-1">{{ $page.Summary }}</p>
       {{- end }}
 
       {{/* Tags and Duration row */}}
       <div class="flex items-end justify-between gap-4 mt-auto">
         {{- if $page.Params.keywords }}
-        <div class="flex gap-2 flex-wrap">
+        <div class="flex gap-2 {{ if $showLogoHeader }}mt-3{{ end }} flex-wrap">
           {{- range $page.Params.keywords }}
           {{- if not (in $filterKeywords .) }}
-          {{- if eq $variant "filled" }}
+          {{- if $showLogoHeader }}
+          <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">{{ . }}</span>
+          {{- else if eq $variant "filled" }}
           {{ partial "components/tag.html" (dict "text" .) }}
           {{- else }}
           <span class="text-xs text-shadow-blue border border-neutral-600 px-3 py-1 rounded-full">{{ . }}</span>

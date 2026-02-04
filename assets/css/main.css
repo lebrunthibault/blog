@@ -113,10 +113,6 @@
         .post-content a {
             @apply transition-all duration-200 border-b border-yinmn-blue hover:border-shadow-blue;
         }
-        ul {
-            list-style-type: "– ";
-            @apply pl-5;
-        }
 
         /* Better section spacing in articles */
         .post-content > * + * {
@@ -130,6 +126,55 @@
         .post-content > h3 {
             @apply mt-8;
         }
+    }
+
+    /* List styling (content only - excludes nav and TOC) */
+    main ul:not(#TableOfContents ul) {
+        @apply pl-5 my-4;
+        list-style: none;
+    }
+
+    main ul:not(#TableOfContents ul) > li {
+        @apply relative pl-4 mb-3;
+    }
+
+    main ul:not(#TableOfContents ul) > li::before {
+        content: "–";
+        @apply absolute left-0 text-yinmn-blue;
+        font-weight: 500;
+    }
+
+    /* Nested lists */
+    main ul:not(#TableOfContents ul) ul {
+        @apply mt-2 mb-0 pl-4;
+    }
+
+    main ul:not(#TableOfContents ul) ul > li {
+        @apply mb-2;
+    }
+
+    main ul:not(#TableOfContents ul) ul > li::before {
+        content: "•";
+        @apply text-shadow-blue;
+        font-size: 0.8em;
+    }
+
+    /* Ordered lists (content only) */
+    main ol {
+        @apply pl-5 my-4;
+        list-style: none;
+        counter-reset: ol-counter;
+    }
+
+    main ol > li {
+        @apply relative pl-6 mb-3;
+        counter-increment: ol-counter;
+    }
+
+    main ol > li::before {
+        content: counter(ol-counter) ".";
+        @apply absolute left-0 text-yinmn-blue;
+        font-weight: 500;
     }
 
     p {
@@ -154,13 +199,7 @@
         line-height: 1.7;
     }
 
-    /* Better list spacing */
-    ul, ol {
-        @apply my-4;
-    }
-
     li {
-        @apply mb-2;
         line-height: 1.7;
     }
 

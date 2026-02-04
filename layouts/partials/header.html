@@ -1,7 +1,7 @@
 <nav class="relative z-50">
   <div class="flex justify-between items-center">
     <!-- Logo/Title -->
-    <a class="flex items-center relative z-50" href="{{ "/" | relLangURL }}">
+    <a class="flex items-center relative z-50" href="{{ "/" | relLangURL }}" data-swup-link>
       <img src="/img/logo.png" alt="Logo" class="w-7 h-7">
     </a>
 
@@ -21,8 +21,9 @@
     <ul class="hidden md:flex items-center gap-4 lg:gap-6 text-sm">
       {{ range .Site.Menus.main -}}
       {{ $isActive := or ($.IsMenuCurrent "main" .) (hasPrefix $.RelPermalink .URL) }}
+      {{ $isSpaPage := or (eq .URL "/") (eq .URL "/post/") (eq .URL "/projects/") (eq .URL "/contact/") }}
       <li class="mb-0">
-        <a class="menu-item-link{{ if $isActive }} menu-item-active{{ end }}" href="{{ .URL | safeURL }}">{{ .Name }}</a>
+        <a class="menu-item-link{{ if $isActive }} menu-item-active{{ end }}" href="{{ .URL | safeURL }}"{{ if $isSpaPage }} data-swup-link{{ end }}>{{ .Name }}</a>
       </li>
       {{- end }}
     </ul>
@@ -33,8 +34,9 @@
     <ul class="flex flex-col items-center justify-center gap-10 text-2xl">
       {{ range .Site.Menus.main -}}
       {{ $isActive := or ($.IsMenuCurrent "main" .) (hasPrefix $.RelPermalink .URL) }}
+      {{ $isSpaPage := or (eq .URL "/") (eq .URL "/post/") (eq .URL "/projects/") (eq .URL "/contact/") }}
       <li>
-        <a class="menu-item-link{{ if $isActive }} menu-item-active{{ end }}" href="{{ .URL | safeURL }}">
+        <a class="menu-item-link{{ if $isActive }} menu-item-active{{ end }}" href="{{ .URL | safeURL }}"{{ if $isSpaPage }} data-swup-link{{ end }}>
           {{ .Name }}
         </a>
       </li>

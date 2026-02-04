@@ -1139,6 +1139,10 @@ th, td {
   justify-content: space-between;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .gap-2 {
   gap: 12px;
 }
@@ -1157,10 +1161,6 @@ th, td {
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-10 {
-  gap: 2.5rem;
 }
 
 .overflow-hidden {
@@ -1521,6 +1521,23 @@ th, td {
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+/* Swup transition styles */
+
+.transition-fade {
+  opacity: 1;
+  transition: opacity 0.25s ease-out;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transition-fade {
+    transition: none;
+  }
 }
 
 .card-hover {

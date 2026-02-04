@@ -10,4 +10,4 @@ build:
 	hugo -D
 
 push:
-	git push && vercel --prod
+	git push

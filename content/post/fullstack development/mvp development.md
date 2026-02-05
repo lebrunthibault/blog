@@ -39,19 +39,26 @@ Ce qui distingue cette approche, c'est l'intégration des **serveurs Model Conte
 - **Stripe MCP** — Rechercher des clients, lister les produits, débugger les flux de paiement sans changer de contexte
 - **Vercel MCP** — Déployer, consulter les logs, gérer les variables d'environnement
 
-En pratique, vous décrivez simplement ce dont vous avez besoin ("crée une table purchases avec des policies RLS pour l'accès utilisateur"), et l'IA analyse votre schéma existant, génère la migration appropriée, l'applique via le MCP Supabase, et vérifie que tout fonctionne — le tout sans quitter votre éditeur.
+En pratique, il suffit de décrire simplement les évolutions du modèle de données ("crée une table purchases avec tels champs"), 
+l'IA analyse le schéma existant, génère la migration appropriée, l'applique via le MCP Supabase, et vérifie que tout fonctionne.
 
-Cette intégration étroite signifie **moins de changements de contexte**, **moins d'erreurs de copier-coller**, et **des cycles d'itération plus rapides**.
+Cette intégration étroite signifie **moins de changements de contexte** et **des cycles d'itération plus rapides**.
 
 ## Supabase — Le raccourci backend
 
-Pour un MVP, le tier gratuit de Supabase est largement suffisant. Il fournit tout ce qu'il faut pour livrer rapidement sans se soucier des coûts d'infrastructure au départ.
-
 ### Pourquoi Supabase ?
 
-Si avoir un backend et une base Postgres dédiés restent pertinents dans de nombreux cas,
-Supabase permet de déployer très rapidement une plateforme utilisateur sans avoir à gérer des tâches techniques comme 
-l'authentification ou l'entretien du base de données. En combinaison avec le Serveur MCP, le setup est immédiat et la gestion devient beaucoup plus rapide.
+La gestion d'une base de données type Postgresql (développement local avec Docker et déploiement en prod et préprod) ajoute
+une complexité non négligeable dans le développement d'un backend.
+L'approche moderne et appropriée au développement rapide d'un MVP consiste à utiliser une base de données serverless comme Firebase
+ou son équivalent opensource Supabase.
+Pour un MVP, le tier gratuit de Supabase est largement suffisant. Il fournit tout ce qu'il faut pour livrer rapidement sans se soucier des coûts d'infrastructure au départ.
+
+### Au delà de la base de données hébergée
+
+Supabase fournit en plus des fonctionnalités nécessaires à la création d'une plateforme utilisateur en particulier l'authentification, l'envoi
+d'emails, et la gestion des fichiers uploadés.
+En combinaison avec l'utilisation de son serveur MCP, le setup est immédiat et la gestion devient beaucoup plus rapide.
 
 | Fonctionnalité | Ce que vous obtenez                                                                       |
 |----------------|-------------------------------------------------------------------------------------------|
@@ -61,20 +68,18 @@ l'authentification ou l'entretien du base de données. En combinaison avec le Se
 | **Système d'emails** | Templates d'emails intégrés pour les flows d'authentification (faciles à modifier)        |
 | **Vector DB** | Extension pgvector prête à l'emploi pour les embeddings IA si besoin plus tard            |
 
-### Développement local
-
-Ce que j'apprécie le plus : Supabase tourne en local via Docker. On obtient une réplique complète de la stack de production en local — base de données, auth, storage..
-
-Cette approche local-first rend l'itération sur le schéma de base de données indolore.
 ## Intégration des Paiements avec Stripe
 
 Pour un MVP, **Stripe Checkout** est le chemin le plus rapide vers l'acceptation de paiements — et c'est souvent suffisant même pour un produit mature.
 
-## Pipeline de Déploiement
+## Déploiement serverless avec Vercel
+
+Pour aller toujours plus vite dans le développement de prototype, il est utile de déléguer la charge de configuration du déploiement
+à des services serverless comme Vercel.
 
 Avec Vercel, le déploiement devient presque invisible — et c'est exactement ce qu'on veut pour un MVP où chaque minute compte.
 
-**Le workflow est minimaliste mais puissant :**
+**Le workflow est minimaliste mais efficace :**
 
 - **Push sur main** → Déploiement automatique en production
 - **Push sur une branche** → URL de preview générée instantanément
@@ -97,7 +102,8 @@ Pour la validation continue, une simple configuration GitHub Actions suffit : li
 4. **Ajouter les paiements** → Stripe Checkout + webhooks
 5. **Déployer** → Push sur main, Vercel s'occupe du reste
 
-Avec l'assistance IA qui gère le boilerplate et le code d'intégration, l'attention reste sur ce qui compte : construire les fonctionnalités dont les utilisateurs ont vraiment besoin.
+## En conclustion
 
 En combinant les bons outils avec le développement assisté par IA, livrer un MVP de qualité production est plus rapide que jamais — sans faire de compromis sur la sécurité ou la qualité du code.
+L'attention reste sur ce qui compte : construire les fonctionnalités dont les utilisateurs ont vraiment besoin.
 

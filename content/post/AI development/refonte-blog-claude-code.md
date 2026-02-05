@@ -12,7 +12,7 @@ keywords:
 
 J'ai récemment entrepris une refonte complète du design de mon blog. Plutôt que de procéder manuellement, j'ai décidé d'utiliser l'IA comme partenaire de travail principal. Voici un retour d'expérience sur ce workflow hybride entre Claude Code, Claude.ai et différents outils.
 
-## Une approche design guidée par la recherche
+# Une approche design guidée par la recherche
 
 Pour le design général, j'ai laissé Claude Code chercher des sources d'inspiration sur les bonnes pratiques de lisibilité, notamment pour le dark mode. Il a identifié plusieurs ressources pertinentes :
 
@@ -24,14 +24,14 @@ Ces recherches ont guidé mes choix : éviter le noir pur au profit d'un gris tr
 
 Mon workflow a combiné deux outils : **Claude.ai** pour générer des templates de design que je modifiais ensuite, puis **Claude Code** pour implémenter ces modifications dans le code.
 
-## L'animation hero : le cœur du projet
+# L'animation hero : le cœur du projet
 
 L'animation d'entrée du titre hero a été le travail le plus conséquent. J'ai commencé par générer une première animation avec Claude.ai, puis je l'ai affinée en m'inspirant de sources web :
 
 - [Moving Letters - Tobias Ahlin](https://tobiasahlin.com/moving-letters/)
 - [CSS Text Animations - Prismic](https://prismic.io/blog/css-text-animations)
 
-### Animation en 3 temps
+## Animation en 3 temps
 
 Le titre s'anime en trois étapes distinctes :
 
@@ -39,13 +39,13 @@ Le titre s'anime en trois étapes distinctes :
 2. **"Web Development"** : même effet typewriter
 3. **"AI First"** : apparition avec un effet de scale (zoom) pour "AI", fade in pour "First", suivi d'un effet néon subtil avec un glow bleu pulsant
 
-### L'effet néon personnalisé
+## L'effet néon personnalisé
 
 L'effet néon a demandé un paramétrage fin : alternance entre deux teintes de bleu avec `text-shadow` multicouche, gestion des différents niveaux de blur (2px/6px/12px/20px), des opacités et des durées. Un fade out progressif clôture l'animation.
 
 J'ai d'ailleurs demandé à Claude Code de me détailler son implémentation pour pouvoir faire des ajustements manuels par la suite.
 
-### Animation de l'image de profil
+## Animation de l'image de profil
 
 Pour l'image de profil, le workflow a été plus technique :
 
@@ -54,11 +54,11 @@ Pour l'image de profil, le workflow a été plus technique :
 3. Script custom pour retirer sélectivement certaines couleurs (bleus électriques, oranges) tout en préservant le visage
 4. Transition fade entre l'image neutre et l'image finale
 
-### Typographie custom
+## Typographie custom
 
 Pour renforcer l'aspect tech/futuriste du "AI First", j'ai utilisé la police "Terminal F4" téléchargée depuis DaFont. L'intégration a été simple : drag & drop du fichier zip dans Claude Code qui s'est chargé de l'installer. Un fallback sur "Exo 2" (Google Font) assure la compatibilité.
 
-### Vérification de l'intégration
+## Vérification de l'intégration
 
 Tester visuellement les animations a été un défi. J'ai utilisé plusieurs approches :
 
@@ -66,29 +66,29 @@ Tester visuellement les animations a été un défi. J'ai utilisé plusieurs app
 - **Feedback textuel avec Claude Code** : plus économe, suffisant pour les ajustements mineurs
 - **Corrections manuelles** : certains détails de spacing et de margins que Claude avait du mal à appréhender
 
-## Transition en expérience SPA
+# Transition en expérience SPA
 
 J'ai voulu ajouter des transitions fluides entre les pages, comme sur une Single Page Application, tout en gardant mon site Hugo (server-side rendered).
 
 En utilisant le **plan mode** de Claude Code, il m'a proposé [Swup.js](https://swup.js.org/) : une librairie légère conçue exactement pour ce cas d'usage. L'implémentation a été rapide et le résultat transforme l'expérience de navigation.
 
-## Accessibilité
+# Accessibilité
 
 L'accessibilité n'a pas été oubliée. J'ai utilisé **Claude in Chrome** pour lancer un audit via PageSpeed Insights directement depuis le navigateur.
 
 Le site gère maintenant `prefers-reduced-motion` : les utilisateurs qui préfèrent réduire les animations voient des transitions simplifiées (opacité uniquement, sans mouvement).
 
-### Vérification du contenu
+## Vérification du contenu
 
 En bonus, j'ai demandé à Claude Code de vérifier tous les liens cassés de mes articles. Il a utilisé des **subagents** pour paralléliser le travail et identifier rapidement les URLs mortes à corriger.
 
-## Génération de cet article
+# Génération de cet article
 J'ai documenté les étapes principales de cette refonte au fur et à mesure dans un Google Doc en notant notamment les technos et sites utilisées.
 Claude Code a ensuite rédigé cet article que j'ai relu et corrigé (style, sections).
 
 Le résultat : une documentation qui représente précisément le travail effectué avec un minimum de travail !
 
-## Conclusion
+# Conclusion
 
 Ce projet illustre bien comment l'IA peut s'intégrer dans un workflow de développement web. Plutôt qu'un outil qui fait tout à ma place, c'est un partenaire qui accélère la recherche, propose des solutions techniques, et implémente les détails fastidieux — tout en me laissant le contrôle créatif sur le résultat final.
 

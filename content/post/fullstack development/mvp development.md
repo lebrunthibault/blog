@@ -12,7 +12,7 @@ keywords:
 
 Dans cet article, je partage mon approche pour construire des MVP **robustes**, **évolutifs**, et **prêts au déploiement** dès le premier jour — en tirant parti des frameworks modernes et du développement assisté par IA.
 
-## La Stack MVP Moderne
+# La Stack MVP Moderne
 
 Après plusieurs projets, j'ai convergé vers une stack qui maximise la vélocité sans sacrifier la qualité production :
 
@@ -27,11 +27,11 @@ Après plusieurs projets, j'ai convergé vers une stack qui maximise la vélocit
 
 Cette combinaison élimine des catégories entières de décisions et de boilerplate, vous permettant de vous concentrer sur la logique métier.
 
-## Développement Assisté par IA avec Claude Code
+# Développement Assisté par IA avec Claude Code
 
 L'un des multiplicateurs de productivité les plus significatifs dans mon workflow est **Claude Code** — un assistant IA qui comprend le contexte complet du projet et peut exécuter des tâches de manière autonome.
 
-### Les Serveurs MCP : Le Game Changer
+## Les Serveurs MCP : Le Game Changer
 
 Ce qui distingue cette approche, c'est l'intégration des **serveurs Model Context Protocol (MCP)**. Ils permettent à l'IA d'interagir directement avec les services externes :
 
@@ -44,9 +44,9 @@ l'IA analyse le schéma existant, génère la migration appropriée, l'applique 
 
 Cette intégration étroite signifie **moins de changements de contexte** et **des cycles d'itération plus rapides**.
 
-## Supabase — Le raccourci backend
+# Supabase — Le raccourci backend
 
-### Pourquoi Supabase ?
+## Pourquoi Supabase ?
 
 La gestion d'une base de données type Postgresql (développement local avec Docker et déploiement en prod et préprod) ajoute
 une complexité non négligeable dans le développement d'un backend.
@@ -54,7 +54,7 @@ L'approche moderne et appropriée au développement rapide d'un MVP consiste à 
 ou son équivalent opensource Supabase.
 Pour un MVP, le tier gratuit de Supabase est largement suffisant. Il fournit tout ce qu'il faut pour livrer rapidement sans se soucier des coûts d'infrastructure au départ.
 
-### Au delà de la base de données hébergée
+## Au delà de la base de données hébergée
 
 Supabase fournit en plus des fonctionnalités nécessaires à la création d'une plateforme utilisateur en particulier l'authentification, l'envoi
 d'emails, et la gestion des fichiers uploadés.
@@ -68,11 +68,11 @@ En combinaison avec l'utilisation de son serveur MCP, le setup est immédiat et 
 | **Système d'emails** | Templates d'emails intégrés pour les flows d'authentification (faciles à modifier)        |
 | **Vector DB** | Extension pgvector prête à l'emploi pour les embeddings IA si besoin plus tard            |
 
-## Intégration des Paiements avec Stripe
+# Intégration des Paiements avec Stripe
 
 Pour un MVP, **Stripe Checkout** est le chemin le plus rapide vers l'acceptation de paiements — et c'est souvent suffisant même pour un produit mature.
 
-## Déploiement serverless avec Vercel
+# Déploiement serverless avec Vercel
 
 Pour aller toujours plus vite dans le développement de prototype, il est utile de déléguer la charge de configuration du déploiement
 à des services serverless comme Vercel.
@@ -94,7 +94,7 @@ Avec Vercel, le déploiement devient presque invisible — et c'est exactement c
 
 Pour la validation continue, une simple configuration GitHub Actions suffit : linting et build à chaque push. Si le build passe, Vercel déploie. Simple, efficace, et ça évite de merger du code buggé.
 
-## Résumé du Workflow de Développement
+# Résumé du Workflow de Développement
 
 1. **Définir le modèle de données** → Migrations Supabase
 2. **Construire l'API** → Procédures tRPC avec validation Zod
@@ -102,7 +102,7 @@ Pour la validation continue, une simple configuration GitHub Actions suffit : li
 4. **Ajouter les paiements** → Stripe Checkout + webhooks
 5. **Déployer** → Push sur main, Vercel s'occupe du reste
 
-## En conclustion
+# En conclustion
 
 En combinant les bons outils avec le développement assisté par IA, livrer un MVP de qualité production est plus rapide que jamais — sans faire de compromis sur la sécurité ou la qualité du code.
 L'attention reste sur ce qui compte : construire les fonctionnalités dont les utilisateurs ont vraiment besoin.

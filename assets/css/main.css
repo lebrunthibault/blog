@@ -107,17 +107,17 @@ html.is-animating .transition-fade {
     }
 
     h1 {
-        @apply text-2xl sm:text-2xl mt-3 mb-4 pt-2;
-        font-weight: 500;
-        letter-spacing: -0.01em;
-    }
-    h2 {
         @apply text-xl sm:text-xl mt-8 mb-4 pt-2;
         font-weight: 500;
         letter-spacing: -0.01em;
     }
-    h3 {
+    h2 {
         @apply text-lg mt-6 mb-3;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+    }
+    h3 {
+        @apply text-base mt-5 mb-3;
         font-weight: 500;
     }
     h4 {
@@ -150,12 +150,12 @@ html.is-animating .transition-fade {
             @apply mt-4;
         }
 
-        .post-content > h2 {
+        .post-content > h1 {
             @apply mt-14 -mx-4 px-4 py-3 bg-oxford-blue border-l-4 border-yinmn-blue rounded-r-lg;
         }
 
-        .post-content > h3 {
-            @apply mt-8 text-shadow-blue text-lg sm:text-xl;
+        .post-content > h2 {
+            @apply mt-8 text-shadow-blue text-base sm:text-lg;
         }
     }
 
@@ -166,7 +166,7 @@ html.is-animating .transition-fade {
     }
 
     main ul > li {
-        @apply relative pl-4 mb-3;
+        @apply relative pl-4 mb-2;
     }
 
     main ul > li::before {
@@ -198,7 +198,7 @@ html.is-animating .transition-fade {
     }
 
     main ol > li {
-        @apply relative pl-4 mb-3;
+        @apply relative pl-4 mb-1;
         counter-increment: ol-counter;
     }
 

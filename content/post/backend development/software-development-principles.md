@@ -12,32 +12,30 @@ color: "#90ba8b"
 ---
 
 
-> I'm focusing on the languages I've used most : Python and PHP.
->
-> I've structured this document as going from lower level development techniques to higher level concepts like design patterns.
+I'm focusing on the languages I've used most : Python and PHP.
+I've structured this document as going from lower level development techniques to higher level concepts like design patterns.
 
 
 # Type layers
 
-> The definition of a type depends on the point of view of the observer. At a basic level, types can be seen as elements exposing a specific API to other types.This allows type checker to do their work. At a higher level though, types express business concepts, something a type checker will not understand but a developer will.
->
-> As a consequence I chose not to describe what a type is but rather what a type layer.
->
-> A type layer consists of types, how they are seen and what meaning they express, alone or in conjunction with other types
->
-> I think we can split type layers in 3 categories : 
->
-> - <u>type checker level types</u>: types as seen by a type checker and the IDE
-> - <u>object level types</u>: types as how they encapsulate logic and state (entities, value objects, events, commands).
-> - <u>module level types</u>: types as how they structure / architecture the module (interfaces)
->
-> The two latter way of seeing types makes it possible to express business intent.
+The definition of a type depends on the point of view of the observer. At a basic level, types can be seen as elements exposing a specific API to other types.This allows type checker to do their work. At a higher level though, types express business concepts, something a type checker will not understand but a developer will.
+
+As a consequence I chose not to describe what a type is but rather what a type layer.
+
+A type layer consists of types, how they are seen and what meaning they express, alone or in conjunction with other types
+
+I think we can split type layers in 3 categories : 
+- <u>type checker level types</u>: types as seen by a type checker and the IDE
+- <u>object level types</u>: types as how they encapsulate logic and state (entities, value objects, events, commands).
+- <u>module level types</u>: types as how they structure / architecture the module (interfaces)
+  
+The two latter way of seeing types makes it possible to express business intent.
 
 
 
 ## Type checker layer
 
-> In dynamically typed languages, compilation is replaced by type checking static analysis. We’ll have the best of both worlds : strongly typed feel and liberty of dynamism.
+In dynamically typed languages, compilation is replaced by type checking static analysis. We'll have the best of both worlds : strongly typed feel and liberty of dynamism.
 
 - This is the “dummy” level of types, how the type checker / editor sees them and how it (or the developer) can check the API of any variable.
 - The editor as well as the type checker should be configured with strict settings.
@@ -90,27 +88,27 @@ color: "#90ba8b"
 
 # [DRY](http://wiki.c2.com/?DontRepeatYourself) {#dry}
 
-> Maybe the single most important rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum.
-> It has architectural as well as technical implications.
->
-> Code Duplication brings a lot of troubles notably :
->
-> - The drift between 2 code parts that should be united (bringing bugs, sometimes subtle)
-> - A drop in the architectural quality of the codebase
-> - A loss of meaning overall, because duplicate fragments usually mean a business concept is not expressed clearly
->
-> It must be pointed out that by duplication we usually mean intent duplication, and that’s what should be tracked down.
->
-> Sometimes this rule must be bent when other principles are at play, especially when the duplicated code cannot be factored in a way that's in accordance with business intent. 
->
-> Here again I'll go from lower level (tactical) techniques to higher level thinking.
+Maybe the single most important rule is to reduce (code / information / logic) duplication in the codebase at the bar minimum.
+It has architectural as well as technical implications.
+
+Code Duplication brings a lot of troubles notably :
+
+- The drift between 2 code parts that should be united (bringing bugs, sometimes subtle)
+- A drop in the architectural quality of the codebase
+- A loss of meaning overall, because duplicate fragments usually mean a business concept is not expressed clearly
+
+It must be pointed out that by duplication we usually mean intent duplication, and that’s what should be tracked down.
+
+Sometimes this rule must be bent when other principles are at play, especially when the duplicated code cannot be factored in a way that's in accordance with business intent. 
+
+Here again I'll go from lower level (tactical) techniques to higher level thinking.
 
 
 
 ## Literals
 
-> Literal values are the simplest dry violation to spot, especially string ones. They should almost never happen
-> They can usually be replaced by enums and constants.
+Literal values are the simplest dry violation to spot, especially string ones. They should almost never happen.
+They can usually be replaced by enums and constants.
 
 ### Exceptions to this rule
 
@@ -145,7 +143,7 @@ color: "#90ba8b"
 
 # Decoupling
 
-> Coupling is the enemy of change because it transitively links together things that must change in parallel.
+Coupling is the enemy of change because it transitively links together things that must change in parallel.
 
 ## Main 00 concepts
 
@@ -164,7 +162,6 @@ color: "#90ba8b"
 - Tell, don't ask : objects internals should not be available and known to the client code
 - See also Law of Demeter
 - The severity of the encapsulation is a pragmatic decision 
-
 
 
 ## Inheritance
@@ -215,8 +212,8 @@ Most other kind of usages (especially inheriting behaviour) can usually be repla
 
 ## [Liskov substitution principle](https://stitcher.io/blog/liskov-and-type-safety)
 
-> Inheritance is not like "re-using parts of the parent type, and overriding other parts in the sub-type", 
-> rather it is extending the behaviour defined by its parent. This is what the LSP guards against.
+Inheritance is not like "re-using parts of the parent type, and overriding other parts in the sub-type",
+rather it is extending the behaviour defined by its parent. This is what the LSP guards against.
 
 Rules :
 
@@ -241,13 +238,13 @@ It also follows the LSP since version 7.4 by allowing :
 
 # Design Patterns {#design-patterns}
 
-> https://refactoring.guru/design-patterns
->
-> When should we use patterns ? At any time of the development process. But usually when refactoring. Say
->
-> - first try : simple implementation tied to specific classes
-> - second try: maybe still the same
-> - third try : refactoring using design patterns
+*https://refactoring.guru/design-patterns*
+
+When should we use patterns ? At any time of the development process. But usually when refactoring. Say
+
+- first try : simple implementation tied to specific classes
+- second try: maybe still the same
+- third try : refactoring using design patterns
 
 # Creational Patterns
 
@@ -260,7 +257,7 @@ It also follows the LSP since version 7.4 by allowing :
 
 ## [Factory method](https://refactoring.guru/design-patterns/factory-method)
 
-> Used when we don't know the exact type and dependencies of the object, as well as to simplify object creation.
+Used when we don't know the exact type and dependencies of the object, as well as to simplify object creation.
 
 - Let the object instantiation be done by  a Creator class.
 - created objects must implement an interface
@@ -268,19 +265,19 @@ It also follows the LSP since version 7.4 by allowing :
 - Allows extension by creating new product creator and classes
 - Follows single responsibility (one place to create) and open / closed (extensible via inheritance)
 
-> NB : the factory method is great at dissociating conditionals for one or specific variable / enum.
->
-> It's not always easy to work with multiple variables / enum classes changing and be DRY.
->
-> Using decorators inside a factory class can solve this and is a strong pattern.
+NB : the factory method is great at dissociating conditionals for one or specific variable / enum.
+
+It's not always easy to work with multiple variables / enum classes changing and be DRY.
+
+Using decorators inside a factory class can solve this and is a strong pattern.
 
 
 # [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
 
 ## [Template method](https://refactoring.guru/design-patterns/template-method)
 
-> defines the skeleton of an algorithm in the superclass but lets subclasses override 
-> specific steps of the algorithm without changing its structure
+defines the skeleton of an algorithm in the superclass but lets subclasses override
+specific steps of the algorithm without changing its structure
 
 - Mandatory steps are abstract methods in base class
 - Default steps are normal methods in base class (with implementation)
@@ -290,7 +287,7 @@ It also follows the LSP since version 7.4 by allowing :
 
 ## [Observer](https://refactoring.guru/fr/design-patterns/observer)
 
-![](https://github.com/lebrunthibault/lebrunthibault.github.io/blob/master/static/img/observer.PNG?raw=true)
+![](/img/observer.PNG)
 
 - This pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. 
 - The observers are *dependent* (coupled) on the subject
@@ -301,15 +298,14 @@ It also follows the LSP since version 7.4 by allowing :
 - Simple and strong but introduces coupling when the observers need to register directly on the observable. 
 - Makes sense when the coupling already exists and for small problematics.
 - Otherwise, something like Mediator, Pub/Sub or event bus can remove this coupling.
-{{% code file="/static/code/observer/main.py" language="python" %}}
 
 ## Event systems
 
-> Event systems have all the same goal of decoupling the passage of information between a producer / emitter / subject / observable and a consumer / listener / subscriber / observer.
->
-> They have very diverse implementations and differ in the way the information is called, passed, dispatched and transmitted to the consumer(s). Decoupling impact can vary as well.
->
-> Semantically, the producer and consumer can be passive or active in the way they emit / subscribe or are notified.
+Event systems have all the same goal of decoupling the passage of information between a producer / emitter / subject / observable and a consumer / listener / subscriber / observer.
+
+They have very diverse implementations and differ in the way the information is called, passed, dispatched and transmitted to the consumer(s). Decoupling impact can vary as well.
+
+Semantically, the producer and consumer can be passive or active in the way they emit / subscribe or are notified.
 
 ### Mediator
 
@@ -332,11 +328,8 @@ It also follows the LSP since version 7.4 by allowing :
 - Evolution of the observer :  allows subscribers to express interest in different types of messages and further separates publishers from subscribers. 
   It is often used in middleware systems.The observer is a **subscriber**, and the subject is a **publisher** and does not know about its subscribers. 
   Deals well with asynchronous code. Message passing is decoupled from the sender code.
-  
 - Scales well.
-
 - Message queuing is a special case of pub/sub with usually only one subscriber per message type, and asynchronous.
-
 - More complex to grasp at first sight as the publish / subscribe are done in different places.
 
   

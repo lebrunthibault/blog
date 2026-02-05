@@ -24,6 +24,10 @@ Ces recherches ont guidé mes choix : éviter le noir pur au profit d'un gris tr
 
 Mon workflow a combiné deux outils : **Claude.ai** pour générer des templates de design que je modifiais ensuite, puis **Claude Code** pour implémenter ces modifications dans le code.
 
+## Utilisation de skills et de subagents pour obtenir des propositions de homepage
+
+Une fois la première version de la home mise en place j'ai demandé à Claude d'utiliser le skill frontend-design
+
 # L'animation hero : le cœur du projet
 
 L'animation d'entrée du titre hero a été le travail le plus conséquent. J'ai commencé par générer une première animation avec Claude.ai, puis je l'ai affinée en m'inspirant de sources web :

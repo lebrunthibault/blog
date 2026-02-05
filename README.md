@@ -2,12 +2,12 @@
 
 ## Overview
 
-This is a personal Hugo-powered blog by Thibault Lebrun deployed on Netlify. The blog contains markdown articles
+This is a personal Hugo-powered blog by Thibault Lebrun deployed on Vercel. The blog contains markdown articles
 organized in a hierarchical category structure. The codebase uses TailwindCSS for styling.
 
-**Repository:** https://github.com/lebrunthibault/lebrunthibault.github.io  
-**Website:** https://thibaultlebrun.dev/  
-**Hugo Version:** 0.93.2 (Extended)
+**Repository:** https://github.com/lebrunthibault/blog
+**Website:** https://thibaultlebrun.dev/
+**Hugo Version:** 0.152.2 (Extended)
 
 ---
 
@@ -44,9 +44,13 @@ Supported Frontmatter Fields:
 
 **Custom Layouts** (`/layouts/`):
 - `/layouts/index.html` - Custom homepage with filtered post display
+- `/layouts/partials/head.html` - Custom head section
+- `/layouts/partials/header.html` - Custom header
 - `/layouts/partials/scripts.html` - Custom script includes
 - `/layouts/partials/footer.html` - Custom footer
-- `/layouts/post/` - Post-specific overrides (if any)
+- `/layouts/_default/` - Default layout overrides
+- `/layouts/post/` - Post-specific overrides
+- `/layouts/projects/` - Projects section layouts
 - `/layouts/shortcodes/code.html` - Custom code shortcode
 
 ---
@@ -61,40 +65,34 @@ Supported Frontmatter Fields:
 
 **Deployment Flow:**
 1. Push to `master` branch
-2. Netlify builds dans deployes
-5. Site live at https://thibaultlebrun.dev/
-
----
-
-### Table of Contents
-
-- Auto-generated from headers
-- Custom styling
+2. Vercel builds and deploys automatically
+3. Site live at https://thibaultlebrun.dev/
 
 ---
 
 ## 9. Key Dependencies & Technologies
 
 ### Build Tools
-- **Hugo** v0.93.2 (Extended) - Static site generator
+- **Hugo** v0.152.2 (Extended) - Static site generator
 - **Node.js/npm** - Package manager
 
 ### Frontend Libraries
-- **TailwindCSS**
+- **TailwindCSS v4**
 
 ### Themes & Templates
 - i18n support: English, French, Spanish, German, Russian, Japanese, Turkish, Chinese (CN/TW)
 
 ### Hosting & Deployment
-- **Netlify**
+- **Vercel**
 
 ---
 
 ### Local Development
 
 ```bash
-make dev  # Starts dev server with hot reload
-make css  # compile css
+make dev    # Starts dev server with hot reload
+make css    # Compile and watch Tailwind CSS
+make build  # Build for production
 ```
 
 ## Key Customization Points

@@ -15,11 +15,7 @@ color: "#ba8b92"
 
 _Voici mon playbook de développement détaillant point par point toutes les
 bonnes pratiques et technologies que j’utilise dans le développement d’un projet
-web._
-
-> J’aborde ce playbook par sections et m’étend parfois sur des sujets un peu techniques.
-> N’hésitez pas à consulter la table des matières à gauche pour lire directement
-> les sections qui vous intéressent.
+web fullstack complexe._
 
 # Développement web moderne
 

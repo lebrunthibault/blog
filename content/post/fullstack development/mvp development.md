@@ -48,7 +48,7 @@ Je n'entrerai pas ici dans les détails techniques de ce nouveau paradigme mais 
 
 Je détaille juste ce point. Grâces aux intégrations MCP, mes agents IA peuvent se connecter directement à vos outils 
 (Figma pour le design, outils de gestion de projets type Clickup ou Asana).
-Ils me permettent aussi de gérer les changements de configuration de services cloud de manière efficace et sure (Vercel, Supabase, Brevo..)
+Ils me permettent aussi de gérer les changements de configuration de services cloud de manière efficace et sure (Vercel, Supabase, Brevo..).
 
 Cette intégration étroite signifie pour moi **moins de changements de contexte** et **des cycles d'itération plus rapides**.
 
@@ -58,21 +58,21 @@ Cette intégration étroite signifie pour moi **moins de changements de contexte
 
 La gestion d'un backend hosté et d'une base de données type Postgresql (développement local avec Docker et déploiement en prod et préprod) ajoute
 une complexité non négligeable dans le développement d'un backend.
-L'approche moderne et appropriée au développement rapide d'un MVP consiste à utiliser un BAAS (Backend as a service) comprenant principalement une base de données serverless
+L'approche moderne et appropriée au développement rapide d'un MVP consiste à utiliser un BAAS ([Backend as a service](https://www.cloudflare.com/fr-fr/learning/serverless/glossary/backend-as-a-service-baas/)) comprenant principalement une base de données serverless
 mais aussi un service d'authentification, un service de stockage de fichiers, l'envoi d'email via SMTP et des fonctions serverless. 
 
 Pour un MVP, le tier gratuit de Supabase est largement suffisant. Il fournit tout ce qu'il faut pour livrer rapidement sans se soucier des coûts d'infrastructure au départ.
 
 ## Au delà de la base de données hébergée
 
-| Fonctionnalité             | Ce que vous obtenez                                                                       |
-|----------------------------|-------------------------------------------------------------------------------------------|
-| **Authentification**       | Magic links, providers OAuth, gestion de sessions — pas besoin de coder sa propre auth    |
-| **Postgres hébergé**       | Une vraie base de données avec Row Level Security, pas une abstraction NoSQL propriétaire |
-| **Stockage objet**         | Buckets compatibles S3 pour les fichiers uploadés                                         |
-| **Système d'emails**       | Templates d'emails intégrés pour les flows d'authentification (faciles à modifier)        |
-| **Notifications realtime** | Permet d'avoir des notification websockets                                                |
-| **Vector DB**              | Extension pgvector prête à l'emploi pour les embeddings IA si besoin plus tard            |
+| Fonctionnalité             | Ce que vous obtenez                                                                             |
+|----------------------------|-------------------------------------------------------------------------------------------------|
+| **Authentification**       | Magic links, providers OAuth, gestion de sessions — pas besoin de coder sa propre auth          |
+| **Postgres hébergé**       | C'est toujours le Postgresql qu'on connait depuis des années !                                  |
+| **Stockage objet**         | Buckets compatibles S3 pour les fichiers uploadés                                               |
+| **Système d'emails**       | Templates d'emails intégrés pour les flows d'authentification (faciles à modifier)              |
+| **Notifications realtime** | Pour les sites ayant des besoins temps réel (type chat), l'intégration de websockets est native |
+| **Vector DB**              | Extension pgvector prête à l'emploi pour les embeddings IA si besoin de faire du RAG            |
 
 ## Sécurité
 

@@ -977,6 +977,10 @@ th, td {
   margin-top: auto;
 }
 
+.ml-\[-5px\] {
+  margin-left: -5px;
+}
+
 .block {
   display: block;
 }
@@ -1824,8 +1828,20 @@ html.is-animating .transition-fade {
     margin-top: 2.5rem;
   }
 
+  .md\:mr-\[3px\] {
+    margin-right: 3px;
+  }
+
+  .md\:ml-0 {
+    margin-left: 0px;
+  }
+
   .md\:block {
     display: block;
+  }
+
+  .md\:inline {
+    display: inline;
   }
 
   .md\:flex {

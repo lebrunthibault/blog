@@ -6,7 +6,7 @@ description: "Retour d'expérience sur la refonte design de mon blog en utilisan
 keywords:
   - AI
   - Claude Code
-  - Web Development
+  - Frontend Development
   - Design
 ---
 

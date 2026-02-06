@@ -48,7 +48,8 @@ Compacter les conversations ne résout que partiellement le problème et est une
 Mes recommandations :
 - Monitorer l'utilisation du contexte avec `/context`
 - Redémarrer Claude pour chaque nouvelle tâche distincte
-- Pour les tâches longues : faire résumer à Claude son travail en cours dans un fichier markdown (fichiers concernés, état de la tâche) puis relancer une nouvelle session avec ce contexte réduit
+- Note: En utilisant le plan mode, le contexte est libéré quand on accepte le plan (sans avoir à noter l'état dans un fichier). C'est donc une raison supplémentaire d'utiliser le plan mode
+- Pour les tâches complexes et longues mieux vaut utiliser des fichiers de spec voire même un spec driven development system comme [Get Shit Done](https://github.com/glittercowboy/get-shit-done)
 
 ## Dictée vocale
 

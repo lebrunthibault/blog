@@ -12,24 +12,34 @@ keywords:
 
 Dans cet article, je partage mon approche pour construire des MVP **robustes**, **évolutifs**, et **prêts au déploiement** dès le premier jour — en tirant parti des frameworks modernes et du développement assisté par IA.
 
+Mon contrat : vous fournir une plateforme web complète en seulement quelques jours de développement et avec zéro coût d'infrastructure.
+
+Comment je réalise çà ? Grâce à mon expertise, des technologies web modernes (et principalement open source), et les évolutions récentes
+de développement assisté par IA.
+
+Contrairement au no-code et à des solutions type wordpress, nous restons en contrôle complet du code et de l'infrastructure qui peut évoluer,
+selon vos besoin vers des clouds différents.
+
 # La Stack MVP Moderne
 
-Après plusieurs projets, j'ai convergé vers une stack qui maximise la vélocité sans sacrifier la qualité production :
+Après plusieurs projets, j'ai convergé vers une stack qui maximise la vélocité sans sacrifier ni la sécurité, ni la qualité, ni la flexibilité :
 
-| Couche | Technologie | Pourquoi                                                                   |
-|--------|-------------|----------------------------------------------------------------------------|
-| Framework | **Next.js 16** (App Router) | Un framework front moderne et standard                                     |
-| API | **tRPC v11** + React Query | Typage de bout en bout, rapide à setup et robuste pour des évolutions futures |
-| Base de données | **Supabase** (PostgreSQL) | Le choix idéal pour du MVP sans avoir à setup Docker ou un système d'authentification |
-| Paiements | **Stripe Checkout** | Standard et fonctionne out of the box                                      |
-| UI | **shadcn/ui** + Tailwind CSS v4 | Pour un design professionnel et très flexible à modifier                   |
-| Déploiement | **Vercel** | Pas de serveur à gérer, un free tier généreux                              |
+| Couche          | Technologie                     | Pourquoi                                                                              |
+|-----------------|---------------------------------|---------------------------------------------------------------------------------------|
+| Framework       | **Next.js 16** (App Router)     | Un framework front moderne et standard                                                |
+| API             | **tRPC v11** + React Query      | Typage de bout en bout, rapide à setup et robuste pour des évolutions futures         |
+| Base de données | **Supabase** (PostgreSQL)       | Le choix idéal pour du MVP sans avoir à setup Docker ou un système d'authentification |
+| Paiements       | **Stripe Checkout**             | Standard et fonctionne out of the box                                                 |
+| UI              | **shadcn/ui** + Tailwind CSS v4 | Pour un design professionnel et très flexible à modifier                              |
+| Emailing        | Brevo                           | Solution professionnelle: free tiers à 300 emails / mois                              |
+| Déploiement     | **Vercel**                      | Pas de serveur à gérer, un free tier généreux                                         |
 
 Cette combinaison élimine des catégories entières de décisions et de boilerplate, vous permettant de vous concentrer sur la logique métier.
 
 # Développement Assisté par IA avec Claude Code
 
-L'un des multiplicateurs de productivité les plus significatifs dans mon workflow est **Claude Code** — un assistant IA qui comprend le contexte complet du projet et peut exécuter des tâches de manière autonome.
+L'un des multiplicateurs de productivité les plus significatifs dans mon workflow est **Claude Code** — un agent IA qui comprend le contexte complet du projet et peut exécuter des tâches de manière autonome.
+Le développement par IA est le hot topic du moment.
 
 ## Les Serveurs MCP : Le Game Changer
 

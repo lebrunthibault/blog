@@ -12,6 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/venv" />
       <excludeFolder url="file://$MODULE_DIR$/public" />
       <excludeFolder url="file://$MODULE_DIR$/public/img" />
+      <excludeFolder url="file://$MODULE_DIR$/.worktrees" />
     </content>
     <content url="file://$MODULE_DIR$/public/img" />
     <content url="file://$MODULE_DIR$/static/code" />

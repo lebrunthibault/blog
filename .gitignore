@@ -7,3 +7,4 @@ venv/
 
 .playwright-mcp/
 .vercel
+.worktrees/

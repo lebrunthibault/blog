@@ -48,25 +48,59 @@ Cette intégration étroite signifie **moins de changements de contexte** et **d
 
 ## Pourquoi Supabase ?
 
-La gestion d'une base de données type Postgresql (développement local avec Docker et déploiement en prod et préprod) ajoute
+La gestion d'un backend hosté et d'une base de données type Postgresql (développement local avec Docker et déploiement en prod et préprod) ajoute
 une complexité non négligeable dans le développement d'un backend.
-L'approche moderne et appropriée au développement rapide d'un MVP consiste à utiliser une base de données serverless comme Firebase
-ou son équivalent opensource Supabase.
+L'approche moderne et appropriée au développement rapide d'un MVP consiste à utiliser un BAAS (Backend as a service) comprenant principalement une base de données serverless
+mais aussi un service d'authentification, un service de stockage de fichiers, l'envoi d'email via SMTP et des fonctions serverless. 
+
 Pour un MVP, le tier gratuit de Supabase est largement suffisant. Il fournit tout ce qu'il faut pour livrer rapidement sans se soucier des coûts d'infrastructure au départ.
 
 ## Au delà de la base de données hébergée
 
-Supabase fournit en plus des fonctionnalités nécessaires à la création d'une plateforme utilisateur en particulier l'authentification, l'envoi
-d'emails, et la gestion des fichiers uploadés.
-En combinaison avec l'utilisation de son serveur MCP, le setup est immédiat et la gestion devient beaucoup plus rapide.
+| Fonctionnalité             | Ce que vous obtenez                                                                       |
+|----------------------------|-------------------------------------------------------------------------------------------|
+| **Authentification**       | Magic links, providers OAuth, gestion de sessions — pas besoin de coder sa propre auth    |
+| **Postgres hébergé**       | Une vraie base de données avec Row Level Security, pas une abstraction NoSQL propriétaire |
+| **Stockage objet**         | Buckets compatibles S3 pour les fichiers uploadés                                         |
+| **Système d'emails**       | Templates d'emails intégrés pour les flows d'authentification (faciles à modifier)        |
+| **Notifications realtime** | Permet d'avoir des notification websockets                                                |
+| **Vector DB**              | Extension pgvector prête à l'emploi pour les embeddings IA si besoin plus tard            |
 
-| Fonctionnalité | Ce que vous obtenez                                                                       |
-|----------------|-------------------------------------------------------------------------------------------|
-| **Authentification** | Magic links, providers OAuth, gestion de sessions — pas besoin de coder sa propre auth    |
-| **Postgres hébergé** | Une vraie base de données avec Row Level Security, pas une abstraction NoSQL propriétaire |
-| **Stockage objet** | Buckets compatibles S3 pour les fichiers uploadés                                         |
-| **Système d'emails** | Templates d'emails intégrés pour les flows d'authentification (faciles à modifier)        |
-| **Vector DB** | Extension pgvector prête à l'emploi pour les embeddings IA si besoin plus tard            |
+## Sécurité
+
+Un système BAAS permet l'exécution de queries à la db depuis le browser et nécessite donc une couche de sécurité supplémentaire
+comparé à la gestion d'une base de données classique (ou la db est protégée derrière une api qui gère l'authentification et l'authorisation).
+
+Pour implémenter cette couche de sécurité Supabase utilise la primitive Postgresql [Row Level Security](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)
+
+L'activation se fait par table :
+```SQL
+alter table "table_name" enable row level security;
+```
+
+Une fois le RLS activé on peut ajouter des policies qui sont des clauses WHERE implicites souvent basées
+sur l'id de l'utilisateur connecté ou son rôle. Elles évient a l'utilisateur de la plateforme d'avoir accès à la db.
+
+On crée une policy avec :
+```SQL
+create policy "Individuals can view their own todos."
+on todos for select
+using ( (select auth.uid()) = user_id );
+```
+ce qui ajoutera la policy sur chaque select !
+```SQL
+select *
+from todos
+where auth.uid() = todos.user_id;
+-- ce where est ajouté
+```
+
+NB : les RLS ne s'utilisent que comme couche de sécurité et jamais comme logique métier. Le filtrage doit toujours être fait dans la query
+originale pour des raisons d'une part de lisibilité et d'autre part de [performance](https://supabase.com/docs/guides/database/postgres/row-level-security#add-filters-to-every-query) (Postgres peut optimiser la requête).
+
+## Performance
+
+- [Minimiser les joins dans les policies](https://supabase.com/docs/guides/database/postgres/row-level-security#minimize-joins): éviter les correlated subqueries dans les policies RLS quand c'est possible.
 
 # Intégration des Paiements avec Stripe
 

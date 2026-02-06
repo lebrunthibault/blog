@@ -541,7 +541,7 @@ main section {
   }
   a {
     --tw-border-opacity: 1;
-    border-color: rgb(65 90 119 / var(--tw-border-opacity));
+    border-color: rgb(67 106 118 / var(--tw-border-opacity));
   }
   a {
     transition-property: all;
@@ -563,7 +563,7 @@ article {
   }
   .post-content a {
     --tw-border-opacity: 1;
-    border-color: rgb(65 90 119 / var(--tw-border-opacity));
+    border-color: rgb(67 106 118 / var(--tw-border-opacity));
   }
   .post-content a {
     transition-property: all;
@@ -597,7 +597,7 @@ article {
   }
   .post-content > h1 {
     --tw-border-opacity: 1;
-    border-color: rgb(65 90 119 / var(--tw-border-opacity));
+    border-color: rgb(67 106 118 / var(--tw-border-opacity));
   }
   .post-content > h1 {
     --tw-bg-opacity: 1;
@@ -650,7 +650,7 @@ main ul > li::before {
   position: absolute;
   left: 0px;
   --tw-text-opacity: 1;
-  color: rgb(65 90 119 / var(--tw-text-opacity));
+  color: rgb(67 106 118 / var(--tw-text-opacity));
   font-weight: 500;
 }
 
@@ -695,7 +695,7 @@ main ol > li::before {
   position: absolute;
   left: 0px;
   --tw-text-opacity: 1;
-  color: rgb(65 90 119 / var(--tw-text-opacity));
+  color: rgb(67 106 118 / var(--tw-text-opacity));
   font-weight: 500;
 }
 
@@ -735,7 +735,7 @@ blockquote {
   margin-bottom: 48px;
   border-inline-start-width: 4px;
   --tw-border-opacity: 1;
-  border-color: rgb(65 90 119 / var(--tw-border-opacity));
+  border-color: rgb(67 106 118 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(22 22 22 / var(--tw-bg-opacity));
   padding: 24px;
@@ -1221,7 +1221,7 @@ th, td {
 
 .border-yinmn-blue {
   --tw-border-opacity: 1;
-  border-color: rgb(65 90 119 / var(--tw-border-opacity));
+  border-color: rgb(67 106 118 / var(--tw-border-opacity));
 }
 
 .bg-gray-100 {
@@ -1255,7 +1255,7 @@ th, td {
 
 .bg-yinmn-blue {
   --tw-bg-opacity: 1;
-  background-color: rgb(65 90 119 / var(--tw-bg-opacity));
+  background-color: rgb(67 106 118 / var(--tw-bg-opacity));
 }
 
 .object-contain {
@@ -1462,7 +1462,7 @@ th, td {
 }
 
 .shadow-yinmn-blue\/30 {
-  --tw-shadow-color: rgb(65 90 119 / 0.3);
+  --tw-shadow-color: rgb(67 106 118 / 0.3);
   --tw-shadow: var(--tw-shadow-colored);
 }
 
@@ -1633,7 +1633,7 @@ html.is-animating .transition-fade {
 
 .hover\:border-yinmn-blue:hover {
   --tw-border-opacity: 1;
-  border-color: rgb(65 90 119 / var(--tw-border-opacity));
+  border-color: rgb(67 106 118 / var(--tw-border-opacity));
 }
 
 .hover\:bg-gray-50:hover {

@@ -26,37 +26,178 @@ Mon workflow a combiné deux outils : **Claude.ai** pour générer des templates
 
 ## Utilisation de skills et de subagents pour obtenir des propositions de homepage
 
-Une fois la première version de la home mise en place j'ai demandé à Claude d'utiliser le skill frontend-design
+Les skills permettent à Claude d'agir de manière spécialisée dans de nombreux domaines.
+Une fois la première version de la home mise en place j'ai demandé à Claude d'utiliser le skill frontend-design pour m'aider à améliorer le design de la homepage.
+J'ai installé le [skill Anthropic](https://github.com/anthropics/skills) frontend design puis lancé la commande suivante :
+`
+Utilise le skill frontend-design avec des subagents parallèles pour me
+proposer 3 variations de homepage. Chaque agent doit :
+- Analyser ma homepage actuelle (layouts/index.html)
+- Proposer un design complet avec code HTML/CSS
+- Sauvegarder sa proposition dans un fichier séparé (homepage-v1.html, etc.)
+`
 
-# L'animation hero : le cœur du projet
+Claude Code a lancé 3 agents en parallèle, chacun avec une direction esthétique différente. Cliquez sur une miniature pour explorer le design complet :
 
-L'animation d'entrée du titre hero a été le travail le plus conséquent. J'ai commencé par générer une première animation avec Claude.ai, puis je l'ai affinée en m'inspirant de sources web :
+<div class="homepage-gallery">
+  <div class="homepage-card" onclick="openDesignModal('/homepage-v1-editorial.html', 'Editorial / Magazine')">
+    <img src="/img/homepage-v1-editorial.png" alt="Homepage Editorial / Magazine">
+    <div class="homepage-card-info">
+      <strong>Editorial / Magazine</strong>
+      <span>Cormorant Garamond · Layout asymétrique · Accent or/bronze</span>
+    </div>
+  </div>
+  <div class="homepage-card" onclick="openDesignModal('/homepage-v2-brutalist.html', 'Brutalist / Raw')">
+    <img src="/img/homepage-v2-brutalist.png" alt="Homepage Brutalist / Raw">
+    <div class="homepage-card-info">
+      <strong>Brutalist / Raw</strong>
+      <span>JetBrains Mono · Effet glitch · Accents néon</span>
+    </div>
+  </div>
+  <div class="homepage-card" onclick="openDesignModal('/homepage-v3-organic.html', 'Organic / Natural')">
+    <img src="/img/homepage-v3-organic.png" alt="Homepage Organic / Natural">
+    <div class="homepage-card-info">
+      <strong>Organic / Natural</strong>
+      <span>Quicksand · Blobs animés · Palette terreuse</span>
+    </div>
+  </div>
+</div>
+
+<div id="design-modal" class="design-modal" onclick="closeDesignModal(event)">
+  <div class="design-modal-content">
+    <div class="design-modal-header">
+      <span id="design-modal-title"></span>
+      <button onclick="closeDesignModal()" aria-label="Fermer">&times;</button>
+    </div>
+    <iframe id="design-modal-iframe" src="" title="Aperçu du design"></iframe>
+  </div>
+</div>
+
+<style>
+.homepage-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+@media (max-width: 768px) {
+  .homepage-gallery { grid-template-columns: 1fr; }
+}
+.homepage-card {
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #333;
+  transition: transform 0.2s, border-color 0.2s;
+  background: #1a1a1a;
+}
+.homepage-card:hover {
+  transform: translateY(-4px);
+  border-color: #415a77;
+}
+.homepage-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.homepage-card-info {
+  padding: 0.75rem;
+}
+.homepage-card-info strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #e0e0e0;
+}
+.homepage-card-info span {
+  font-size: 0.8rem;
+  color: #888;
+}
+.design-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  padding: 2rem;
+}
+.design-modal.active { display: flex; align-items: center; justify-content: center; }
+.design-modal-content {
+  width: 90vw;
+  max-width: 1200px;
+  height: 85vh;
+  background: #0c0c0c;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.design-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #333;
+  background: #111;
+}
+.design-modal-header span { font-weight: 600; color: #e0e0e0; }
+.design-modal-header button {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+.design-modal-header button:hover { color: #e0e0e0; }
+#design-modal-iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
+}
+</style>
+
+<script>
+function openDesignModal(url, title) {
+  document.getElementById('design-modal').classList.add('active');
+  document.getElementById('design-modal-title').textContent = title;
+  document.getElementById('design-modal-iframe').src = url;
+  document.body.style.overflow = 'hidden';
+}
+function closeDesignModal(e) {
+  if (e && e.target !== e.currentTarget) return;
+  document.getElementById('design-modal').classList.remove('active');
+  document.getElementById('design-modal-iframe').src = '';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDesignModal(); });
+</script>
+
+Chaque fichier généré est autonome (HTML + CSS + JS inline) et peut être prévisualisé directement dans le navigateur. Cette approche permet de comparer rapidement différentes directions créatives avant de choisir celle à intégrer.
+
+# L'animation hero
+
+Pour l'animation hero, j'ai commencé par générer une première animation avec Claude.ai, puis je l'ai affinée en m'inspirant de sources web :
 
 - [Moving Letters - Tobias Ahlin](https://tobiasahlin.com/moving-letters/)
 - [CSS Text Animations - Prismic](https://prismic.io/blog/css-text-animations)
 
-## Animation en 3 temps
+## Animation du titre
 
-Le titre s'anime en trois étapes distinctes :
+Claude code a montré ses capacités dans l'intégration de code ad hoc notamment sur :
+- L'effet typewriter
+- L'effet Néon sur "AI First"
 
-1. **"Modern"** : effet typewriter avec une ligne verticale qui traverse et révèle chaque lettre
-2. **"Web Development"** : même effet typewriter
-3. **"AI First"** : apparition avec un effet de scale (zoom) pour "AI", fade in pour "First", suivi d'un effet néon subtil avec un glow bleu pulsant
-
-## L'effet néon personnalisé
-
-L'effet néon a demandé un paramétrage fin : alternance entre deux teintes de bleu avec `text-shadow` multicouche, gestion des différents niveaux de blur (2px/6px/12px/20px), des opacités et des durées. Un fade out progressif clôture l'animation.
-
-J'ai d'ailleurs demandé à Claude Code de me détailler son implémentation pour pouvoir faire des ajustements manuels par la suite.
+J'ai par ailleurs demandé à Claude Code de me détailler son implémentation pour pouvoir faire des ajustements manuels par la suite.
 
 ## Animation de l'image de profil
 
-Pour l'image de profil, le workflow a été plus technique :
+Pour l'image de profil, le workflow a été plus technique et j'ai pu générer et tester des images depuis Claude Code.
 
 1. Création d'une image "loading" avec fond uni (#0c0c0c) via Python/PIL
-2. Utilisation de `rembg` pour retirer le background de la photo originale
-3. Script custom pour retirer sélectivement certaines couleurs (bleus électriques, oranges) tout en préservant le visage
-4. Transition fade entre l'image neutre et l'image finale
+2. Utilisation de `rembg` pour retirer le background de la photo originale en sélectivement certaines couleurs (bleus électriques, oranges) tout en préservant le visage
+3Transition fade entre l'image neutre et l'image finale
 
 ## Typographie custom
 
@@ -64,7 +205,7 @@ Pour renforcer l'aspect tech/futuriste du "AI First", j'ai utilisé la police "T
 
 ## Vérification de l'intégration
 
-Tester visuellement les animations a été un défi. J'ai utilisé plusieurs approches :
+Pour tester visuellement les animations, j'ai utilisé plusieurs approches :
 
 - **screenshots avec Claude in Chrome** : efficace pour le gros du travail, mais consomme beaucoup de tokens
 - **Feedback textuel avec Claude Code** : plus économe, suffisant pour les ajustements mineurs

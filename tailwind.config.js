@@ -6,10 +6,10 @@ module.exports = {
       colors: {
         'rich-black': '#0c0c0c',
         'oxford-blue': '#161616',
-        'yinmn-blue': '#415A77',
+        'yinmn-blue': '#436A76',
         'shadow-blue': '#8FA4BA',
         'platinum': '#d4d4d4',
-        primary: '#415A77',
+        primary: '#436A76',
         secondary: '#8FA4BA',
       },
       fontFamily: {

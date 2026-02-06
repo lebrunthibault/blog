@@ -1,5 +1,5 @@
 {{- define "title" -}}
-Blog
+{{ if .Parent.IsHome }}Blog{{ else }}{{ .Title }}{{ end }}
 {{- end -}}
 
 {{- define "content" -}}
@@ -8,33 +8,27 @@ Blog
     {{- $posts = where $posts ".Params.draft" "!=" true }}
     {{- $posts = where $posts ".Params.hOiddenfromhomepage" "!=" true }}
 
-    {{/* Group posts by category inferred from directory structure */}}
-    {{- $.Scratch.Set "categories" slice }}
-    {{- range $posts }}
-      {{- $path := .File.Dir }}
-      {{- $parts := split $path "/" }}
-      {{- $cat := "Uncategorized" }}
-      {{- if gt (len $parts) 1 }}
-        {{- $cat = index $parts 1 }}
-      {{- end }}
-      {{- if not (in ($.Scratch.Get "categories") $cat) }}
-        {{- $.Scratch.Add "categories" $cat }}
-      {{- end }}
+    {{/* Check if we're in a subsection (e.g., AI development) */}}
+    {{- $isSubsection := not .Parent.IsHome }}
+    {{- $currentSection := "" }}
+    {{- if $isSubsection }}
+      {{- $currentSection = .File.Dir | path.Base }}
     {{- end }}
 
-    {{/* Display posts grouped by category */}}
-    {{- range $category := $.Scratch.Get "categories" }}
-      <div class="mb-12 sm:mb-16 md:mb-20 scroll-reveal">
-        <h1 class="mb-6 sm:mb-8">{{ $category | title }}</h1>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mt-1">
+    {{- if $isSubsection }}
+      {{/* Subsection: show only posts from this category */}}
+      <div class="scroll-reveal">
+        <h1 class="mb-6 sm:mb-8">{{ .Title }}</h1>
+        <p class="text-shadow-blue mb-8">{{ .Content }}</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         {{- range $posts }}
           {{- $path := .File.Dir }}
           {{- $parts := split $path "/" }}
-          {{- $postCat := "Uncategorized" }}
+          {{- $postCat := "" }}
           {{- if gt (len $parts) 1 }}
             {{- $postCat = index $parts 1 }}
           {{- end }}
-          {{- if eq $postCat $category }}
+          {{- if eq $postCat $currentSection }}
           {{ partial "components/card.html" (dict
             "page" .
             "filterKeywords" (slice "Software Development" "Best Practices")
@@ -43,6 +37,42 @@ Blog
         {{- end }}
         </div>
       </div>
+    {{- else }}
+      {{/* Root /post/: show all posts grouped by category */}}
+      {{- $.Scratch.Set "categories" slice }}
+      {{- range $posts }}
+        {{- $path := .File.Dir }}
+        {{- $parts := split $path "/" }}
+        {{- $cat := "Uncategorized" }}
+        {{- if gt (len $parts) 1 }}
+          {{- $cat = index $parts 1 }}
+        {{- end }}
+        {{- if not (in ($.Scratch.Get "categories") $cat) }}
+          {{- $.Scratch.Add "categories" $cat }}
+        {{- end }}
+      {{- end }}
+
+      {{- range $category := $.Scratch.Get "categories" }}
+        <div class="mb-12 sm:mb-16 md:mb-20 scroll-reveal">
+          <h1 class="mb-6 sm:mb-8">{{ $category | title }}</h1>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mt-1">
+          {{- range $posts }}
+            {{- $path := .File.Dir }}
+            {{- $parts := split $path "/" }}
+            {{- $postCat := "Uncategorized" }}
+            {{- if gt (len $parts) 1 }}
+              {{- $postCat = index $parts 1 }}
+            {{- end }}
+            {{- if eq $postCat $category }}
+            {{ partial "components/card.html" (dict
+              "page" .
+              "filterKeywords" (slice "Software Development" "Best Practices")
+            ) }}
+            {{- end }}
+          {{- end }}
+          </div>
+        </div>
+      {{- end }}
     {{- end }}
   </section>
 {{- end -}}

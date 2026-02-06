@@ -39,20 +39,18 @@ Cette combinaison élimine des catégories entières de décisions et de boilerp
 # Développement Assisté par IA avec Claude Code
 
 L'un des multiplicateurs de productivité les plus significatifs dans mon workflow est **Claude Code** — un agent IA qui comprend le contexte complet du projet et peut exécuter des tâches de manière autonome.
-Le développement par IA est le hot topic du moment.
+Le développement par IA est le hot topic du moment et permet de démultiplier l'efficacité d'un développeur, en particulier sur de la création de MVP.
 
-## Les Serveurs MCP : Le Game Changer
+C'est un sujet sur lequel j'ai construit une expertise ces derniers mois.
+Je n'entrerai pas ici dans les détails techniques de ce nouveau paradigme mais vous pouvez consulter [mes articles](/post/ai-development)
 
-Ce qui distingue cette approche, c'est l'intégration des **serveurs Model Context Protocol (MCP)**. Ils permettent à l'IA d'interagir directement avec les services externes :
+## Se connecter à vos outils graĉe aux serveurs MCP
 
-- **Supabase MCP** — Interroger les bases de données, appliquer les migrations, gérer les schémas directement depuis la conversation
-- **Stripe MCP** — Rechercher des clients, lister les produits, débugger les flux de paiement sans changer de contexte
-- **Vercel MCP** — Déployer, consulter les logs, gérer les variables d'environnement
+Je détaille juste ce point. Grâces aux intégrations MCP, mes agents IA peuvent se connecter directement à vos outils 
+(Figma pour le design, outils de gestion de projets type Clickup ou Asana).
+Ils me permettent aussi de gérer les changements de configuration de services cloud de manière efficace et sure (Vercel, Supabase, Brevo..)
 
-En pratique, il suffit de décrire simplement les évolutions du modèle de données ("crée une table purchases avec tels champs"), 
-l'IA analyse le schéma existant, génère la migration appropriée, l'applique via le MCP Supabase, et vérifie que tout fonctionne.
-
-Cette intégration étroite signifie **moins de changements de contexte** et **des cycles d'itération plus rapides**.
+Cette intégration étroite signifie pour moi **moins de changements de contexte** et **des cycles d'itération plus rapides**.
 
 # Supabase — Le raccourci backend
 

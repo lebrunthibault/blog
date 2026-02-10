@@ -8,6 +8,21 @@ keywords:
   - Claude Code
   - Frontend Development
   - Design
+sources:
+  - title: "Typography in Dark Mode - Design Shack"
+    url: "https://designshack.net/articles/typography/dark-mode-typography/"
+  - title: "Dark Mode Design Best Practices - CUIBIT"
+    url: "https://cuibit.com/dark-mode-design-best-practices-for-2025/"
+  - title: "Line Height & Line Length - Pimp my Type"
+    url: "https://pimpmytype.com/line-length-line-height/"
+  - title: "Moving Letters - Tobias Ahlin"
+    url: "https://tobiasahlin.com/moving-letters/"
+  - title: "CSS Text Animations - Prismic"
+    url: "https://prismic.io/blog/css-text-animations"
+  - title: "Swup.js - Page transitions"
+    url: "https://swup.js.org/"
+  - title: "Anthropic Skills - GitHub"
+    url: "https://github.com/anthropics/skills"
 ---
 
 J'ai récemment entrepris une refonte complète du design de mon blog. Plutôt que de procéder manuellement, j'ai décidé d'utiliser l'IA comme partenaire de travail principal. Voici un retour d'expérience sur ce workflow hybride entre Claude Code, Claude.ai et différents outils.

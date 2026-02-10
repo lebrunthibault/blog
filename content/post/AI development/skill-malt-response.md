@@ -8,6 +8,9 @@ keywords:
   - Skills
   - Automatisation
   - Subagents
+sources:
+  - title: "Superpowers - Writing Skills"
+    url: "https://github.com/obra/superpowers/tree/main/skills/writing-skills"
 ---
 
 En tant que freelance sur Malt, je reçois régulièrement des offres de mission. Rédiger une réponse personnalisée pour chacune prend du temps — il faut relire l'offre, identifier les points de connexion avec mon profil, adapter le ton selon le type de mission. J'ai décidé d'automatiser ce processus avec un skill Claude Code.

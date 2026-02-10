@@ -9,6 +9,15 @@ keywords:
   - Python
 date: "2022-01-01"
 color: "#90ba8b"
+sources:
+  - title: "Refactoring Guru - Design Patterns"
+    url: "https://refactoring.guru/design-patterns"
+  - title: "The Pragmatic Programmer, 20th Anniversary Edition"
+    url: "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/"
+  - title: "Head First Design Patterns, 2nd Edition"
+    url: "https://www.oreilly.com/library/view/head-first-design/9781492077992/"
+  - title: "Domain Driven Design in PHP"
+    url: "https://leanpub.com/ddd-in-php"
 ---
 
 

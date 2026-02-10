@@ -9,6 +9,9 @@ keywords:
   - Développement parallèle
   - Productivité
   - AI
+sources:
+  - title: "Claude Code - Sessions parallèles avec git worktrees"
+    url: "https://code.claude.com/docs/en/common-workflows#run-parallel-claude-code-sessions-with-git-worktrees"
 ---
 
 <!-- TODO: intro à retravailler / personnaliser -->

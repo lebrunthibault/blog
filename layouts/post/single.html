@@ -37,6 +37,19 @@
     <!-- Copyright -->
     {{- partial "post/copyright.html" . -}}
 
+    <!-- Sources -->
+    {{ with .Params.sources -}}
+    <hr class="border-white/10 my-8">
+    <div>
+        <h2 class="text-lg font-medium text-platinum mb-3">Sources</h2>
+        <ul class="space-y-1 text-sm">
+            {{ range . -}}
+            <li><a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="text-shadow-blue hover:text-platinum transition-colors">{{ .title }}</a></li>
+            {{ end -}}
+        </ul>
+    </div>
+    {{- end }}
+
     <!-- Related Articles -->
     {{- partial "post/related-articles.html" . -}}
 

@@ -11,6 +11,11 @@ keywords:
   - TypeScript
 date: "2025-11-04"
 color: "#ba8b92"
+sources:
+  - title: "10 Usability Heuristics for User Interface Design - Nielsen Norman Group"
+    url: "https://www.nngroup.com/articles/ten-usability-heuristics/"
+  - title: "Claude Code Best Practices - Anthropic"
+    url: "https://www.anthropic.com/engineering/claude-code-best-practices"
 ---
 
 _Voici mon playbook de développement détaillant point par point toutes les

@@ -8,6 +8,13 @@ keywords:
   - TypeScript
   - AI
   - Best Practices
+sources:
+  - title: "Backend as a Service (BaaS) - Cloudflare"
+    url: "https://www.cloudflare.com/fr-fr/learning/serverless/glossary/backend-as-a-service-baas/"
+  - title: "Row Level Security - PostgreSQL Documentation"
+    url: "https://www.postgresql.org/docs/current/ddl-rowsecurity.html"
+  - title: "Row Level Security Best Practices - Supabase"
+    url: "https://supabase.com/docs/guides/database/postgres/row-level-security"
 ---
 
 Dans cet article, je partage mon approche pour construire des MVP **robustes**, **évolutifs**, et **prêts au déploiement** dès le premier jour — en tirant parti des frameworks modernes et du développement assisté par IA.

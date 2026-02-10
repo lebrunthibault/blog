@@ -936,6 +936,11 @@ th, td {
   margin-bottom: 48px;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .mb-0 {
   margin-bottom: 0px;
 }
@@ -1006,6 +1011,10 @@ th, td {
 
 .mt-auto {
   margin-top: auto;
+}
+
+.mr-2 {
+  margin-right: 12px;
 }
 
 .block {
@@ -1152,8 +1161,16 @@ th, td {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.list-inside {
+  list-style-position: inside;
+}
+
 .list-none {
   list-style-type: none;
+}
+
+.list-disc {
+  list-style-type: disc;
 }
 
 .grid-cols-1 {
@@ -1218,6 +1235,12 @@ th, td {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.space-y-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(8px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(8px * var(--tw-space-y-reverse));
 }
 
 .overflow-hidden {
@@ -1302,6 +1325,10 @@ th, td {
 
 .border-amber-500\/40 {
   border-color: rgb(245 158 11 / 0.4);
+}
+
+.border-white\/10 {
+  border-color: rgb(255 255 255 / 0.1);
 }
 
 .bg-gray-100 {
@@ -1541,6 +1568,11 @@ th, td {
 .text-amber-200 {
   --tw-text-opacity: 1;
   color: rgb(253 230 138 / var(--tw-text-opacity));
+}
+
+.text-yinmn-blue {
+  --tw-text-opacity: 1;
+  color: rgb(67 106 118 / var(--tw-text-opacity));
 }
 
 .opacity-0 {
@@ -1877,6 +1909,11 @@ html.is-animating .transition-fade {
 .hover\:text-shadow-blue:hover {
   --tw-text-opacity: 1;
   color: rgb(143 164 186 / var(--tw-text-opacity));
+}
+
+.hover\:text-platinum:hover {
+  --tw-text-opacity: 1;
+  color: rgb(212 212 212 / var(--tw-text-opacity));
 }
 
 @media (prefers-color-scheme: dark) {

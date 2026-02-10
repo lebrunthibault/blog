@@ -8,6 +8,17 @@ keywords:
   - AI
   - Développement
   - Productivité
+sources:
+  - title: "Get Shit Done - Pragmatic spec driven development framework"
+    url: "https://github.com/glittercowboy/get-shit-done"
+  - title: "Custom Claude code status line"
+    url: "https://github.com/ykdojo/claude-code-tips/blob/main/scripts/README.md"
+  - title: "Handy - Outil de dictée vocale"
+    url: "https://github.com/cjpais/Handy?tab=readme-ov-file"
+  - title: "Analyse Reddit des souscriptions Claude"
+    url: "https://www.reddit.com/r/ClaudeAI/comments/1qpcj8q/claude_subscriptions_are_up_to_36x_cheaper_than/"
+  - title: "Tips Claude Code - CLAUDE.md"
+    url: "https://www.youtube.com/watch?v=mZzhfPle9QU"
 ---
 
 Après plusieurs mois d'utilisation intensive de Claude Code, je partage ici mes apprentissages sur ce nouvel outil qui transforme profondément ma façon de développer.
@@ -108,6 +119,11 @@ Ce fichier de configuration se remplit petit à petit au fil des projets.
 - Points importants du modèle de données
 - Guidelines de design
 - Architecture des fichiers
+
+### Tips
+
+- `/init` pour analyer la codebase et laisser Claude générer (ou enrichier le Claude.md)
+- Toujours demander à Claude de faire les modifs. Il le fera mieux que ce qu'on fait manuellement (voir tip [youtube](https://www.youtube.com/watch?v=mZzhfPle9QU))
 
 ## Statusline personnalisée
 

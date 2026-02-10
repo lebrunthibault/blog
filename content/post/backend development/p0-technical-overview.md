@@ -9,6 +9,17 @@ keywords:
   - Ableton
 date: "2022-01-01"
 color: "#b38bba"
+sources:
+  - title: "Max for Live - Live Object Model"
+    url: "https://docs.cycling74.com/max5/refpages/m4l-ref/m4l_live_object_model.html"
+  - title: "Structure Void - Python Live API Documentation"
+    url: "https://structure-void.com/PythonLiveAPI_documentation/"
+  - title: "Ableton Live 10.1 MIDI Remote Scripts (decompiled)"
+    url: "https://github.com/gluon/AbletonLive10.1_MIDIRemoteScripts"
+  - title: "ClyphX Pro User Manual"
+    url: "https://isotonikstudios.com/wp-content/uploads/ClyphX-Pro-User-Manual-5.pdf"
+  - title: "AbletonLive API Stub - Autocompletion"
+    url: "https://github.com/cylab/AbletonLive-API-Stub"
 ---
 
 > This is technical documentation for my [Protocol0 Ableton control surface script](https://github.com/lebrunthibault/Protocol-0-Surface-Script). Context and goals on the [GitHub readme](https://github.com/lebrunthibault/Protocol-0-Surface-Script).

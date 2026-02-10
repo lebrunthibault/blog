@@ -9,6 +9,9 @@ keywords:
   - Python
 date: "2022-01-01"
 color: "#bab28b"
+sources:
+  - title: "Refactoring Guru - Design Patterns"
+    url: "https://refactoring.guru/design-patterns"
 ---
 
 # Design patterns currently used in projects I've worked on

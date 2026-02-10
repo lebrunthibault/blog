@@ -1939,6 +1939,14 @@ html.is-animating .transition-fade {
     flex-direction: row;
   }
 
+  .sm\:items-start {
+    align-items: flex-start;
+  }
+
+  .sm\:gap-4 {
+    gap: 24px;
+  }
+
   .sm\:\!p-4 {
     padding: 24px !important;
   }

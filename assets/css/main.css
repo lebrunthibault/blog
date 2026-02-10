@@ -29,12 +29,190 @@ html.is-animating .transition-fade {
   }
 }
 
-.card-hover {
-    transition: filter 0.2s ease-out;
+/* Shared elevated card style */
+@layer components {
+    .card-elevated {
+        background: #161616;
+        border: 1px solid #1e1e1e;
+        border-radius: 24px;
+        padding: 32px;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-elevated:hover {
+        box-shadow: 0 20px 60px rgba(65, 90, 119, 0.15);
+        background: #1e1e1e;
+    }
 }
 
-.card-hover:hover {
-    filter: brightness(1.20);
+.expertise-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, rgba(65, 90, 119, 0.3) 0%, transparent 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.expertise-features {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 20px 0 !important;
+}
+
+.expertise-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    padding: 0 !important;
+}
+
+.expertise-features li::before {
+    display: none !important;
+}
+
+.expertise-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #8FA4BA;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.expertise-card:hover .expertise-link {
+    color: #d4d4d4;
+}
+
+.expertise-link svg {
+    transition: transform 0.3s ease;
+}
+
+.expertise-card:hover .expertise-link svg {
+    transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+    .card-elevated {
+        padding: 24px;
+    }
+}
+
+/* Tech section */
+.tech-section {
+    background: #161616;
+}
+
+.tech-transition {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent 0%, #161616 100%);
+    pointer-events: none;
+}
+
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: #1e1e1e;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #8FA4BA;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tech-tag:hover {
+    background: #0c0c0c;
+    border-color: #415A77;
+    color: #d4d4d4;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* CTA section */
+.cta-blob {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #415A77;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: linear-gradient(135deg, #415A77 0%, #5a7a9a 100%);
+    color: #d4d4d4;
+    box-shadow: 0 4px 20px rgba(65, 90, 119, 0.3);
+}
+
+.cta-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(65, 90, 119, 0.3);
+}
+
+.cta-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: transparent;
+    color: #d4d4d4;
+    border: 2px solid #8FA4BA;
+}
+
+.cta-btn-secondary:hover {
+    background: #8FA4BA;
+    color: #0c0c0c;
+    transform: translateY(-3px);
+}
+
+.cta-btn-secondary svg {
+    transition: transform 0.3s ease;
+}
+
+.cta-btn-secondary:hover svg {
+    transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+    .cta-btn-primary,
+    .cta-btn-secondary {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
 }
 
 /* Self-hosted Montserrat font */

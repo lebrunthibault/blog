@@ -9,6 +9,7 @@
   - filterKeywords: slice of keywords to filter out (optional)
   - variant: "default" or "outlined" for tag style (optional, default "outlined")
   - headingLevel: "h2" or "h3" for semantic heading (optional, default "h2")
+  - horizontal: boolean for horizontal card layout (optional, default false)
 */}}
 
 {{- $page := .page -}}
@@ -18,16 +19,18 @@
 {{- $filterKeywords := default (slice) .filterKeywords -}}
 {{- $variant := default "outlined" .variant -}}
 {{- $headingLevel := default "h2" .headingLevel -}}
+{{- $horizontal := default false .horizontal -}}
 
 <a href="{{ $page.RelPermalink }}" class="flex border-b-0">
   <div class="
-    card-hover bg-oxford-blue border border-neutral-700 rounded-xl
-    hover:border-shadow-blue transition-all flex-1 flex flex-col
-    {{ if not $showLogoHeader }}px-3 sm:px-4 py-3 sm:py-4{{ else }}overflow-hidden{{ end }}
+    card-elevated flex-1
+    {{ if not $showLogoHeader }}!p-3 sm:!p-4
+    {{ else }}overflow-hidden !p-0{{ end }}
+    {{ if $horizontal }}md:flex-row{{ end }}
   ">
     {{/* Optional large logo header */}}
     {{- if and $showLogoHeader $page.Params.logo }}
-    <div class="h-32 sm:h-40 bg-rich-black flex items-center justify-center">
+    <div class="h-32 sm:h-40 bg-rich-black flex items-center justify-center{{ if $horizontal }} md:h-auto md:w-56 shrink-0{{ end }}">
       <img src="/img/{{ $page.Params.logo }}" alt="{{ $page.Title }}" class="h-16 rounded" loading="lazy">
     </div>
     {{- end }}

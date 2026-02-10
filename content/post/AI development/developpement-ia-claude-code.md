@@ -36,9 +36,7 @@ Le plan mode est devenu rapide et efficace avec Opus 4.5. Avant de se lancer dan
 Claude lance une analyse pousée de la codebase et propose un plan plus structuré que ce à quoi on aurait pensé de soi même.
 Il a l'avantage de donner une vision globale du projet et détecte des spécificités qu'on oublie souvent avec le temps.
 
-Pour les plans longs, deux options :
-- Éditer directement dans la CLI
-- Demander à Claude d'écrire le plan dans un fichier markdown pour le modifier confortablement dans son éditeur
+Quand un plan est correct, l'implémentation est fiable.
 
 ## Gestion du contexte
 
@@ -46,9 +44,11 @@ Claude ralentit significativement quand le contexte devient trop gros.
 Compacter les conversations ne résout que partiellement le problème et est une étape lente.
 
 Mes recommandations :
-- Monitorer l'utilisation du contexte avec `/context`
-- Redémarrer Claude pour chaque nouvelle tâche distincte
-- Note: En utilisant le plan mode, le contexte est libéré quand on accepte le plan (sans avoir à noter l'état dans un fichier). C'est donc une raison supplémentaire d'utiliser le plan mode
+- Monitorer l'utilisation du contexte avec une [statusline custom](https://github.com/ykdojo/claude-code-tips/blob/main/scripts/README.md)
+- Utiliser `\context` qui permet d'avoir un détail de l'utilisation du contexte et de monitorer notamment l'empreinte des serveurs MCP ou des skills chargés 
+  (attention à ne pas en charger trop par défaut dans chaque session)
+- Clear le contexte de Claude quand on commence une nouvelle tâche avec `/clear`
+- Une manière confortable de faire ca est d'utiliser le plan mode et d'accepter la première option avec `Yes, clear context and auto-accept edits (shift+tab)`
 - Pour les tâches complexes et longues mieux vaut utiliser des fichiers de spec voire même un spec driven development system comme [Get Shit Done](https://github.com/glittercowboy/get-shit-done)
 
 ## Dictée vocale

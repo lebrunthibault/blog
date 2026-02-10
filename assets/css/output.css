@@ -1300,6 +1300,10 @@ th, td {
   border-color: rgb(67 106 118 / var(--tw-border-opacity));
 }
 
+.border-amber-500\/40 {
+  border-color: rgb(245 158 11 / 0.4);
+}
+
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -1532,6 +1536,11 @@ th, td {
 .text-shadow-blue {
   --tw-text-opacity: 1;
   color: rgb(143 164 186 / var(--tw-text-opacity));
+}
+
+.text-amber-200 {
+  --tw-text-opacity: 1;
+  color: rgb(253 230 138 / var(--tw-text-opacity));
 }
 
 .opacity-0 {

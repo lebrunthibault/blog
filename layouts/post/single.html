@@ -21,6 +21,14 @@
 
     <br>
 
+    <!-- WIP Banner -->
+    {{ if .Params.wip -}}
+    <div class="bg-amber-500/15 border border-amber-500/40 rounded-lg px-4 py-3 mb-6 text-amber-200 text-sm flex items-center gap-2">
+        <span>🚧</span>
+        <span>Article en cours de rédaction</span>
+    </div>
+    {{- end }}
+
     <!-- Outdated Info Warning -->
     {{- partial "post/outdated-info-warning.html" . -}}
 

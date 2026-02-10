@@ -175,7 +175,7 @@ function initHeroAnimation() {
         duration: 0.8,
         ease: 'circ.out'
       }, '<')
-        .to({}, { duration: 0.2 })
+        // .to({}, { duration: 0.2 })
 
       // First: just fade in (after AI)
       .to(firstWord, {

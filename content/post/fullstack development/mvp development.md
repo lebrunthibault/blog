@@ -52,7 +52,7 @@ Le développement par IA est le hot topic du moment et permet de démultiplier l
 C'est un sujet sur lequel j'ai construit une expertise ces derniers mois.
 Je n'entrerai pas ici dans les détails techniques de ce nouveau paradigme mais vous pouvez consulter [mes articles](/post/ai-development)
 
-## Se connecter à vos outils graĉe aux serveurs MCP
+## Se connecter à vos outils grâce aux serveurs MCP
 
 Je détaille juste ce point. Grâces aux intégrations MCP, mes agents IA peuvent se connecter directement à vos outils 
 (Figma pour le design, outils de gestion de projets type Clickup ou Asana).
@@ -72,7 +72,7 @@ Et en bonus : le changement sera immédiatement déployé et visible grâce au d
 
 Ce système est très flexible et vous pourrez facilement :
 
-- Faie des mofications de wording ou de design sur le site
+- Faire des modifications de wording ou de design sur le site
 - Ajouter des boutons et même des fonctionnalités
 - Ajouter de nouvelles pages
 

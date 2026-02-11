@@ -508,35 +508,3 @@ configurable de recherche plein texte facetée.
 
 Pour des projets demandeurs en termes de complexité ou de volume, on peut
 basculer sur Elasticsearch, que j’ai utilisé dans plusieurs projets.
-
-[//]: # (## Sites Statiques &#40;JAMstack&#41;)
-
-[//]: # ()
-[//]: # (Parfois rien de tout ce que j’ai évoqué plus haut est nécessaire et seule une)
-
-[//]: # (interface en Javascript suffit. Dans ce cas précis &#40;pas de bdd, pas de)
-
-[//]: # (logique serveur, d’utilisateurs etc&#41;, il est plus cohérent de déployer un site)
-
-[//]: # (statique sur un CDN &#40;type netlify ou Vercel&#41; ce qui permet d’obtenir une haute)
-
-[//]: # (disponibilité et d’excellentes performance pour un très faible coût en terme de)
-
-[//]: # (dev.)
-
-[//]: # ()
-[//]: # (C’est le choix que j’ai fait pour ce blog ! &#40;[Hugo]&#40;https://gohugo.io/&#41;, html sémantique, TailwindCSS, JS vanilla, CDN Netlify&#41;)
-
-[//]: # ()
-[//]: # (Dans le cas où il est nécessaire aux admins d’éditer du contenu régulièrement un)
-
-[//]: # (CMS peut être préférable et intégrable de manière autonome ou associé à une)
-
-[//]: # (plateforme web existante.)
-
-[//]: # ()
-[//]: # (J’ai travaillé notamment avec [Strapi]&#40;https://strapi.io/&#41;, une solution CMS headless qui permet de)
-
-[//]: # (découpler la génération de contenu de l’affichage qui peut être fait directement)
-
-[//]: # (en JAMStack &#40;cependantStrapi nécessite d'être déployé sur un serveur&#41;.)

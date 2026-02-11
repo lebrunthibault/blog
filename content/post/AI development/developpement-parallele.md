@@ -40,8 +40,18 @@ Afin d'optimiser la context window (sujet traité en détail dans [cet article](
 
 ### Git worktrees
 
-Le workflow pro pour gérer des évolutions au sein d'un même repo git. Je n'ai pas encore eu l'occasion de tester ca en détail mais la technique est prometteuse.
+Le workflow pro pour gérer des évolutions au sein d'un même repo git.
+L'idée est de cloner une branche en local dans un dossier différent et de lancer Claude dedans
+
 Voir [cet article](https://code.claude.com/docs/en/common-workflows#run-parallel-claude-code-sessions-with-git-worktrees)
+
+Le workflow (je store mes worktrees dans **.worktrees**)
+- `git worktree add -b feat/my-feat .worktress/my-feat origin/my-feat`
+- `cd .worktrees/my-feat` (et copier le .env)
+- `bun run dev`
+- `claude`
+
+Pro tip: ouvrir tout ca dans une nouvelle session tmux
 
 ## Développement parallèle sur plusieurs repositories
 

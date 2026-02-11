@@ -47,7 +47,8 @@ Voir [cet article](https://code.claude.com/docs/en/common-workflows#run-parallel
 
 Le workflow (je store mes worktrees dans **.worktrees**)
 - `git worktree add -b feat/my-feat .worktress/my-feat origin/my-feat`
-- `cd .worktrees/my-feat` (et copier le .env)
+- `cd .worktrees/my-feat`
+- copier le .env et le .claude
 - `bun run dev`
 - `claude`
 

@@ -335,6 +335,10 @@ html.is-animating .transition-fade {
         .post-content > h2 {
             @apply mt-8 text-shadow-blue text-base sm:text-lg;
         }
+
+        .post-content code:not(pre code) {
+            @apply text-sm px-1.5 py-0.5 rounded bg-oxford-blue text-shadow-blue border border-white/10;
+        }
     }
 
     /* List styling */

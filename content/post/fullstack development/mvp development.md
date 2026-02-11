@@ -66,7 +66,7 @@ Cette intégration étroite signifie pour moi **moins de changements de contexte
 
 De nombreux clients souhaitent pouvoir collaborer sur le projet sans avoir le bagage technique nécessaire pour coder.
 
-Aujourd'hui c'est possible grâce à Claude Code. Il vous suffira de prendre un abonnement Claude Code, le connecter au dépôt Github que j'aurais créé et vous pourrez ensuite discuter avec Claude Code depuis l'interface web et l'agent proposera une modification de code (pull request) que je pourrais ensuite fusionner avec le code existant !
+Aujourd'hui c'est possible grâce à Claude, l'IA d'Anthropic. Il vous suffira de prendre un abonnement Claude, le connecter au dépôt Github que j'aurais créé et vous pourrez ensuite discuter avec Claude Code depuis l'interface web et l'agent proposera une modification de code (pull request) que je pourrais ensuite fusionner avec le code existant !
 
 Et en bonus : le changement sera immédiatement déployé et visible grâce au déploiement automatique Vercel.
 
@@ -75,6 +75,16 @@ Ce système est très flexible et vous pourrez facilement :
 - Faire des modifications de wording ou de design sur le site
 - Ajouter des boutons et même des fonctionnalités
 - Ajouter de nouvelles pages
+
+#### Une mise en place simple
+
+Comment ça se passe ?
+
+- Je m'occupe de brancher Claude et Github (ainsi que le déploiement automatique)
+- Vous vous créez un compte https://claude.ai/ et allez discuter avec l’IA dans l’onglet Code
+- Une fois la discussion terminée, l’agent crée une demande de modification sur le code (pull request)
+- La modification est déployée automatiquement (par Vercel) sur un site de test pour que vous puissiez tester vos idées. Puis soit vous demandez des modifications à l’agent, soit vous validez.
+- Vous pourrez vous même fusionner le code qui sera vérifié et déployé sur la production automatiquement
 
 Je vous aiderai à mettre la connexion en place et ensuite vous n'aurez plus qu'a discuter avec Claude pour qu'il propose les modifications pour vous !
 

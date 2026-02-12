@@ -79,7 +79,7 @@ Dans chaque session tmux, j'ai souvent les mêmes fenêtres :
 
 1. **claude** -- Claude Code pour coder en pair avec l'IA
 2. **dev** -- le serveur de dev (bun pour les projets JS)
-3. **terminal** -- un terminal classique pour git, commandes ponctuelles, etc.
+3. **zsh** -- un terminal classique (configuré avec [oh my zsh](https://github.com/ohmyzsh/ohmyzsh))
 
 Pas de panes, pas de splits. Juste des fenêtres tmux bien nommées et des onglets Ghostty pour naviguer entre les projets.
 

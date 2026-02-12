@@ -83,7 +83,7 @@ Comment ça se passe ?
 - Je m'occupe de brancher Claude et Github (ainsi que le déploiement automatique)
 - Vous vous créez un compte https://claude.ai/ et allez discuter avec l’IA dans l’onglet Code
 - Une fois la discussion terminée, l’agent crée une demande de modification sur le code (pull request)
-- La modification est déployée automatiquement (par Vercel) sur un site de test pour que vous puissiez tester vos idées. Puis soit vous demandez des modifications à l’agent, soit vous validez.
+- La modification est déployée automatiquement et rapidement (par Vercel) sur un site de test pour que vous puissiez voir vos idées. Puis soit vous demandez des modifications à l’agent, soit vous validez.
 - Vous pourrez vous même fusionner le code qui sera vérifié et déployé sur la production automatiquement
 
 Je vous aiderai à mettre la connexion en place et ensuite vous n'aurez plus qu'a discuter avec Claude pour qu'il propose les modifications pour vous !

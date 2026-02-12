@@ -13,6 +13,7 @@
       <excludeFolder url="file://$MODULE_DIR$/public" />
       <excludeFolder url="file://$MODULE_DIR$/public/img" />
       <excludeFolder url="file://$MODULE_DIR$/.worktrees" />
+      <excludeFolder url="file://$MODULE_DIR$/_archive" />
     </content>
     <content url="file://$MODULE_DIR$/public/img" />
     <content url="file://$MODULE_DIR$/static/code" />

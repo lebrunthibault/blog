@@ -101,7 +101,7 @@ Continuum sauvegarde l'état toutes les 15 minutes. Au reboot, je relance mes on
 
 #### Notifications Claude
 
-Pour optimiser le travail de mes agents j'ai configuré un [hook Claude](https://code.claude.com/docs/en/hooks) qui génère une notification système quand un agent a fini une tâche (qui prennent souvent un certain temps quand j'utilise [Get Shit Done](https://github.com/glittercowboy/get-shit-done)) pour faire du développement plus autonome.
+Pour optimiser le travail de mes agents j'ai configuré un [hook Claude](https://code.claude.com/docs/en/hooks) qui génère une notification système quand un agent a fini une tâche (qui prennent souvent un certain temps quand j'utilise [Get Shit Done](https://github.com/glittercowboy/get-shit-done) pour faire du développement plus autonome).
 
 Le hook Claude en question (compatible avec tmux)
 

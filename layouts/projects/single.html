@@ -1,0 +1,27 @@
+{{ define "content" }}
+<article class="mt-6 sm:mt-8">
+  <header class="mb-6 sm:mb-8">
+    <div class="flex items-center gap-4 mb-4">
+      {{- with .Params.logo }}
+      <img src="/img/{{ . }}" alt="{{ $.Title }} logo" class="w-12 h-12 object-contain rounded" loading="lazy">
+      {{- end }}
+      <h1 class="text-2xl sm:text-3xl font-semibold text-platinum mt-0 mb-0">{{ .Title }}</h1>
+    </div>
+
+    {{- if or .Params.keywords .Params.duration }}
+    <div class="flex items-center gap-3 flex-wrap">
+      {{- range .Params.keywords }}
+      <span class="text-xs text-shadow-blue border border-neutral-600 px-3 py-1 rounded-full">{{ . }}</span>
+      {{- end }}
+      {{- with $.Params.duration }}
+      <span class="text-xs px-2 py-1 bg-rich-black rounded-xl opacity-70 text-shadow-blue">{{ . }}</span>
+      {{- end }}
+    </div>
+    {{- end }}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

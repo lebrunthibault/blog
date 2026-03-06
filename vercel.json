@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "build": {
     "env": {
-      "HUGO_VERSION": "0.139.3"
+      "HUGO_VERSION": "0.157.0"
     }
   },
   "buildCommand": "npm install && hugo --gc --minify --ignoreCache",

@@ -13,7 +13,7 @@ duration: 3 ans
 color: "#8ba5ba"
 ---
 
-# Basile, développement fullstack chez une startup RH en plein croissance
+# Basile, bras droit du CTO chez une startup RH en pleine croissance
 
 Développement fullstack sur la solution web de cooptation et mobilité interne de Basile (racheté par HelloWork) pendant 3 ans.
 Mon travail pour cette startup s’articulait autour de trois axes: scaling de l'activité, nouvelles fonctionnalités et améliorations de la fiabilité

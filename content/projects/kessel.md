@@ -16,6 +16,10 @@ color: "#ba8b92"
 
 # kessel.media, dev backend lead
 
+Kessel est une plateforme SaaS dans le domaine de l'édition numérique (concurrente de Substack).
+J'y ai travaillé en tant que dev backend lead sur des sujets de performance, scaling (notamment sur l'emailing),
+développement du système de paiement (Stripe Connect) ainsi que gestion du backend et encadrement d'un développeur junior.
+
 - Scaling de l'emailing de 100 000 à 3 millions d'emails envoyés par mois en déployant une task queue Celery et en optimisant la génération d'emails.
 - Optimisation du backend pour gérer un traffic d'environ 100 000 visites par mois
 - Refonte du backend de la page d'acceuil avec mise en place d'un moteur de recherche (Algolia) et d'un backoffice d'édition.

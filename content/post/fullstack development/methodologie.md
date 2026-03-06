@@ -38,7 +38,7 @@ utilise le paradigme Single Page Application et api REST
   expérience de développement moderne (hot reload, typing avec typescript,
   devtools intégré, écosystème npm..)
 
-# 📞 Une interface mobile par défaut
+# Une interface mobile par défaut
 
 Même si, en fonction des projets la navigation desktop peut encore être
 dominante (en particulier pour les sites d’entreprise) le mobile

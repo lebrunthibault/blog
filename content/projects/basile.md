@@ -11,6 +11,7 @@ background: hands.png
 logo: logo_basile.jpeg
 duration: 3 ans
 color: "#8ba5ba"
+website: "https://basile.io"
 ---
 
 # Basile, bras droit du CTO chez une startup RH en pleine croissance
@@ -45,7 +46,3 @@ Mon travail pour cette startup s’articulait autour de trois axes: scaling de l
 ## Technologies utilisées
 
 - Symfony, API Platform, Vue.js, APIs REST 
-
-## Liens
-
-- <a href="https://basile.io/" target="_blank" rel="noopener noreferrer">basile.io</a>

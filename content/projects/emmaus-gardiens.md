@@ -11,6 +11,7 @@ background: buildings.jpg
 logo: logo_emmaus_habitat.jpeg
 duration: 1 an
 color: "#bab28b"
+website: "https://www.emmaus-habitat.fr/"
 ---
 
 # Conception et développement complet d'une plateforme RH pour Emmaüs habitat

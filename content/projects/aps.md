@@ -13,6 +13,7 @@ background: vegetables.jpg
 logo: logo_aps.jpeg
 duration: 1 ans
 color: "#bab28b"
+website: "https://agriparisseine.fr/actualites-dagriparis-seine/"
 ---
 
 # Ressource Seine, dev lead
@@ -35,7 +36,3 @@ ma contribution a notamment consisté à développer :
 - Le projet est codé en Node.js (NestJS, back) et Vue.js / Quasar (front).
 - déploiement continu sur Bitbucket, Docker
 
-
-## Liens
-
-- <a href="https://www.ressourceseine.fr" target="_blank" rel="noopener noreferrer">ressourceseine.fr</a>

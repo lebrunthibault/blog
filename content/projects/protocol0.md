@@ -12,6 +12,7 @@ background: piano.png
 logo: logo_ableton.jpeg
 duration: 3 ans
 color: "#ba8b92"
+website: "https://github.com/lebrunthibault/protocol0"
 ---
 
 # Protocol 0
@@ -33,7 +34,3 @@ J'ai écrit un article expliquant certains choix techniques du projet en particu
 ## Technologies utilisées
 
 - Python 3.11, FastAPI, Open API, Typescript
-
-## Liens
-
-- <a href="https://github.com/lebrunthibault/protocol0" target="_blank" rel="noopener noreferrer">Repository GitHub</a>

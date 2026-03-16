@@ -12,6 +12,7 @@ background: journal.jpeg
 logo: logo_kessel.jpeg
 duration: 1 an
 color: "#ba8b92"
+website: "https://www.kessel.media"
 ---
 
 # kessel.media, dev backend lead
@@ -31,7 +32,3 @@ développement du système de paiement (Stripe Connect) ainsi que gestion du bac
 - Le projet est codé en Python (FastAPI) et React (en server side rendering).
 - Stripe, Algolia, TimescaleDB, Datadog, AWS (CloudFormation) 
 
-
-## Liens
-
-- <a href="https://www.kessel.media/" target="_blank" rel="noopener noreferrer">kessel.media</a>

@@ -2,7 +2,6 @@
 title: "La gestion du contexte : le nouveau sujet technique du développement assisté par IA"
 date: 2026-02-09
 draft: false
-wip: true
 description: "Le contexte est le concept le plus important en développement assisté par IA : mes techniques et réflexions."
 keywords:
   - Claude Code

@@ -1,7 +1,7 @@
 ---
 draft: false
 title: Software development principles
-description: Grandes réflexions sur la beauté insondable d'une simple ligne de code
+description: Software development best practices and thoughts 
 keywords:
   - Software Development
   - Design Patterns

@@ -2,7 +2,6 @@
 title: "Les workflows de développement IA parallèles"
 date: 2026-02-09
 draft: false
-wip: true
 description: "Le développempent avec agents IA introduit un changement de paradigme pour le développeur qui doit maintenant gérer le développement de tâches en parallèle"
 keywords:
   - Claude Code

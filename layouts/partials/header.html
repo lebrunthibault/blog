@@ -1,24 +1,12 @@
 <nav class="relative z-50">
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center relative">
     <!-- Logo/Title -->
     <a class="flex items-center relative z-50" href="{{ "/" | relLangURL }}">
       <img src="/img/logo.png" alt="Logo" class="w-7 h-7">
     </a>
 
-    <!-- Mobile menu button -->
-    <button id="mobile-menu-button" class="md:hidden p-1 text-platinum hover:text-shadow-blue transition-colors relative z-50" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
-      <!-- Hamburger icon (3 lines, minimalist) -->
-      <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-      <!-- Close icon (hidden by default) -->
-      <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-
-    <!-- Desktop menu -->
-    <ul class="hidden md:flex items-center gap-4 lg:gap-6 text-sm">
+    <!-- Desktop menu (centered) -->
+    <ul class="hidden md:flex items-center gap-4 lg:gap-6 text-sm absolute left-1/2 -translate-x-1/2">
       {{ range .Site.Menus.main -}}
       {{ $isActive := or ($.IsMenuCurrent "main" .) (hasPrefix $.RelPermalink .URL) }}
       <li class="mb-0">
@@ -26,6 +14,23 @@
       </li>
       {{- end }}
     </ul>
+
+    <!-- Right side: Newsletter button (desktop) + Mobile menu button -->
+    <div class="flex items-center gap-3 relative z-50">
+      <a href="/newsletter/" class="hidden md:inline-flex newsletter-btn-header">Newsletter</a>
+
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="md:hidden p-1 text-neutral-300 hover:text-primary-300 transition-colors" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+        <!-- Hamburger icon (3 lines, minimalist) -->
+        <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <!-- Close icon (hidden by default) -->
+        <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile menu overlay (hidden by default) -->
@@ -39,6 +44,9 @@
         </a>
       </li>
       {{- end }}
+      <li>
+        <a href="/newsletter/" class="newsletter-btn-mobile">Newsletter</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -49,14 +57,14 @@
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  color: #E0E1DD; /* platinum */
+  color: var(--neutral-300);
   transition: color 0.2s ease-out;
 }
 
 .menu-item-link:hover,
 .menu-item-link:focus,
 .menu-item-link:active {
-  color: #8FA4BA; /* shadow-blue */
+  color: var(--primary-300);
 }
 
 .menu-item-link::before {
@@ -67,7 +75,7 @@
   bottom: 0;
   left: 51%;
   right: 51%;
-  background: #415A77; /* yinmn-blue */
+  background: var(--primary-700);
   transition-duration: 0.2s;
   transition-property: right, left;
   transition-timing-function: ease-out;
@@ -81,7 +89,7 @@
 }
 
 .menu-item-active {
-  color: #415A77; /* yinmn-blue */
+  color: var(--primary-700);
 }
 
 .menu-item-active::before {
@@ -96,7 +104,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #0c0c0c; /* rich-black */
+  background: var(--neutral-950);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,6 +141,45 @@
 .mobile-menu-overlay.is-open li:nth-child(3) { transition-delay: 0.2s; }
 .mobile-menu-overlay.is-open li:nth-child(4) { transition-delay: 0.25s; }
 .mobile-menu-overlay.is-open li:nth-child(5) { transition-delay: 0.3s; }
+.mobile-menu-overlay.is-open li:nth-child(6) { transition-delay: 0.35s; }
+
+/* Newsletter button — header desktop */
+.newsletter-btn-header {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary-300);
+  border: 1px solid var(--primary-300);
+  border-radius: 50px;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.newsletter-btn-header:hover {
+  background: var(--primary-300);
+  color: var(--neutral-950);
+}
+
+/* Newsletter button — mobile overlay */
+.newsletter-btn-mobile {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 28px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--primary-300);
+  border: 1px solid var(--primary-300);
+  border-radius: 50px;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.newsletter-btn-mobile:hover {
+  background: var(--primary-300);
+  color: var(--neutral-950);
+}
 
 @media (min-width: 768px) {
   .mobile-menu-overlay {

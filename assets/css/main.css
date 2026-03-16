@@ -32,8 +32,8 @@ html.is-animating .transition-fade {
 /* Shared elevated card style */
 @layer components {
     .card-elevated {
-        background: #161616;
-        border: 1px solid #1e1e1e;
+        background: var(--neutral-850);
+        border: 1px solid var(--neutral-800);
         border-radius: 24px;
         padding: 32px;
         transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -43,7 +43,7 @@ html.is-animating .transition-fade {
 
     .card-elevated:hover {
         box-shadow: 0 20px 60px rgba(65, 90, 119, 0.15);
-        background: #1e1e1e;
+        background: var(--neutral-800);
     }
 }
 
@@ -68,7 +68,7 @@ html.is-animating .transition-fade {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #6b7280;
+    color: var(--neutral-500);
     font-size: 0.95rem;
     margin-bottom: 8px;
     padding: 0 !important;
@@ -82,14 +82,14 @@ html.is-animating .transition-fade {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: #8FA4BA;
+    color: var(--primary-300);
     font-size: 0.95rem;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .expertise-card:hover .expertise-link {
-    color: #d4d4d4;
+    color: var(--neutral-300);
 }
 
 .expertise-link svg {
@@ -108,7 +108,7 @@ html.is-animating .transition-fade {
 
 /* Tech section */
 .tech-section {
-    background: #161616;
+    background: var(--neutral-850);
 }
 
 .tech-transition {
@@ -117,7 +117,7 @@ html.is-animating .transition-fade {
     left: 0;
     right: 0;
     height: 80px;
-    background: linear-gradient(to bottom, transparent 0%, #161616 100%);
+    background: linear-gradient(to bottom, transparent 0%, var(--neutral-850) 100%);
     pointer-events: none;
 }
 
@@ -126,20 +126,20 @@ html.is-animating .transition-fade {
     align-items: center;
     gap: 8px;
     padding: 10px 20px;
-    background: #1e1e1e;
+    background: var(--neutral-800);
     border: 1px solid transparent;
     border-radius: 30px;
     font-size: 0.95rem;
     font-weight: 500;
-    color: #8FA4BA;
+    color: var(--primary-300);
     transition: all 0.3s ease;
     cursor: default;
 }
 
 .tech-tag:hover {
-    background: #0c0c0c;
-    border-color: #415A77;
-    color: #d4d4d4;
+    background: var(--neutral-950);
+    border-color: var(--primary-700);
+    color: var(--neutral-300);
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
@@ -149,7 +149,7 @@ html.is-animating .transition-fade {
     position: absolute;
     width: 500px;
     height: 500px;
-    background: #415A77;
+    background: var(--primary-700);
     border-radius: 50%;
     filter: blur(120px);
     opacity: 0.1;
@@ -169,8 +169,8 @@ html.is-animating .transition-fade {
     font-weight: 600;
     border-radius: 50px;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    background: linear-gradient(135deg, #415A77 0%, #5a7a9a 100%);
-    color: #d4d4d4;
+    background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-400) 100%);
+    color: var(--neutral-300);
     box-shadow: 0 4px 20px rgba(65, 90, 119, 0.3);
 }
 
@@ -189,13 +189,13 @@ html.is-animating .transition-fade {
     border-radius: 50px;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     background: transparent;
-    color: #d4d4d4;
-    border: 2px solid #8FA4BA;
+    color: var(--neutral-300);
+    border: 2px solid var(--primary-300);
 }
 
 .cta-btn-secondary:hover {
-    background: #8FA4BA;
-    color: #0c0c0c;
+    background: var(--primary-300);
+    color: var(--neutral-950);
     transform: translateY(-3px);
 }
 
@@ -263,6 +263,28 @@ html.is-animating .transition-fade {
 
 /* Force Montserrat everywhere */
 @layer base {
+    :root {
+        /* Primary — accent bleu */
+        --primary-300: #8FA4BA;
+        --primary-400: #5a7a9a;
+        --primary-500: #436A76;
+        --primary-700: #415A77;
+
+        /* Neutral — du texte clair au fond sombre */
+        --neutral-200: #e5e5e5;
+        --neutral-300: #d4d4d4;
+        --neutral-500: #6b7280;
+        --neutral-700: #222222;
+        --neutral-800: #1e1e1e;
+        --neutral-850: #161616;
+        --neutral-950: #0c0c0c;
+
+        /* Feedback */
+        --success: #22c55e;
+        --warning: #f59e0b;
+        --error: #ef4444;
+    }
+
     * {
         font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
         font-weight: 400;
@@ -313,14 +335,14 @@ html.is-animating .transition-fade {
 
     main section {
         a {
-            @apply transition-all duration-200 border-b-2 border-yinmn-blue hover:border-shadow-blue
+            @apply transition-all duration-200 border-b-2 border-primary hover:border-primary-300
         }
 
     }
 
     article {
         .post-content a {
-            @apply transition-all duration-200 border-b border-yinmn-blue hover:border-shadow-blue;
+            @apply transition-all duration-200 border-b border-primary hover:border-primary-300;
         }
 
         /* Better section spacing in articles */
@@ -329,15 +351,15 @@ html.is-animating .transition-fade {
         }
 
         .post-content > h1 {
-            @apply mt-14 -mx-4 px-4 py-3 bg-oxford-blue border-l-4 border-yinmn-blue rounded-r-lg;
+            @apply mt-14 -mx-4 px-4 py-3 bg-neutral-850 border-l-4 border-primary rounded-r-lg;
         }
 
         .post-content > h2 {
-            @apply mt-8 text-shadow-blue text-base sm:text-lg;
+            @apply mt-8 text-primary-300 text-base sm:text-lg;
         }
 
         .post-content code:not(pre code) {
-            @apply text-sm px-1.5 py-0.5 rounded bg-oxford-blue text-shadow-blue border border-white/10;
+            @apply text-sm px-1.5 py-0.5 rounded bg-neutral-850 text-primary-300 border border-white/10;
         }
     }
 
@@ -353,7 +375,7 @@ html.is-animating .transition-fade {
 
     main ul > li::before {
         content: "–";
-        @apply absolute left-0 text-yinmn-blue;
+        @apply absolute left-0 text-primary;
         font-weight: 500;
     }
 
@@ -368,7 +390,7 @@ html.is-animating .transition-fade {
 
     main ul ul > li::before {
         content: "•";
-        @apply text-shadow-blue;
+        @apply text-primary-300;
         font-size: 0.8em;
     }
 
@@ -386,7 +408,7 @@ html.is-animating .transition-fade {
 
     main ol > li::before {
         content: counter(ol-counter) ".";
-        @apply absolute left-0 text-yinmn-blue;
+        @apply absolute left-0 text-primary;
         font-weight: 500;
     }
 
@@ -399,16 +421,16 @@ html.is-animating .transition-fade {
     /* Reduce bold intensity - use medium weight instead */
     strong, b {
         font-weight: 500;
-        color: #e5e5e5;
+        color: var(--neutral-200);
     }
 
     hr {
         @apply my-8;
-        border-color: #222;
+        border-color: var(--neutral-700);
     }
 
     blockquote {
-        @apply p-4 my-6 border-s-4 border-yinmn-blue bg-oxford-blue;
+        @apply p-4 my-6 border-s-4 border-primary bg-neutral-850;
         line-height: 1.7;
     }
 

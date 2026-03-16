@@ -4,13 +4,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'rich-black': '#0c0c0c',
-        'oxford-blue': '#161616',
-        'yinmn-blue': '#436A76',
-        'shadow-blue': '#8FA4BA',
-        'platinum': '#d4d4d4',
-        primary: '#436A76',
-        secondary: '#8FA4BA',
+        primary: {
+          300: 'var(--primary-300)',
+          400: 'var(--primary-400)',
+          500: 'var(--primary-500)',
+          DEFAULT: 'var(--primary-500)',
+          700: 'var(--primary-700)',
+        },
+        neutral: {
+          200: 'var(--neutral-200)',
+          300: 'var(--neutral-300)',
+          500: 'var(--neutral-500)',
+          700: 'var(--neutral-700)',
+          800: 'var(--neutral-800)',
+          850: 'var(--neutral-850)',
+          950: 'var(--neutral-950)',
+        },
+        success: 'var(--success)',
+        warning: 'var(--warning)',
+        error: 'var(--error)',
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],

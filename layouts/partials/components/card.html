@@ -30,7 +30,7 @@
   ">
     {{/* Optional large logo header */}}
     {{- if and $showLogoHeader $page.Params.logo }}
-    <div class="h-32 sm:h-40 bg-rich-black flex items-center justify-center{{ if $horizontal }} md:h-auto md:w-56 shrink-0{{ end }}">
+    <div class="h-32 sm:h-40 bg-neutral-950 flex items-center justify-center{{ if $horizontal }} md:h-auto md:w-56 shrink-0{{ end }}">
       <img src="/img/{{ $page.Params.logo }}" alt="{{ $page.Title }}" class="h-16 rounded" loading="lazy">
     </div>
     {{- end }}
@@ -39,11 +39,11 @@
       {{/* Title row with optional inline logo */}}
       <div class="flex items-start justify-between gap-4 mb-2">
         {{- if eq $headingLevel "h3" }}
-        <h3 class="{{ if $showLogoHeader }}font-semibold text-sm sm:text-base{{ else }}text-lg sm:text-xl font-semibold{{ end }} text-platinum mt-0 mb-0 flex-1">
+        <h3 class="{{ if $showLogoHeader }}font-semibold text-sm sm:text-base{{ else }}text-lg sm:text-xl font-semibold{{ end }} text-neutral-300 mt-0 mb-0 flex-1">
           {{ $page.Title }}
         </h3>
         {{- else }}
-        <h2 class="{{ if $showLogoHeader }}font-semibold text-sm sm:text-base{{ else }}text-lg sm:text-xl font-semibold{{ end }} text-platinum mt-0 mb-0 flex-1">
+        <h2 class="{{ if $showLogoHeader }}font-semibold text-sm sm:text-base{{ else }}text-lg sm:text-xl font-semibold{{ end }} text-neutral-300 mt-0 mb-0 flex-1">
           {{ $page.Title }}
         </h2>
         {{- end }}
@@ -54,9 +54,9 @@
 
       {{/* Description */}}
       {{- if $page.Description }}
-      <p class="text-shadow-blue {{ if $showLogoHeader }}text-xs sm:text-sm{{ else }}text-sm leading-relaxed{{ end }} mb-3 flex-1">{{ $page.Description }}</p>
+      <p class="text-primary-300 {{ if $showLogoHeader }}text-xs sm:text-sm{{ else }}text-sm leading-relaxed{{ end }} mb-3 flex-1">{{ $page.Description }}</p>
       {{- else if $page.Summary }}
-      <p class="text-shadow-blue {{ if $showLogoHeader }}text-xs sm:text-sm{{ else }}text-sm leading-relaxed{{ end }} mb-3 flex-1">{{ $page.Summary }}</p>
+      <p class="text-primary-300 {{ if $showLogoHeader }}text-xs sm:text-sm{{ else }}text-sm leading-relaxed{{ end }} mb-3 flex-1">{{ $page.Summary }}</p>
       {{- end }}
 
       {{/* Tags and Duration row */}}
@@ -66,11 +66,11 @@
           {{- range $page.Params.keywords }}
           {{- if not (in $filterKeywords .) }}
           {{- if $showLogoHeader }}
-          <span class="font-mono text-xs text-shadow-blue bg-rich-black px-2 py-1 rounded">{{ . }}</span>
+          <span class="font-mono text-xs text-primary-300 bg-neutral-950 px-2 py-1 rounded">{{ . }}</span>
           {{- else if eq $variant "filled" }}
           {{ partial "components/tag.html" (dict "text" .) }}
           {{- else }}
-          <span class="text-xs text-shadow-blue border border-neutral-600 px-3 py-1 rounded-full">{{ . }}</span>
+          <span class="text-xs text-primary-300 border border-neutral-600 px-3 py-1 rounded-full">{{ . }}</span>
           {{- end }}
           {{- end }}
           {{- end }}
@@ -79,7 +79,7 @@
 
         {{/* Duration badge */}}
         {{- if and $showDuration $page.Params.duration }}
-        <span class="text-xs sm:text-sm px-2 py-1 bg-rich-black rounded-xl opacity-70 text-shadow-blue whitespace-nowrap">
+        <span class="text-xs sm:text-sm px-2 py-1 bg-neutral-950 rounded-xl opacity-70 text-primary-300 whitespace-nowrap">
           {{ $page.Params.duration }}
         </span>
         {{- end }}

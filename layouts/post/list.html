@@ -19,7 +19,7 @@
       {{/* Subsection: show only posts from this category */}}
       <div class="scroll-reveal">
         <h1 class="mb-6 sm:mb-8">{{ .Title }}</h1>
-        <p class="text-shadow-blue mb-8">{{ .Content }}</p>
+        <p class="text-primary-300 mb-8">{{ .Content }}</p>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         {{- range $posts }}
           {{- $path := .File.Dir }}

@@ -5,19 +5,19 @@
       {{- with .Params.logo }}
       <img src="/img/{{ . }}" alt="{{ $.Title }} logo" class="w-12 h-12 object-contain rounded" loading="lazy">
       {{- end }}
-      <h1 class="text-2xl sm:text-3xl font-semibold text-platinum mt-0 mb-0">{{ .Title }}</h1>
+      <h1 class="text-2xl sm:text-3xl font-semibold text-neutral-300 mt-0 mb-0">{{ .Title }}</h1>
     </div>
 
-    {{- if or .Params.keywords .Params.duration }}
     <div class="flex items-center gap-3 flex-wrap">
       {{- range .Params.keywords }}
-      <span class="text-xs text-shadow-blue border border-neutral-600 px-3 py-1 rounded-full">{{ . }}</span>
+      <span class="text-xs text-primary-300 border border-neutral-600 px-3 py-1 rounded-full">{{ . }}</span>
       {{- end }}
-      {{- with $.Params.duration }}
-      <span class="text-xs px-2 py-1 bg-rich-black rounded-xl opacity-70 text-shadow-blue">{{ . }}</span>
+      {{- with .Params.website }}
+      <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-primary text-neutral-300 hover:bg-[rgba(67,106,118,0.8)] transition-colors border-b-0">
+        Voir site
+      </a>
       {{- end }}
     </div>
-    {{- end }}
   </header>
 
   <div class="post-content">

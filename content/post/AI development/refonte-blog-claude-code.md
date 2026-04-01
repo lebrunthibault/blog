@@ -1,7 +1,7 @@
 ---
 title: "Refonte graphique de mon blog avec Claude Code"
 date: 2026-02-04
-draft: false
+draft: true
 description: "Retour d'expérience sur la refonte design de mon blog en utilisant Claude Code, Claude.ai et Claude in Chrome : animations GSAP, transitions SPA avec Swup.js, accessibilité et workflow IA."
 keywords:
   - AI

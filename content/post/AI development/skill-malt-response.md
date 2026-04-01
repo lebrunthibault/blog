@@ -1,7 +1,7 @@
 ---
 title: "Création d'un skill Claude Code pour générer des messages de candidatures personnalisés"
 date: 2026-02-06
-draft: false
+draft: true
 description: "Génération automatique de variations de réponses personnalisées aux offres freelance sur Malt."
 keywords:
   - Claude Code
